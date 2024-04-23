@@ -13,7 +13,7 @@ import Advertisement from "../components/landingpage/Advertisement";
 
 const pages = () => {
   return (
-    <div className="flex flex-col gap-40 bg-[#F7F8FC]">
+    <div className="flex flex-col gap-24 bg-[#F7F8FC]">
       <Advertisement />
       <Types />
       <Products />

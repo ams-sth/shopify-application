@@ -13,7 +13,7 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
 
   const getNavLinkClassName = (navData) => {
     return navData.isActive
-      ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-800 border-blue-700 pb-2"
+      ? "m-2 mb-0 border-b-2 border-black pb-2"
       : "m-2 mb-0";
   };
   return (

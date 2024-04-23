@@ -2,6 +2,13 @@ import React from "react";
 
 import logo from "../../assets/images/logo/logo.svg";
 
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa";
+
+
 const Footer = () => {
   return (
     <div className="bg-[#0067FF]">
@@ -27,37 +34,49 @@ const Footer = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-auto gap-8">
-          <div className>
+          <div>
             <img src={logo} alt="logo" />
             <p className="text-md max-w-md text-white text-start">
               Worldwide fashion store with wide collection of styles with over
               100 international fashion brands.
             </p>
+            <div className="flex flex-row gap-2 pt-4">
+              <FaInstagram size={32} className="text-white"/>
+              <FaFacebook size={32} className="text-white"/>
+              <FaTiktok size={32} className="text-white"/>
+              <FaXTwitter size={32} className="text-white"/>
+              <FaYoutube size={32} className="text-white"/>
+            </div>
+            <p className="text-white text-start pt-12">© 2024, Lumia Theme Powered by Bigsteps</p>
           </div>
-          <div className="border-b-2 md:border-none flex flex-col">
+          <div className="border-b-2 md:border-none flex flex-col gap-4">
             <h1 className="text-start text-white text-xl font-bold">
               INFORMATION
             </h1>
-            <div className="text-start">
+            <div className="text-start flex flex-col gap-2">
               <h1 className="text-white">About us</h1>
               <h1 className="text-white">Search</h1>
               <h1 className="text-white">Contacts</h1>
               <h1 className="text-white">Our News</h1>
             </div>
           </div>
-          <div className="border-b-2 md:border-none flex flex-col">
-              <h1 className=" text-start text-white text-xl font-bold">GET SHOPPING</h1>
+          <div className="border-b-2 md:border-none flex flex-col gap-4">
+            <h1 className=" text-start text-white text-xl font-bold">
+              GET SHOPPING
+            </h1>
 
-            <div className="text-start">
+            <div className="text-start flex flex-col gap-2">
               <h1 className="text-white">Women</h1>
               <h1 className="text-white">Men</h1>
               <h1 className="text-white">Teenagers</h1>
               <h1 className="text-white">Accessories</h1>
             </div>
           </div>
-          <div className="flex flex-col">
-            <h1 className="text-start text-white text-xl font-bold">CONTACTS</h1>
-            <div className="text-start">
+          <div className="flex flex-col gap-4">
+            <h1 className="text-start text-white text-xl font-bold">
+              CONTACTS
+            </h1>
+            <div className="text-start flex flex-col gap-2">
               <h1 className="text-white"> Phone: +1-202-555-0158</h1>
               <h1 className="text-white">Email: loremipsum@gmail.com</h1>
               <h1 className="text-white ">Address: 165th St, Jamaica, NY 11</h1>

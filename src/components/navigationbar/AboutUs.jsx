@@ -13,7 +13,7 @@ import { CiGift } from "react-icons/ci";
 
 const AboutUs = () => {
   return (
-    <div className="container flex flex-col gap-12">
+    <div className="container flex flex-col gap-16">
       <div className="flex flex-col">
         <div className="flex flex-col md:flex-row">
           <div className="flex flex-1 order-1 md:order-2">
@@ -46,31 +46,33 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 pt-8 justify-items-center mx-auto">
-          <div className="flex flex-col justify-start">
+        <div className="grid grid-cols-2 md:grid-cols-4 pt-8 content-center">
+          <div className="flex flex-col">
             <CiDeliveryTruck size={96} />
-            <h1 className="text-start text-sm max-w-[80%]">FREE WORLDWIDE DELIVERY</h1>
+            <h1 className="text-start text-sm">FREE WORLDWIDE DELIVERY</h1>
           </div>
 
           <div className="flex flex-col">
             <CiDiscount1 size={96} />
-            <h1 className="text-start text-sm max-w-[80%]">PROMOTIONS, BONUSES AND DISCOUNTS</h1>
+            <h1 className="text-start text-sm">
+              PROMOTIONS, BONUSES AND DISCOUNTS
+            </h1>
           </div>
 
           <div className="flex flex-col">
             <CiCreditCard1 size={96} />
-            <h1 className="text-start text-sm max-w-[80%]">FREE SECRET REWARD CARD </h1>
+            <h1 className="text-start text-sm">FREE SECRET REWARD CARD </h1>
           </div>
 
           <div className="flex flex-col">
             <CiGift size={96} />
-            <h1 className="text-sm text-start max-w-[80%]">PRESENTS TO OUR CUSTOMERS </h1>
+            <h1 className="text-sm text-start">PRESENTS TO OUR CUSTOMERS </h1>
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-8 mx-auto">
+      <div className="flex flex-col gap-8 py-12">
         <h1 className="font-bold text-xl">A few words about us</h1>
-        <p className="max-w-lg mx-auto">
+        <p className="text-start md:mx-auto">
           Our web company consists of web programmers and designers with
           extensive experience in the web market. Each of us worked as hired
           worker to create templates for Magento, Shopify, Wordpress and others.
@@ -89,6 +91,8 @@ const AboutUs = () => {
             allowfullscreen
           ></iframe>
         </div>
+      </div>
+      <div className="flex flex-col gap-8 py-12">
         <h1 className="font-bold text-xl">Why Choose Us</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-auto">
           <div className="border-8 border-[#0067FF] content-center rounded-full h-[13rem] w-[13rem] p-8">

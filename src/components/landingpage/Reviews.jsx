@@ -14,7 +14,7 @@ const Reviews = () => {
         </p>
       </div>
       <div className="container pt-16  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 px-4 md:px-0 gap-4">
-        <div className="bg-[#FFFF] relative border rounded-xl shadow-lg ">
+        <div className="bg-[#FFFF] relative border rounded-xl shadow-lg hover:shadow-xl">
           <img
             src={Hanson}
             alt="Isabel Hanson"
@@ -31,7 +31,7 @@ const Reviews = () => {
             <h1 className="absolute top-[24rem] left-[9rem]">Louisville</h1>
           </div>
         </div>
-        <div className={`bg-[#FFFF] relative border rounded-xl shadow-lg`}>
+        <div className={`bg-[#FFFF] relative border rounded-xl shadow-lg hover:shadow-xl`}>
           <img
             src={Sharpe}
             alt="Ewan Sharpe"
@@ -50,7 +50,7 @@ const Reviews = () => {
             <h1 className="absolute top-[24rem] left-[9rem]">Dallas</h1>
           </div>
         </div>
-        <div className="bg-[#FFFF] relative border rounded-xl shadow-lg">
+        <div className="bg-[#FFFF] relative border rounded-xl shadow-lg hover:shadow-xl">
           <img
             src={Finch}
             alt="Alisha Finch"
