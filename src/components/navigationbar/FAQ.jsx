@@ -11,32 +11,37 @@ const FAQ = () => {
     setActiveSection(section);
   };
 
+  const getButtonClassName = (buttonName) => {
+    return `px-6 py-2 hover:bg-blue-700 hover:text-white rounded-xl font-bold ${
+      activeSection === buttonName ? "bg-blue-700 text-white" : ""
+    }`;
+  };
+
   return (
     <div className="container">
-      <h1 className="text-2xl font-bold">Have a Question ? Look here</h1>
-
+      <h1 className="text-2xl font-bold pb-20">Have a Question ? Look here</h1>
       <div className="flex flex-row justify-between gap-12">
-        <div className="flex flex-col w-[30%]  gap-4">
+        <div className="flex flex-col w-[30%] gap-4">
           <button
-            className="hover:bg-blue-700 hover:text-white rounded-xl font-bold"
+            className={getButtonClassName("AboutShopify]")}
             onClick={() => handleButtonClick("AboutShopify")}
           >
             ABOUT SHOPIFY
           </button>
           <button
-            className="hover:bg-blue-700 hover:text-white rounded-xl font-bold"
+            className={getButtonClassName("PrePurchase")}
             onClick={() => handleButtonClick("PrePurchase")}
           >
             PRE-PURCHASE
           </button>
           <button
-            className="hover:bg-blue-700 hover:text-white rounded-xl font-bold"
+            className={getButtonClassName("LumiaFeatures")}
             onClick={() => handleButtonClick("LumiaFeatures")}
           >
             LUMIA FEATURES
           </button>
           <button
-            className="hover:bg-blue-700 hover:text-white rounded-xl font-bold"
+            className={getButtonClassName("Support")}
             onClick={() => handleButtonClick("Support")}
           >
             SUPPORT

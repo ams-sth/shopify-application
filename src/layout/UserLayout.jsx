@@ -5,7 +5,7 @@ import logoBlack from "./../assets/images/logo/logo black.svg";
 
 const UserLayout = ({ children }) => {
   return (
-    <div className="flex flex-col gap-28">
+    <div className="flex flex-col gap-12">
       <Navbar
         bg="#FFFF"
         logo={logoBlack}

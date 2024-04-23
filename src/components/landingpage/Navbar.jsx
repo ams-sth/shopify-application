@@ -10,14 +10,16 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
+
+  const getNavLinkClassName = (navData) => {
+    return navData.isActive
+      ? "m-2 mb-0 text-blue-700 border-b-2 dark:text-blue-800 border-blue-700 pb-2"
+      : "m-2 mb-0";
+  };
   return (
     <div
       className={`relative z-20`}
-      style={{
-        background: bg,
-        color: textColor,
-        boxShadow: shadow,
-      }}
+      style={{ background: bg, color: textColor, boxShadow: shadow }}
     >
       <div className="container top-0">
         <div className="grid grid-cols-3 py-[2rem]">
@@ -40,19 +42,19 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
               } md:flex md:items-center md:w-auto w-full`}
             >
               <div className="flex flex-row gap-8">
-                <NavLink to="/" className={` ${textColor}`}>
+                <NavLink to="/" className={getNavLinkClassName}>
                   Home
                 </NavLink>
-                <NavLink to="/about" className={`${textColor}`}>
+                <NavLink to="/about" className={getNavLinkClassName}>
                   About
                 </NavLink>
-                <NavLink to="/faq" className={`${textColor}`}>
+                <NavLink to="/faq" className={getNavLinkClassName}>
                   FAQ
                 </NavLink>
-                <NavLink to="/blogs" className={`${textColor}`}>
+                <NavLink to="/blogs" className={getNavLinkClassName}>
                   Blogs
                 </NavLink>
-                <NavLink to="/contact" className={`${textColor}`}>
+                <NavLink to="/contact" className={getNavLinkClassName}>
                   Contact
                 </NavLink>
               </div>
