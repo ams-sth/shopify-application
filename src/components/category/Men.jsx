@@ -1,10 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "../../redux/features/category/menSlice";
-import Slider from "react-slick";
 
 const Men = () => {
-  const aboutMen = useSelector((state) => state.men.aboutMen);
   const men = useSelector((state) => state.men.menClothes);
   const dispatch = useDispatch();
 
@@ -15,36 +13,11 @@ const Men = () => {
     dispatch(decrement(productId));
   };
 
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    autoplay: false,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    responsive: [
-      {
-        breakpoint: 567,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   return (
     <div className="container">
-      {aboutMen.map((aboutMen, index) => (
-        <div key={index} className="flex flex-col">
-          <Slider className="" {...settings}>
+      {/* {aboutMen.map((aboutMen, index) => (
+        <div key={index} className="flex flex-col container">
+          <Slider {...settings}>
             {aboutMen.image.map((images, index) => (
               <div key={index}>
                   <img
@@ -58,9 +31,9 @@ const Men = () => {
           </Slider>
           <p className="pt-8">{aboutMen.description}</p>
         </div>
-      ))}
+      ))} */}
 
-      <div className="flex flex-col gap-4 py-40">
+      <div className="flex flex-col gap-4 ">
         {men.map((clothes) => (
           <div key={clothes.id} className="bg-[#FFFF] rounded-xl shadow-xl">
             <div className="flex flex-row justify-between p-4">
@@ -71,7 +44,7 @@ const Men = () => {
               <img
                 src={clothes.image}
                 alt={clothes.title}
-                className="w-[30%] h-[80%] p-4"
+                className="p-4 md:w-[30%] md:h-[80%]"
               />
               <div className="flex flex-col px-8">
                 <h1 className="pt-4 text-start font-bold">{clothes.title}</h1>
@@ -115,7 +88,7 @@ const Men = () => {
                   </button>
                 </div>
                 <div className="flex justify-start py-4">
-                  <button className="bg-blue-500 p-2 rounded-xl text-white">
+                  <button className="bg-blue-500 hover:bg-blue-900 p-2 rounded-xl text-white">
                     Add To Cart
                   </button>
                 </div>

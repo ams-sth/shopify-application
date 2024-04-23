@@ -1,7 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import AddToCart from "./components/cart/AddToCart";
 import Women from "./components/category/Women";
 import Men from "./components/category/Men";
 import UserLayout from "./layout/UserLayout";
@@ -10,6 +9,7 @@ import AboutUs from "./components/navigationbar/AboutUs";
 import ContactUs from "./components/navigationbar/ContactUs";
 import FAQ from "./components/navigationbar/FAQ";
 import Blogs from "./components/navigationbar/Blogs";
+import Cart from "./components/cart/Cart";
 
 const App = () => {
   return (
@@ -25,7 +25,7 @@ const App = () => {
           }
         />
         <Route
-          path="/contact-us"
+          path="/contact"
           element={
             <UserLayout>
               <ContactUs />
@@ -73,7 +73,7 @@ const App = () => {
             </UserLayout>
           }
         />
-        <Route path="/addtocart" element={<AddToCart />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   );

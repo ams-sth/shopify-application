@@ -1,4 +1,5 @@
 import React from "react";
+import ReactStars from "react-stars";
 import { useSelector, useDispatch } from "react-redux";
 import {
   changeImage,
@@ -6,10 +7,10 @@ import {
   decrease,
   increase,
 } from "../../redux/features/landingpage/productSlice";
+import { addtocart } from "../../redux/features/cart/cartSlice";
 import { NavLink } from "react-router-dom";
 
 const Products = () => {
-
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
 
@@ -26,15 +27,30 @@ const Products = () => {
     dispatch(changeSize({ productId, newIndex }));
   };
 
+  const handleAddToCart = (product) => {
+    console.log(product, "product");
+    const cartItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: product.quantity,
+      image: product.multiImages[product.currentImageIndex || 0],
+      size: product.sizes[product.currentSizeIndex || 0],
+      imageIndex: product.currentImageIndex || 0,
+    };
+
+    dispatch(addtocart(cartItem));
+  };
+
   return (
     <div className="container">
       <div>
-        <h1 className="text-xl font-bold">Check out products of the day</h1>
-        <p className="text-xs pt-4 text-gray-500">
+        <h1 className="text-4xl font-bold">Check out products of the day</h1>
+        <p className="text-sm text-gray-500 py-2">
           Admin panel allows you to add, delete, edit subtitles
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pt-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 pt-8 gap-8">
         {products.map((product) => (
           <div
             key={product.id}
@@ -43,7 +59,7 @@ const Products = () => {
             <div className="p-4">
               <div className="flex flex-row justify-between flex-1 pt-4">
                 <h1 className="font-bold text-xs">{product.company}</h1>
-                <div className="flex gap-2 translate-y-[-0.5rem]">
+                <div className="flex gap-1 translate-y-[-0.5rem]">
                   <h1 className="translate-y-[0.4rem]">$</h1>
                   <h1 className="font-semibold text-2xl">{product.price}.00</h1>
                 </div>
@@ -55,25 +71,34 @@ const Products = () => {
               />
               <div className="translate-y-[-9rem] lg:translate-y-[1.5rem] hover:translate-y-[-9rem] duration-300 rounded-md bg-[#FFFF] flex flex-col ">
                 <div className="flex flex-row gap-4 pt-4 justify-center">
-                    {product.multiImages.map((multiImages, index) => (
-                      <div key={index} className="rounded-xl w-fit">
-                        <img
-                          src={multiImages}
-                          alt="Not found"
-                          onClick={() => handleImageChange(product.id, index)}
-                          className="cursor-pointer"
-                          style={{
-                            border:
-                              index === (product.currentImageIndex || 0)
-                                ? "2px solid blue"
-                                : "2px solid gray",
-                          }}
-                        />
-                      </div>
-                    ))}
+                  {product.multiImages.map((multiImages, index) => (
+                    <div key={index} className="rounded-xl w-fit">
+                      <img
+                        src={multiImages}
+                        alt="Not found"
+                        onClick={() => handleImageChange(product.id, index)}
+                        className="cursor-pointer"
+                        style={{
+                          border:
+                            index === (product.currentImageIndex || 0)
+                              ? "2px solid blue"
+                              : "2px solid gray",
+                        }}
+                      />
+                    </div>
+                  ))}
                 </div>
                 <h1 className="pt-4">{product.name}</h1>
-                <h1 className="pt-4">{product.ratings}</h1>
+                <div className="pt-2 mx-auto">
+                  <ReactStars
+                    count={5}
+                    size={24}
+                    half={true}
+                    color1={"#333"}
+                    color2={"#f4c10f"}
+                    edit={true}
+                  />
+                </div>
                 <h1 className="pt-4">Size: </h1>
                 <div className="flex flex-row gap-2 pt-4 justify-center">
                   {product.sizes.map((size, index) => (
@@ -100,7 +125,8 @@ const Products = () => {
                 </div>
                 <div className="flex justify-center pt-4">
                   <NavLink
-                    to="/addtocart"
+                    to="/cart"
+                    onClick={() => handleAddToCart(product)}
                     className="bg-blue-600 hover:bg-blue-950 py-2 w-[90%] rounded-xl font-bold text-white"
                   >
                     Add to Cart

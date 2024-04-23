@@ -26,12 +26,12 @@ const Recommendation = () => {
   return (
     <div className="px-4">
       <div>
-        <h1 className="font-semibold text-4xl">Recommended For You</h1>
-        <p className="text-sm text-gray-500 translate-y-[1rem]">
+        <h1 className="font-bold text-4xl">Recommended For You</h1>
+        <p className="text-sm text-gray-500 py-2">
           The number of goods in stock is limited
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-12 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-8 gap-12">
         {recommendProducts.map((items) => (
           <div className="shadow-sm rounded-2xl bg-[#FFFF]" key={items.id}>
             <div className="flex flex-row justify-between px-4">
@@ -104,7 +104,6 @@ const Recommendation = () => {
                   <h1 className="text-left text-sm">Weight:</h1>
                   <h1 className="text-left text-sm">{items.Weight} KG</h1>
                 </div>
-                <button className="bg-blue-700 rounded-2xl text-white h-[12%]">Add to Cart</button>
               </div>
             </div>
           </div>

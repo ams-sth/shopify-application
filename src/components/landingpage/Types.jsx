@@ -9,12 +9,12 @@ const Types = () => {
       {varieties.map((type) => (
         <div
           key={type.id}
-          className="rounded-xl bg-[#FFFF] shadow-lg hover:shadow-xl hover:text-blue-700 overflow-clip">
+          className="rounded-xl bg-[#FFFF] shadow-lg hover:shadow-xl lg:hover:text-blue-700 overflow-clip">
           <NavLink to={type.path}>
             <img
               src={type.image}
               alt={type.title}
-              className="rounded-xl duration-300 hover:scale-105"
+              className="rounded-xl duration-300 lg:hover:scale-105"
             />
           </NavLink>
           <h1 className="text-white text-2xl font-semibold -translate-y-[3rem]">

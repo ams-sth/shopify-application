@@ -10,7 +10,10 @@ const AboutUs = () => {
   return (
     <div className="container flex flex-col gap-12">
       <div className="flex flex-col md:flex-row">
-        <div className="bg-[#F7F8FC] px-8 content-center max-w-xs border-2 rounded-xl translate-x-[0%] md:translate-x-[15%] order-2">
+        <div className="flex flex-1 order-1 md:order-2">
+          <img src={About} alt="About-01.jpg" />
+        </div>
+        <div className="bg-[#F7F8FC] px-8 content-center md:max-w-xs max-w-lg border-2 rounded-xl w-full h-[60vh] order-2 md:order-1 md:translate-x-[20%] md:translate-y-[10%]">
           <FaQuoteLeft />
           <p className=" font-georgia italic">
             We are glad to present you our most perfect Shopify theme, which
@@ -19,7 +22,7 @@ const AboutUs = () => {
             convenient on any of your devices.
           </p>
           <div className="flex flex-row">
-            <div className="flex flex-row gap-1">
+            <div className="flex flex-row">
               <span className="pt-20 text-left text-xs font-semibold">
                 Jack
               </span>
@@ -32,13 +35,10 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-1">
-          <img src={About} alt="About-01.jpg" />
-        </div>
       </div>
       <div className="flex flex-col gap-8 mx-auto">
         <h1 className="font-bold text-xl">A few words about us</h1>
-        <p className="max-w-lg">
+        <p className="max-w-lg mx-auto">
           Our web company consists of web programmers and designers with
           extensive experience in the web market. Each of us worked as hired
           worker to create templates for Magento, Shopify, Wordpress and others.
@@ -46,7 +46,25 @@ const AboutUs = () => {
           like them to be in accordance to our experience in customer support.
         </p>
         <h1 className="font-bold text-xl">Why Choose Us</h1>
-        <p className="max-w-lg">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-auto">
+          <div className="border-8 border-[#0067FF] content-center rounded-full h-[13rem] w-[13rem] p-8">
+            <h1 className="text-[#0067FF] text-4xl font-bold">95%</h1>
+            <h1 className=" text-[#0067FF] text-2xl font-bold">
+              of excellent reviews
+            </h1>
+          </div>
+          <div className="border-8 border-[#E6055B] rounded-full content-center h-[13rem] w-[13rem]">
+            <h1 className="text-[#E6055B] font-bold text-4xl"> 2k</h1>
+            <h1 className="text-[#E6055B] font-bold text-2xl"> More Sales</h1>
+          </div>
+          <div className="border-8 border-[#FFC427] rounded-full content-center h-[13rem] w-[13rem]">
+            <h1 className="text-[#FFC427] font-bold text-4xl"> 100%</h1>
+            <h1 className="text-[#FFC427] font-bold text-2xl">
+              Happy Customers
+            </h1>
+          </div>
+        </div>
+        <p className="max-w-lg mx-auto">
           We like Shopify because it provides variety of tools to help you set
           up and run your business. You can find everything you need to showcase
           your products online, to process payments, and to make your store work

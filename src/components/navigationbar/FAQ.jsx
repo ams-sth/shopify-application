@@ -1,26 +1,98 @@
-import React from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 const FAQ = () => {
+  const [activeSection, setActiveSection] = useState("AboutShopify");
+  const { AboutShopify, PrePurchase, LumiaFeatures, Support } = useSelector(
+    (state) => state.faq
+  );
+
+  const handleButtonClick = (section) => {
+    setActiveSection(section);
+  };
+
   return (
     <div className="container">
-      <div className="flex flex-row justify-between">
-        <div className="flex flex-col gap-4">
-          <button className="font-bold">ABOUT SHOPIFY</button>
-          <button>PRE-PURCHASE</button>
-          <button>LUMIA FEATURES</button>
-          <button>SUPPORT</button>
+      <h1 className="text-2xl font-bold">Have a Question ? Look here</h1>
+
+      <div className="flex flex-row justify-between gap-12">
+        <div className="flex flex-col w-[30%]  gap-4">
+          <button
+            className="hover:bg-blue-700 hover:text-white rounded-xl font-bold"
+            onClick={() => handleButtonClick("AboutShopify")}
+          >
+            ABOUT SHOPIFY
+          </button>
+          <button
+            className="hover:bg-blue-700 hover:text-white rounded-xl font-bold"
+            onClick={() => handleButtonClick("PrePurchase")}
+          >
+            PRE-PURCHASE
+          </button>
+          <button
+            className="hover:bg-blue-700 hover:text-white rounded-xl font-bold"
+            onClick={() => handleButtonClick("LumiaFeatures")}
+          >
+            LUMIA FEATURES
+          </button>
+          <button
+            className="hover:bg-blue-700 hover:text-white rounded-xl font-bold"
+            onClick={() => handleButtonClick("Support")}
+          >
+            SUPPORT
+          </button>
         </div>
-        <div>
-          <h1 className="text-2xl font-bold text-center">
-            Have a Question? Look here
-          </h1>
-          <input
-            className="w-full h-[3rem] border border-gray-500 rounded-2xl"
-            placeholder="Quick match search"
-          />
+        <div className="flex flex-col gap-4 w-[70%]">
+          {activeSection === "AboutShopify" && (
+            <div className="flex flex-col gap-4 ">
+              {AboutShopify.map((faq) => (
+                <div key={faq.id} className="flex flex-col gap-4 text-start">
+                  <h3 className="font-bold text-xl">{faq.question}</h3>
+                  {faq.answer.map((answer, index) => (
+                    <p key={index}>{answer}</p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
+          {activeSection === "PrePurchase" && (
+            <div className="flex flex-col gap-4">
+              {PrePurchase.map((faq) => (
+                <div key={faq.id} className="flex flex-col gap-4 text-start">
+                  <h3 className="text-xl font-bold">{faq.question}</h3>
+                  {faq.answer.map((answer, index) => (
+                    <p key={index}>{answer}</p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
+          {activeSection === "LumiaFeatures" && (
+            <div className="flex flex-col gap-4">
+              {LumiaFeatures.map((faq) => (
+                <div key={faq.id} className="flex flex-col gap-4 text-start">
+                  <h3 className="text-xl font-bold">{faq.question}</h3>
+                  {faq.answer.map((answer, index) => (
+                    <p key={index}>{answer}</p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
+          {activeSection === "Support" && (
+            <div className="flex flex-col gap-4">
+              {Support.map((faq) => (
+                <div key={faq.id} className="flex flex-col gap-4 text-start">
+                  <h3 className="text-xl font-bold">{faq.question}</h3>
+                  {faq.answer.map((answer, index) => (
+                    <p key={index}>{answer}</p>
+                  ))}
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
-      ;
     </div>
   );
 };

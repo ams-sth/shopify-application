@@ -17,7 +17,7 @@ const Women = () => {
 
   return (
     <div className="container flex flex-col gap-8">
-      <div className="overflow-clip">
+      <div className="overflow-hidden">
         {women.map((women, index) => (
           <div key={index}>
             <img
@@ -93,7 +93,7 @@ const Women = () => {
                     +
                   </button>
                 </div>
-                <div className="flex justify-center md:justify-start py-4">
+                <div className="flex justify-start py-4">
                   <button className="bg-blue-500 hover:bg-blue-900 p-2 rounded-xl text-white">
                     Add To Cart
                   </button>

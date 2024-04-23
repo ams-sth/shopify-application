@@ -16,12 +16,8 @@ import Suspenders from "../../../assets/images/men/Suspenders.jpg";
 import ScarvesandShawl from "../../../assets/images/men/ScarvesandShawl.jpg";
 
 import LooseMenShorts from "../../../assets/images/men/Loose mens shorts.jpg";
-import LooseMenShortsTwo from "../../../assets/images/men/Loose mens shorts 2.jpg";
-import LooseMenShortsThree from "../../../assets/images/men/Loose mens shorts 3.jpg";
 import LooseThinTshirt from "../../../assets/images/men/Loose thin Tshirt.jpg";
 import ClassicMensTshirt from "../../../assets/images/men/Classic Mens Tshirt.jpg";
-import ClassicMensTshirtTwo from "../../../assets/images/men/Classic Mens Tshirt 2.jpg";
-import ClassicMensTshirtThree from "../../../assets/images/men/Classic Mens Tshirt 3.jpg";
 import InsulatedWinterJeans from "../../../assets/images/men/Insulated winter jeans.jpg";
 import TshirtWithLongSleeve from "../../../assets/images/men/Tshirt with long sleeves.jpg";
 

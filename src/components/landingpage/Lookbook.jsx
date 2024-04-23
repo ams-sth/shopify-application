@@ -6,11 +6,11 @@ import LookBook03 from "../../assets/images/lookbook/LookBook 03.jpg";
 const Lookbook = () => {
   return (
     <div>
-      <h1 className="font-bold text-2xl">Our LookBook</h1>
-      <p className="text-xs text-gray-500 pt-4">
+      <h1 className="font-bold text-4xl">Our LookBook</h1>
+      <p className="text-sm text-gray-500 pt-2">
         Create your own sets in different layouts
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 px-4">
         <div>
           <img src={LookBook01} alt="LookBook 01" className="rounded-xl" />
         </div>

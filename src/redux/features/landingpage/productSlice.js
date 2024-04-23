@@ -35,7 +35,6 @@ const initialState = {
       sizes: ["XS", "S", "M", "M/L", "L"],
       currentSizeIndex: 0,
       quantity: 1,
-      ratings: "⭐⭐⭐⭐",
     },
     {
       id: 2,
@@ -60,7 +59,6 @@ const initialState = {
       currentSizeIndex: 0,
       price: 47,
       quantity: 1,
-      ratings: "⭐⭐⭐⭐",
       tag: ["collection-hand-muffs", "men", "new"],
     },
     {
@@ -78,7 +76,6 @@ const initialState = {
       color: "Brown",
       sizes: ["XS", "S", "M", "M/L", "L"],
       currentSizeIndex: 0,
-      ratings: "⭐⭐⭐⭐⭐",
       quantity: 1,
     },
     {
@@ -98,7 +95,6 @@ const initialState = {
       sizes: ["XS", "S", "M", "M/L", "L"],
       currentSizeIndex: 0,
       quantity: 1,
-      ratings: "⭐⭐⭐⭐⭐",
     },
   ],
 };

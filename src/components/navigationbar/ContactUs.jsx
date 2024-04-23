@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React from "react";
 import { IoLocationOutline } from "react-icons/io5";
-import { MdOutlineAttachEmail } from "react-icons/md";
+import { TfiEmail } from "react-icons/tfi";
 import { CiPhone } from "react-icons/ci";
 
 const ContactUs = () => {
@@ -27,7 +27,7 @@ const ContactUs = () => {
               <p className="text-start">165th St, Jamaica, NY 11</p>
             </div>
             <div className="flex flex-col">
-              <MdOutlineAttachEmail size={48} />
+              <TfiEmail  size={48} />
               <h1 className="text-start text-xl font-semibold">Email:</h1>
               <p className="text-start">loremipsum@gmail.com</p>
             </div>
@@ -38,7 +38,7 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
           <h1 className="text-left text-2xl font-bold ">Let’s Talk</h1>
           <p className="text-left max-w-md text-gray-500">
             To request a quote our products, contact us directly or fill out the

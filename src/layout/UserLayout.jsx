@@ -5,8 +5,12 @@ import logoBlack from "./../assets/images/logo/logo black.svg";
 
 const UserLayout = ({ children }) => {
   return (
-    <div className="flex flex-col gap-40">
-      <Navbar bg="white" logo={logoBlack} border="1px solid black" />
+    <div className="flex flex-col gap-28">
+      <Navbar
+        bg="#FFFF"
+        logo={logoBlack}
+        shadow="0 0.125rem 0.25rem rgba(0, 0, 0, 0.075)"
+      />
       {children}
       <Footer />
     </div>
