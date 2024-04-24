@@ -15,71 +15,68 @@ const AboutUs = () => {
   return (
     <div className="container px-4 md:px-0 flex flex-col gap-16">
       <div className="flex flex-col">
-        <div className="flex flex-col md:flex-row">
-          <div className="flex flex-1 order-1 md:order-2">
-            <img src={About} alt="About-01.jpg" />
-          </div>
-          <div className="bg-[#F7F8FC] px-8 content-center md:max-w-xs max-w-lg border-2 rounded-xl w-full h-[60vh] order-2 md:order-1 md:translate-x-[20%] md:translate-y-[10%]">
-            <FaQuoteLeft />
-            <p className=" font-georgia italic">
-              We are glad to present you our most perfect Shopify theme, which
-              supports Sections Everywhere, very high metric scores by google
-              page speed insight. This is the most mobile-oriented theme that
-              will be convenient on any of your devices.
-            </p>
-            <div className="flex flex-row">
-              <div className="flex flex-row">
-                <span className="pt-20 text-left text-xs font-semibold">
-                  Jack
-                </span>
-                <span className="pt-20 text-left text-xs font-semibold">
-                  Donowon
-                </span>
-              </div>
-              <div className="translate-y-[50%]">
-                <img
-                  src={Signature}
-                  alt="Signature"
-                  className="object-contain"
-                />
+        <div className="flex lg:flex-row flex-col-reverse  items-center md:px-4 lg:px-0">
+          <div className="lg:w-[40%] lg:-mr-12 z-[999] bg-white rounded-2xl">
+            <div className="border border-gray-300 shadow-md rounded-2xl p-12">
+              <FaQuoteLeft />
+              <i className="text-xl font-light font-georgia">
+                We are glad to present you our most perfect Shopify theme, which
+                supports Sections Everywhere, very high metric scores by google
+                page speed insight. This is the most mobile-oriented theme that
+                will be convenient on any of your devices.
+              </i>
+              <div className="flex items-center pt-5">
+                <div className="flex-1">
+                  <p>Jack Donowan</p>
+                </div>
+                <div className="flex-1">
+                  <img src={Signature} alt="sign img" />
+                </div>
               </div>
             </div>
           </div>
+          <div className="h-[80vh] mb-7 lg:mb-0">
+            <img
+              src={About}
+              alt="About-01.jpg"
+              className="rounded-2xl h-full object-cover"
+            />
+          </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 pt-8 mx-auto content-center">
-          <div className="flex flex-col">
-            <CiDeliveryTruck size={96} />
-            <h1 className="text-start text-sm">FREE WORLDWIDE DELIVERY</h1>
+        <div className="md:flex justify-between w-[90%] mx-auto my-12 ">
+          <div className="pb-5 lg:pb-0">
+            <CiDeliveryTruck size={96} className="w-[100%] mx-auto" />
+            <h1 className=" text-sm w-[70%] mx-auto text-center">FREE WORLDWIDE DELIVERY</h1>
           </div>
 
-          <div className="flex flex-col">
-            <CiDiscount1 size={96} />
-            <h1 className="text-start text-sm">
+          <div className="pb-5 lg:pb-0">
+            <CiDiscount1 size={96} className="w-[100%] mx-auto" />
+            <h1 className=" text-sm w-[70%] mx-auto text-center">
               PROMOTIONS, BONUSES AND DISCOUNTS
-            </h1>
+            </h1> 
           </div>
 
-          <div className="flex flex-col">
-            <CiCreditCard1 size={96} />
-            <h1 className="text-start text-sm">FREE SECRET REWARD CARD </h1>
+          <div className="pb-5 lg:pb-0">
+            <CiCreditCard1 size={96} className="w-[100%] mx-auto" />
+            <h1 className=" text-sm w-[70%] mx-auto text-center">FREE SECRET REWARD CARD </h1>
           </div>
 
-          <div className="flex flex-col">
-            <CiGift size={96} />
-            <h1 className="text-sm text-start">PRESENTS TO OUR CUSTOMERS </h1>
+          <div className="pb-5 lg:pb-0">
+            <CiGift size={96} className="w-[100%] mx-auto" />
+            <h1 className="text-sm  w-[70%] mx-auto text-center">PRESENTS TO OUR CUSTOMERS </h1>
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-8 py-12">
-        <h1 className="font-bold text-xl">A few words about us</h1>
-        <p className="text-start md:mx-auto">
+      <div className="flex flex-col gap-4 md:gap-8">
+        <h1 className="font-bold text-xl ">A few words about us</h1>
+        <p className="mx-auto text-center w-[70%]">
           Our web company consists of web programmers and designers with
           extensive experience in the web market. Each of us worked as hired
           worker to create templates for Magento, Shopify, Wordpress and others.
           We decided to unite our forces and to do projects such as we would
           like them to be in accordance to our experience in customer support.
         </p>
-        <div className="flex">
+        <div className="flex w-[90%] mx-auto">
           <iframe
             width="1148"
             height="643"
@@ -89,10 +86,11 @@ const AboutUs = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
+            style={{borderRadius:"20px"}}
           ></iframe>
         </div>
       </div>
-      <div className="flex flex-col gap-8 py-12">
+      <div className="flex flex-col gap-4 md:gap-8 py-12">
         <h1 className="font-bold text-xl">Why Choose Us</h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-auto">
           <div className="border-8 border-[#0067FF] content-center rounded-full h-[13rem] w-[13rem] p-8">

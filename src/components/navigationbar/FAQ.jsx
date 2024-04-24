@@ -19,9 +19,9 @@ const FAQ = () => {
 
   return (
     <div className="container px-4">
-      <h1 className="text-2xl font-bold pb-20">Have a Question ? Look here</h1>
-      <div className="flex flex-col md:flex-row justify-center  md:justify-between gap-12">
-        <div className="flex flex-col gap-4">
+      <h1 className="text-2xl font-bold mb-8">Have a Question ? Look here</h1>
+      <div className="md:flex justify-center md:justify-between gap-12">
+        <div className="flex flex-col gap-4 mb-8">
           <button
             className={getButtonClassName("AboutShopify]")}
             onClick={() => handleButtonClick("AboutShopify")}

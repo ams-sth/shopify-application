@@ -42,7 +42,7 @@ const Register = () => {
   };
   return (
     <div>
-      <div className="container">
+      <div className="container px-4">
         <div className="flex flex-row">
           <div className="hidden md:flex md:flex-1">
             <img src={register} alt="Register" className="rounded-l-xl h-full object-cover" />

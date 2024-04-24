@@ -31,7 +31,7 @@ const Blogs = () => {
                     <span>{blog.date}</span>
                   </div>
                   <p className="max-w-xl text-left">{blog.description}</p>
-                  <button className="bg-blue-600 hover:bg-blue-800 rounded-2xl text-white h-[12%]">
+                  <button className="bg-blue-600 hover:bg-blue-800 rounded-2xl text-white p-2">
                     Read Article
                   </button>
                 </div>

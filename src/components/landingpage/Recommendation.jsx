@@ -55,7 +55,7 @@ const Recommendation = () => {
                         src={images}
                         alt="Not found"
                         onClick={() => handleImageChange(items.id, index)}
-                        className="cursor-pointer rounded-xl object-contain"
+                        className="cursor-pointer object-contain"
                         style={{
                           border:
                             index === (items.currentImageIndex || 0)

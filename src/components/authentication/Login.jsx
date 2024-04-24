@@ -46,7 +46,7 @@ const Login = () => {
     }
   };
   return (
-    <div className="container">
+    <div className="container px-4">
       <div className="flex flex-row">
         <div className="hidden md:flex md:flex-1">
           <img src={login} alt="Login" className="rounded-l-xl" />
