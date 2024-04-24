@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const Brands = () => {
-  const brands = useSelector((state) => state.brands.brands);
+  const {brands} = useSelector((state) => state.brands);
   return (
     <div className="container">
       <div>

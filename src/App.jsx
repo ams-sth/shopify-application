@@ -1,6 +1,6 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import { Routes, Route, useLocation } from "react-router-dom";
+import Home from "./Home";
 import Women from "./components/category/Women";
 import Men from "./components/category/Men";
 import UserLayout from "./layout/UserLayout";
@@ -10,10 +10,25 @@ import ContactUs from "./components/navigationbar/ContactUs";
 import FAQ from "./components/navigationbar/FAQ";
 import Blogs from "./components/navigationbar/Blogs";
 import Cart from "./components/cart/Cart";
+import Login from "./components/authentication/Login";
+import Register from "./components/authentication/Register";
+import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
+
+function ScrollToTop() {
+  const {pathname} = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0); 
+  }, [pathname]);
+}
 
 const App = () => {
+
   return (
     <div className="App">
+      <ScrollToTop />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -21,6 +36,22 @@ const App = () => {
           element={
             <UserLayout>
               <AboutUs />
+            </UserLayout>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <UserLayout>
+              <Login />
+            </UserLayout>
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <UserLayout>
+              <Register />
             </UserLayout>
           }
         />

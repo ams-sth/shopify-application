@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const Category = () => {
-  const category = useSelector((state) => state.category.category);
+  const {category} = useSelector((state) => state.category);
   return (
     <div className="bg-white">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 container py-20 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 container px-4 py-20 gap-8">
           {category.map((group, index) => (
             <div key={index} className="overflow-hidden">
               <NavLink to={group.path}>

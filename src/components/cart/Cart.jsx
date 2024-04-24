@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { MdDelete } from "react-icons/md";
 
 import { removefromcart } from "../../redux/features/cart/cartSlice";
-
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  const { cartItems } = useSelector((state) => state.cart);
 
   console.log(cartItems, "cart items");
   const dispatch = useDispatch();
@@ -13,12 +12,10 @@ const Cart = () => {
   const handleDelete = (id) => {
     dispatch(removefromcart(id));
   };
-
   return (
-    <div className="container">
+    <div className="container px-4">
       <h1 className="text-4xl font-bold">Shopping Cart</h1>
-
-      <div className="flex justify-between mt-8">
+      <div className="flex flex-col md:flex-row justify-between gap-8">
         <div className="w-3/4 pr-8">
           {cartItems.length === 0 ? (
             <div className="bg-white shadow-lg rounded-xl p-8">
@@ -86,7 +83,7 @@ const Cart = () => {
             </div>
           )}
         </div>
-        <div className="w-1/4">
+        <div className="w-full md:w-1/4">
           <div className="bg-gray-100 rounded-xl p-6">
             <div className="text-lg font-semibold mb-4">Total Price</div>
             <div className="text-2xl font-bold">

@@ -2,10 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const Blogs = () => {
-  const blogs = useSelector((state) => state.blogs.articles);
+  const {articles} = useSelector((state) => state.blogs);
 
   return (
-    <div className="container">
+    <div className="container px-4">
       <div>
         <h1 className="text-4xl font-bold">News</h1>
         <div>
@@ -14,7 +14,7 @@ const Blogs = () => {
               
             </div>
           </div>
-          {blogs.map((blog, index) => (
+          {articles.map((blog, index) => (
             <div key={index} className="gap-4">
               <div className="flex flex-col md:flex-row gap-4 pt-4">
                 <div>

@@ -10,8 +10,9 @@ import {
 import { addtocart } from "../../redux/features/cart/cartSlice";
 import { NavLink } from "react-router-dom";
 
+
 const Products = () => {
-  const products = useSelector((state) => state.products.products);
+  const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   const handleIncrease = (productId) => {
@@ -28,7 +29,6 @@ const Products = () => {
   };
 
   const handleAddToCart = (product) => {
-    console.log(product, "product");
     const cartItem = {
       id: product.id,
       name: product.name,
@@ -38,7 +38,6 @@ const Products = () => {
       size: product.sizes[product.currentSizeIndex || 0],
       imageIndex: product.currentImageIndex || 0,
     };
-
     dispatch(addtocart(cartItem));
   };
 

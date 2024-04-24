@@ -6,9 +6,7 @@ import { changeImageIndex } from "../../redux/features/landingpage/recommendatio
 const Recommendation = () => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
-  const recommendProducts = useSelector(
-    (state) => state.recommendations.recommend
-  );
+  const { recommend } = useSelector((state) => state.recommendations);
 
   const dispatch = useDispatch();
 
@@ -32,14 +30,14 @@ const Recommendation = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-8 gap-12">
-        {recommendProducts.map((items) => (
+        {recommend.map((items) => (
           <div className="shadow-sm rounded-2xl bg-[#FFFF]" key={items.id}>
             <div className="flex flex-row justify-between px-4">
               <h1 className="font-bold text-gray-800 text-xs text-start p-4 translate-y-[1.5rem]">
                 {items.company}
               </h1>
               <div className="flex flex-row translate-y-[2rem]">
-                <h1 className="text-xs font-semibold translate-y-3">$</h1>
+                <h1 className="text-sm font-semibold translate-y-3">$</h1>
                 <h1 className="font-semibold text-2xl">{items.price}</h1>
               </div>
             </div>

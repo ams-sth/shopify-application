@@ -3,19 +3,21 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const Types = () => {
-  const varieties = useSelector((state) => state.typesOfProduct.typesOfProduct);
+  const {typesOfProduct} = useSelector((state) => state.typesOfProduct);
   return (
     <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-8">
-      {varieties.map((type) => (
+      {typesOfProduct.map((type) => (
         <div
           key={type.id}
-          className="rounded-xl bg-[#FFFF] shadow-lg hover:shadow-xl lg:hover:text-blue-700 overflow-clip">
+          className="rounded-xl bg-[#FFFF] shadow-lg hover:shadow-xl lg:hover:text-blue-700">
           <NavLink to={type.path}>
+            <div className="overflow-hidden px-2">
             <img
               src={type.image}
               alt={type.title}
               className="rounded-xl duration-300 lg:hover:scale-105"
             />
+            </div>
           </NavLink>
           <h1 className="text-white text-2xl font-semibold -translate-y-[3rem]">
             {type.title}

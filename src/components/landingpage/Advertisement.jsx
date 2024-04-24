@@ -12,9 +12,9 @@ import { useSelector } from "react-redux";
 import Navbar from "./Navbar";
 
 const Advertisement = () => {
-  const ads = useSelector((state) => state.advertisement.ads);
+  const { ads } = useSelector((state) => state.advertisement);
   var settings = {
-    dots: true,
+    dots: false,
     infinite: false,
     speed: 500,
     autoplay: false,
@@ -26,7 +26,7 @@ const Advertisement = () => {
     <div className="relative">
       <div className="absolute w-full">
         <Navbar
-          bg="transparent"
+          bg="gray-900 md:transparent md:bg-opacity-0 "
           border="none"
           logo={logoWhite}
           textColor="white"
@@ -55,7 +55,7 @@ const Advertisement = () => {
             </div>
           ))}
         </Slider>
-        <div className="container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-items-center py-8">
+        <div className="container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 items-center px-4 md:px-0 py-20 md:py-8">
           <div>
             <img src={FreeDelivery} alt="Free Delivery" />
             <div className="flex flex-col justify-start">

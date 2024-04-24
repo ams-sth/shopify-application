@@ -13,7 +13,7 @@ import { CiGift } from "react-icons/ci";
 
 const AboutUs = () => {
   return (
-    <div className="container flex flex-col gap-16">
+    <div className="container px-4 md:px-0 flex flex-col gap-16">
       <div className="flex flex-col">
         <div className="flex flex-col md:flex-row">
           <div className="flex flex-1 order-1 md:order-2">
@@ -46,7 +46,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 pt-8 content-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 pt-8 mx-auto content-center">
           <div className="flex flex-col">
             <CiDeliveryTruck size={96} />
             <h1 className="text-start text-sm">FREE WORLDWIDE DELIVERY</h1>
@@ -79,7 +79,7 @@ const AboutUs = () => {
           We decided to unite our forces and to do projects such as we would
           like them to be in accordance to our experience in customer support.
         </p>
-        <div>
+        <div className="flex">
           <iframe
             width="1148"
             height="643"
@@ -112,7 +112,7 @@ const AboutUs = () => {
             </h1>
           </div>
         </div>
-        <p className="max-w-lg mx-auto">
+        <p className="max-w-lg mx-auto text-left">
           We like Shopify because it provides variety of tools to help you set
           up and run your business. You can find everything you need to showcase
           your products online, to process payments, and to make your store work
