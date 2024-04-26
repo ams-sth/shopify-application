@@ -4,17 +4,6 @@ import {
   incrementQuantity,
 } from "../../shared_reducers/sharedReducers";
 
-import ArmWarmersandSleeves from "../../../assets/images/men/ArmWarmersandSleeves.jpg";
-import BalaCalvas from "../../../assets/images/men/Balacalvas.jpg";
-import BandanasAndHeadTies from "../../../assets/images/men/BandanasandHeadties.jpg";
-import BridalAccessories from "../../../assets/images/men/Bridal Accessories.jpg";
-import Earmuffs from "../../../assets/images/men/Earmuffs.jpg";
-import HandMuffs from "../../../assets/images/men/HandMuffs.jpg";
-import Hats from "../../../assets/images/men/Hats.jpg";
-import Sunglasses from "../../../assets/images/men/Sunglasses.jpg";
-import Suspenders from "../../../assets/images/men/Suspenders.jpg";
-import ScarvesandShawl from "../../../assets/images/men/ScarvesandShawl.jpg";
-
 import LooseMenShorts from "../../../assets/images/men/Loose mens shorts.jpg";
 import LooseThinTshirt from "../../../assets/images/men/Loose thin Tshirt.jpg";
 import ClassicMensTshirt from "../../../assets/images/men/Classic Mens Tshirt.jpg";
@@ -22,39 +11,6 @@ import InsulatedWinterJeans from "../../../assets/images/men/Insulated winter je
 import TshirtWithLongSleeve from "../../../assets/images/men/Tshirt with long sleeves.jpg";
 
 const initialState = {
-  aboutMen: [
-    {
-      image: [
-        ArmWarmersandSleeves,
-        BalaCalvas,
-        BandanasAndHeadTies,
-        BridalAccessories,
-        Earmuffs,
-        HandMuffs,
-        Hats,
-        Sunglasses,
-        Suspenders,
-        ScarvesandShawl,
-      ],
-      name: [
-        "ArmWarmersandSleeves",
-        "BalaCalvas",
-        "BandanasAndHeadTies",
-        "BridalAccessories",
-        "Earmuffs",
-        "HandMuffs",
-        "Hats",
-        "Sunglasses",
-        "Suspenders",
-        "ScarvesandShawl",
-      ],
-      description: `The latest Men fashion collections for Spring/Summer and Fall/Winter are now available to bought! 
-      Our online store presents a wide selection of fashionable apparel specifically designed to make you look your best.  
-      We have put together the most stylish and trendy looks for you so that you can keep up with the latest fashion trends. 
-      This fashion collection will have you looking your best in no time! 
-      Don't miss the chance to get your hands on the latest fashion clothes for Men!`,
-    },
-  ],
   menClothes: [
     {
       id: 1,

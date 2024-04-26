@@ -83,12 +83,12 @@ const initialState = {
 const accessorySlice = createSlice({
   name: "Accessories",
   initialState,
-  reduucers: {
+  reducers: {
     increment(state, action) {
-      incrementQuantity(state.aboutAccessories, action);
+      incrementQuantity(state.accessories, action);
     },
     decrement(state, action) {
-      decrementQuantity(state.aboutAccessories, action);
+      decrementQuantity(state.accessories, action);
     },
   },
 });

@@ -1,18 +1,23 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { decrement, increment } from "../../redux/features/category/womenSlice";
+import { showInfoToast } from "../../utils/toast";
 
 const Women = () => {
-  const women = useSelector((state) => state.women.women);
+  const { women } = useSelector((state) => state.women);
   const clothes = useSelector((state) => state.women.clothes);
 
   const dispatch = useDispatch();
 
-  const handleIncrement = (productId) => {
-    dispatch(increment(productId));
+  const handleIncrement = (clothes) => {
+    dispatch(increment(clothes.id));
   };
-  const handleDecrement = (productId) => {
-    dispatch(decrement(productId));
+  const handleDecrement = (clothes) => {
+    if (clothes.quantity > 1) {
+      dispatch(decrement(clothes.id));
+    } else {
+      showInfoToast(`Quantity Can't be less than 1`);
+    }
   };
 
   return (
@@ -81,14 +86,14 @@ const Women = () => {
                   <h1 className="font-semibold">Amount : </h1>
                   <button
                     className="text-xl font-bold"
-                    onClick={() => handleDecrement(clothes.id)}
+                    onClick={() => handleDecrement(clothes)}
                   >
                     -
                   </button>
                   <h1 className="text-xl ">{clothes.quantity}</h1>
                   <button
                     className="text-xl font-bold"
-                    onClick={() => handleIncrement(clothes.id)}
+                    onClick={() => handleIncrement(clothes)}
                   >
                     +
                   </button>

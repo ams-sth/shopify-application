@@ -1,24 +1,27 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { showInfoToast } from "../../utils/toast";
+import { decrement, increment } from "../../redux/features/category/accessorySlice";
 
 const Accessory = () => {
   const dispatch = useDispatch();
-  const accessory = useSelector((state) => state.accessory.accessories);
-  const aboutAccessory = useSelector(
-    (state) => state.accessory.aboutAccessories
-  );
+  const {aboutAccessories, accessories} = useSelector((state) => state.accessory);
 
-  const handleIncrement = (productId) => {
-    dispatch(productId);
+  const handleIncrement = (product) => {
+    dispatch(increment(product.id));
   };
-  const handleDecrement = (productId) => {
-    dispatch(productId);
+  const handleDecrement = (product) => {
+    if (product.quantity > 1) {
+      dispatch(decrement(product.id));
+    } else {
+      showInfoToast(`Quantity can't be less than one`);
+    }
   };
 
   return (
     <div className="container flex flex-col gap-8">
       <div className="flex flex-row bg-[#FFFF] shadow-lg">
-        {aboutAccessory.map((accessory, index) => (
+        {aboutAccessories.map((accessory, index) => (
           <div key={index} className="py-12">
             <h1 className="text-center text-2xl font-bold">
               {accessory.title}
@@ -28,7 +31,7 @@ const Accessory = () => {
         ))}
       </div>
       <div className="flex flex-col gap-8">
-        {accessory.map((product) => (
+        {accessories.map((product) => (
           <div key={product.id} className="bg-[#FFFF] rounded-xl shadow-xl">
             <div className="flex flex-row justify-between px-8 pt-4">
               <h1 className="font-bold">{product.brand}</h1>
@@ -50,14 +53,14 @@ const Accessory = () => {
                   <h1 className="font-semibold">Amount: </h1>
                   <button
                     className="text-xl"
-                    onClick={() => handleDecrement(product.id)}
+                    onClick={() => handleDecrement(product)}
                   >
                     -
                   </button>
                   <h1 className="text-xl ">{product.quantity}</h1>
                   <button
                     className="text-xl"
-                    onClick={() => handleIncrement(product.id)}
+                    onClick={() => handleIncrement(product)}
                   >
                     +
                   </button>

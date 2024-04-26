@@ -1,40 +1,28 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "../../redux/features/category/menSlice";
+import { showInfoToast } from "../../utils/toast";
 
 const Men = () => {
-  const men = useSelector((state) => state.men.menClothes);
+  const { menClothes } = useSelector((state) => state.men);
   const dispatch = useDispatch();
 
-  const handleIncrement = (productId) => {
-    dispatch(increment(productId));
+  const handleIncrement = (clothes) => {
+    dispatch(increment(clothes.id));
   };
-  const handleDecrement = (productId) => {
-    dispatch(decrement(productId));
+  const handleDecrement = (clothes) => {
+    if(clothes.quantity > 1){
+    dispatch(decrement(clothes.id))
+    }
+  else{
+    showInfoToast(`Quantity Can't be less than 1`)
+  }
   };
 
   return (
     <div className="container">
-      {/* {aboutMen.map((aboutMen, index) => (
-        <div key={index} className="flex flex-col container">
-          <Slider {...settings}>
-            {aboutMen.image.map((images, index) => (
-              <div key={index}>
-                  <img
-                    src={images}
-                    alt="Not found"
-                    className="border-2 rounded-full duration-300 hover:scale-105"
-                  />
-                <span>{aboutMen.name[index]}</span>
-              </div>
-            ))}
-          </Slider>
-          <p className="pt-8">{aboutMen.description}</p>
-        </div>
-      ))} */}
-
-      <div className="flex flex-col gap-4 ">
-        {men.map((clothes) => (
+      <div className="flex flex-col gap-4">
+        {menClothes.map((clothes) => (
           <div key={clothes.id} className="bg-[#FFFF] rounded-xl shadow-xl">
             <div className="flex flex-row justify-between p-4">
               <h1 className="font-bold">{clothes.brand}</h1>
@@ -72,17 +60,17 @@ const Men = () => {
                   </div>
                 </div>
                 <div className="flex flex-row justify-start gap-4 pt-4 ">
-                  <h1 className="font-semibold">Amount:</h1>
+                  <h1 className="font-semibold">Quantity:</h1>
                   <button
                     className="text-xl"
-                    onClick={() => handleDecrement(clothes.id)}
+                    onClick={() => handleDecrement(clothes)}
                   >
                     -
                   </button>
                   <h1 className="text-xl ">{clothes.quantity}</h1>
                   <button
                     className="text-xl"
-                    onClick={() => handleIncrement(clothes.id)}
+                    onClick={() => handleIncrement(clothes)}
                   >
                     +
                   </button>
