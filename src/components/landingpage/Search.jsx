@@ -13,7 +13,7 @@ const Search = () => {
           placeholder="Search here"
           className="rounded-full px-8 py-4 w-full"
         />
-        <FaSearch className="absolute right-5 top-5 text-gray-400" />
+        <FaSearch className="absolute right-8 top-5 text-gray-400" />
         </div>
       </div>
     </div>

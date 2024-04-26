@@ -9,7 +9,7 @@ import {
 } from "../../redux/features/landingpage/productSlice";
 import { addtocart } from "../../redux/features/cart/cartSlice";
 import { NavLink } from "react-router-dom";
-
+import { showInfoToast, showSuccessToast } from "../../utils/toast";
 
 const Products = () => {
   const { products } = useSelector((state) => state.products);
@@ -18,9 +18,14 @@ const Products = () => {
   const handleIncrease = (productId) => {
     dispatch(increase(productId));
   };
-  const handleDecrease = (productId) => {
-    dispatch(decrease(productId));
+  const handleDecrease = (product) => {
+    if (product.quantity > 1) {
+      dispatch(decrease(product.id));
+    } else {
+      showInfoToast(`Quantity can't be less than 1`);
+    }
   };
+
   const handleImageChange = (productId, newIndex) => {
     dispatch(changeImage({ productId, newIndex }));
   };
@@ -39,6 +44,7 @@ const Products = () => {
       imageIndex: product.currentImageIndex || 0,
     };
     dispatch(addtocart(cartItem));
+    showSuccessToast("Product Added Successfully");
   };
 
   return (
@@ -118,7 +124,7 @@ const Products = () => {
                 </div>
                 <div className="flex flex-row gap-4 justify-center pt-4">
                   <h1 className="font-semibold">Amount:</h1>
-                  <button onClick={() => handleDecrease(product.id)}>-</button>
+                  <button onClick={() => handleDecrease(product)}>-</button>
                   <h1>{product.quantity}</h1>
                   <button onClick={() => handleIncrease(product.id)}>+</button>
                 </div>
@@ -126,7 +132,7 @@ const Products = () => {
                   <NavLink
                     to="/cart"
                     onClick={() => handleAddToCart(product)}
-                    className="bg-blue-600 hover:bg-blue-950 py-2 w-[90%] rounded-xl font-bold text-white"
+                    className={`bg-blue-600 hover:bg-blue-950 py-2 w-[90%] rounded-xl font-bold text-white `}
                   >
                     Add to Cart
                   </NavLink>

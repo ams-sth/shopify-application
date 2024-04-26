@@ -78,7 +78,7 @@ const AboutUs = () => {
         </p>
         <div className="flex w-[90%] mx-auto">
           <iframe
-            width="1148"
+            width="100%"
             height="643"
             src="https://www.youtube.com/embed/HiByPPj7SWg"
             title="Lumia theme -  Manually Update"

@@ -17,13 +17,12 @@ const Advertisement = () => {
     dots: false,
     infinite: false,
     speed: 500,
-    autoplay: false,
+    autoplay: true,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
   };
   return (
-    <div className="relative">
+    <div className="bg-[#FFFF]">
       <div className="absolute w-full">
         <Navbar
           bg="gray-900 md:transparent md:bg-opacity-0 "
@@ -33,7 +32,6 @@ const Advertisement = () => {
           shadow="shadow-none"
         />
       </div>
-      <div className="bg-[#FFFF]">
         <Slider {...settings}>
           {ads.map((about) => (
             <div
@@ -55,51 +53,42 @@ const Advertisement = () => {
             </div>
           ))}
         </Slider>
-        <div className="container grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 items-center px-4 md:px-0 py-20 md:py-8">
+      <div className="container bg-[#FFFF]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 py-20 md:py-8">
           <div>
-            <img src={FreeDelivery} alt="Free Delivery" />
-            <div className="flex flex-col justify-start">
-              <h1 className="text-start font-semibold">Free Shipping</h1>
-              <h1 className="text-sm text-start">When you spend $100+</h1>
-            </div>
+            <img src={FreeDelivery} alt="Free Delivery" className="mx-auto" />
+            <h1 className="font-semibold">Free Shipping</h1>
+            <h1 className="text-sm">When you spend $100+</h1>
           </div>
 
           <div>
             <img
               src={ProductReturn}
               alt="Product Return"
-              className="object-contain"
+              className="mx-auto"
             />
-            <div className="flex flex-col justify-start">
-              <h1 className="text-start font-semibold">Free Returns</h1>
-              <h1 className="text-sm text-start">Within 14 days</h1>
-            </div>
+            <h1 className="font-semibold">Free Returns</h1>
+            <h1 className="text-sm">Within 14 days</h1>
           </div>
 
           <div>
             <img
               src={CreditCard}
               alt="Secured Payments"
-              className="object-contain"
+              className="mx-auto"
             />
-            <div className="flex flex-col justify-start">
-              <h1 className="font-semibold text-start"> Secured Payments </h1>
-              <h1 className="text-sm text-start">
-                We are officially registered
-              </h1>
-            </div>
+            <h1 className="font-semibold"> Secured Payments </h1>
+            <h1 className="text-sm ">We are officially registered</h1>
           </div>
 
           <div>
             <img
               src={Support}
               alt="24/7 hours support"
-              className="object-contain"
+              className="mx-auto"
             />
-            <div className="flex flex-col justify-start">
-              <h1 className="text-start font-semibold">Support 24/7</h1>
-              <h1 className="text-sm text-start">Ready to help our clients</h1>
-            </div>
+            <h1 className="font-semibold">Support 24/7</h1>
+            <h1 className="text-sm">Ready to help our clients</h1>
           </div>
         </div>
       </div>

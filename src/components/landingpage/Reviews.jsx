@@ -13,7 +13,7 @@ const Reviews = () => {
           Real customer reviews from themeforest.net
         </p>
       </div>
-      <div className="container pt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:px-0 gap-16 md:gap-12">
+      <div className="container pt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 md:px-0 gap-16 md:gap-12">
         <div className="bg-[#FFFF] relative border rounded-xl shadow-lg hover:shadow-xl">
           <img
             src={Hanson}

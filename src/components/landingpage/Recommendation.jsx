@@ -36,8 +36,8 @@ const Recommendation = () => {
               <h1 className="font-bold text-gray-800 text-xs text-start p-4 translate-y-[1.5rem]">
                 {items.company}
               </h1>
-              <div className="flex flex-row translate-y-[2rem]">
-                <h1 className="text-sm font-semibold translate-y-3">$</h1>
+              <div className="flex flex-row translate-y-[2rem] gap-1">
+                <h1 className="text-sm font-semibold translate-y-2">$</h1>
                 <h1 className="font-semibold text-2xl">{items.price}</h1>
               </div>
             </div>

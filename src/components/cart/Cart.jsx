@@ -1,102 +1,112 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { MdDelete } from "react-icons/md";
 
-import { removefromcart } from "../../redux/features/cart/cartSlice";
+import {
+  increase,
+  decrease,
+  removefromcart,
+} from "../../redux/features/cart/cartSlice";
+import { showInfoToast } from "../../utils/toast";
+
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
-
   console.log(cartItems, "cart items");
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
     dispatch(removefromcart(id));
   };
+
+  const handleIncrease = (item) => {
+    dispatch(increase(item));
+  };
+
+  const handleDecrease = (item) => {
+    if (item.quantity > 1) {
+      dispatch(decrease(item));
+    } else {
+      showInfoToast(`QUantity can't be less than 1`);
+    }
+  };
+
   return (
-    <div className="container px-4">
-      <h1 className="text-4xl font-bold">Shopping Cart</h1>
-      <div className="flex flex-col md:flex-row justify-between gap-8">
-        <div className="w-3/4 pr-8">
+    <div className="container">
+      <h1 className="text-4xl font-bold text-start py-4">Shopping Cart</h1>
+      <div className="flex flex-col justify-between gap-4 bg-[#FFFF] border-2 rounded-xl ">
+        <div className="w-full">
           {cartItems.length === 0 ? (
-            <div className="bg-white shadow-lg rounded-xl p-8">
-              <p className="text-lg text-gray-600">Your cart is empty</p>
+            <div className="bg-white p-8">
+              <p className="text-lg font-semibold text-gray-600">
+                Your cart is empty
+              </p>
             </div>
           ) : (
-            <div className="bg-white shadow-lg rounded-xl">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
-                      Image
-                    </th>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
-                      Name
-                    </th>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
-                      Size
-                    </th>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
-                      Price
-                    </th>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
-                      Quantity
-                    </th>
-                    <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
-                      Action
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {cartItems.map((item) => (
-                    <tr key={item.id}>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <img
-                          className="h-20 w-20 object-cover rounded-xl"
-                          src={item.image}
-                          alt={item.name}
-                        />
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+            <div className="flex flex-col gap-4 px-4">
+              {cartItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex items-center border-gray-200 py-4"
+                >
+                  <div>
+                    <img
+                      className="h-20 w-20 object-cover rounded-xl"
+                      src={item.image}
+                      alt={item.name}
+                    />
+                  </div>
+                  <div className="flex flex-row gap-8 mx-auto">
+                    <div>
+                      <p className="font-semibold whitespace-nowrap text-lg text-gray-900">
                         {item.name}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {item.size}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        ${item.price}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                      </p>
+                      <p className="text-sm text-gray-500">{item.size}</p>
+                    </div>
+                    <div>
+                      <button
+                        className="text-white hover:text-gray-700 bg-gray-500 rounded-full px-2"
+                        onClick={() => handleDecrease(item)}
+                      >
+                        -
+                      </button>
+                      <span className="px-2 text-xl font-semibold text-gray-900">
                         {item.quantity}
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        <button
-                          onClick={() => handleDelete(item.id)}
-                          className="text-red-500 hover:text-red-700"
-                        >
-                          <MdDelete />
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                      </span>
+                      <button
+                        className="text-white hover:text-gray-700 bg-gray-500 rounded-full px-2"
+                        onClick={() => handleIncrease(item)}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="text-4xl font-bold text-gray-900">
+                      ${item.price}
+                    </p>
+                    <button
+                      onClick={() => handleDelete(item.id)}
+                      className="text-red-500 hover:text-red-700"
+                    >
+                      Remove from cart
+                    </button>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
         </div>
-        <div className="w-full md:w-1/4">
-          <div className="bg-gray-100 rounded-xl p-6">
-            <div className="text-lg font-semibold mb-4">Total Price</div>
-            <div className="text-2xl font-bold">
-              $
-              {cartItems.reduce(
-                (total, item) => total + item.price * item.quantity,
-                0
-              )}
-            </div>
-            <button className="bg-blue-600 text-white rounded-md px-4 py-2 mt-6 block w-full text-center font-semibold">
-              Checkout
-            </button>
-          </div>
+        <div className="border-t-2 flex flex-col items-end gap-2 p-4">
+          <span className="text-2xl font-bold">
+            Total Price: $
+            {cartItems.reduce(
+              (total, item) => total + item.price * item.quantity,
+              0
+            )}
+          </span>
+          <button className="bg-blue-600 right-0 text-white rounded-md px-4 py-2 w-[10%] text-center font-semibold">
+            Checkout
+          </button>
         </div>
       </div>
     </div>
