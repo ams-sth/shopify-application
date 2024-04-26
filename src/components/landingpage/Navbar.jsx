@@ -59,7 +59,7 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
               </div>
             </div>
           </div>
-          <div className="md:w-auto w-full flex flex-row justify-end md:items-center gap-2">
+          <div className="md:w-auto w-full flex flex-row justify-end md:items-center gap-3">
             <FaSearch className="cursor-pointer" />
             <NavLink to="/cart">
               <FaCartShopping className="cursor-pointer" />
