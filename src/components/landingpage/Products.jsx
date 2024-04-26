@@ -74,7 +74,7 @@ const Products = () => {
                 alt="Not found"
                 className="h-[65%] object-cover rounded-xl"
               />
-              <div className="translate-y-[-9rem] lg:translate-y-[1.5rem] hover:translate-y-[-9rem] duration-300 rounded-md bg-[#FFFF] flex flex-col ">
+              <div className="translate-y-[-9rem] lg:translate-y-[1.5rem] hover:translate-y-[-9rem] duration-500 bg-[#FFFF] flex flex-col">
                 <div className="flex flex-row gap-4 pt-4 justify-center">
                   {product.multiImages.map((multiImages, index) => (
                     <div key={index} className="rounded-xl w-fit">
@@ -128,7 +128,7 @@ const Products = () => {
                   <h1>{product.quantity}</h1>
                   <button onClick={() => handleIncrease(product.id)}>+</button>
                 </div>
-                <div className="flex justify-center pt-4">
+                <div className="flex justify-center py-4">
                   <NavLink
                     to="/cart"
                     onClick={() => handleAddToCart(product)}
