@@ -5,7 +5,7 @@ const Shops = () => {
   const {shopImages} = useSelector((state) => state.shop);
   return (
     <div>
-      <div className="container flex flex-col gap-12">
+      <div className="container px-4 flex flex-col gap-12">
         <div>
           <h1 className="font-bold text-4xl">#@Shop By Instagram</h1>
         </div>

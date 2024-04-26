@@ -48,7 +48,7 @@ const Products = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container px-4">
       <div>
         <h1 className="text-4xl font-bold">Check out products of the day</h1>
         <p className="text-sm text-gray-500 py-2">
