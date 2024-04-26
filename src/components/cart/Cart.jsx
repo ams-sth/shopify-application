@@ -25,14 +25,14 @@ const Cart = () => {
     if (item.quantity > 1) {
       dispatch(decrease(item));
     } else {
-      showInfoToast(`QUantity can't be less than 1`);
+      showInfoToast(`Quantity can't be less than 1`);
     }
   };
 
   return (
-    <div className="container">
+    <div className="container px-4">
       <h1 className="text-4xl font-bold text-start py-4">Shopping Cart</h1>
-      <div className="flex flex-col justify-between gap-4 bg-[#FFFF] border-2 rounded-xl ">
+      <div className="flex flex-col justify-start md:justify-between gap-4 bg-[#FFFF] border-2 rounded-xl ">
         <div className="w-full">
           {cartItems.length === 0 ? (
             <div className="bg-white p-8">
@@ -45,16 +45,15 @@ const Cart = () => {
               {cartItems.map((item) => (
                 <div
                   key={item.id}
-                  className="flex items-center border-gray-200 py-4"
+                  className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4"
                 >
                   <div>
                     <img
-                      className="h-20 w-20 object-cover rounded-xl"
+                      className="h-20 w-20 object-cover rounded-xl mx-auto"
                       src={item.image}
                       alt={item.name}
                     />
                   </div>
-                  <div className="flex flex-row gap-8 mx-auto">
                     <div>
                       <p className="font-semibold whitespace-nowrap text-lg text-gray-900">
                         {item.name}
@@ -78,7 +77,6 @@ const Cart = () => {
                         +
                       </button>
                     </div>
-                  </div>
 
                   <div>
                     <p className="text-4xl font-bold text-gray-900">
@@ -104,7 +102,7 @@ const Cart = () => {
               0
             )}
           </span>
-          <button className="bg-blue-600 right-0 text-white rounded-md px-4 py-2 w-[10%] text-center font-semibold">
+          <button className="bg-blue-600 right-0 text-white rounded-md w-full p-2 md:w-[10%] text-center font-semibold">
             Checkout
           </button>
         </div>

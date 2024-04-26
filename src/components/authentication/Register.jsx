@@ -47,7 +47,7 @@ const Register = () => {
           <div className="hidden md:flex md:flex-1">
             <img src={register} alt="Register" className="rounded-l-xl h-full object-cover" />
           </div>
-          <div className="flex-1 bg-[#F7F8FC] items-center content-center rounded-r-xl p-12">
+          <div className="flex-1 bg-[#F7F8FC] items-center content-center rounded-xl md:rounded-r-xl p-12">
             <h1 className="text-4xl font-bold mb-5">Register Here</h1>
             <div className="flex flex-col gap-2">
               <h1 className="font-bold text-xl text-start">First Name</h1>
@@ -55,7 +55,7 @@ const Register = () => {
                 name="firstName"
                 value={FormData.firstName}
                 onChange={handleInputChange}
-                className="border-b-2 p-3 rounded-t-xl mb-5"
+                className="border-b-2 p-3 md:rounded-t-xl mb-5"
                 placeholder="Enter your First Name here"
               />
             </div>

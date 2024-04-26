@@ -10,7 +10,7 @@ import { FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-[#0067FF]">
+    <div className="bg-[#0067FF] px-4">
       <div className="py-8 container flex flex-col gap-8">
         <div className="flex flex-col items-center">
           <h1 className="text-3xl max-w-md text-white font-semibold">
@@ -32,7 +32,7 @@ const Footer = () => {
             </span>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center px-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 items-center gap-8">
           <div>
             <img src={logo} alt="logo" />
             <p className="text-md max-w-md text-white text-start">

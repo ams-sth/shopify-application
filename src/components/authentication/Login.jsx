@@ -51,7 +51,7 @@ const Login = () => {
         <div className="hidden md:flex md:flex-1">
           <img src={login} alt="Login" className="rounded-l-xl" />
         </div>
-        <div className="flex-1 bg-[#F7F8FC] items-center rounded-r-xl p-12">
+        <div className="flex-1 bg-[#F7F8FC] items-center rounded-r-xl md:rounded-xl p-12">
           <h1 className="text-6xl font-bold mb-5">Welcome</h1>
           <div className="flex flex-col gap-2">
             <h1 className="font-bold text-xl text-start">Email</h1>
