@@ -38,7 +38,7 @@ const Advertisement = () => {
               key={about.id}
               className="relative top-[-1rem] bg-[#1F78F0] lg:bg-firstSlideBg bg-no-repeat bg-cover h-[100vh]"
             >
-              <div className="absolute top-[30%] right-[10%] flex flex-col gap-4 px-4 text-left">
+              <div className="absolute top-[35%] right-[10%] flex flex-col gap-4 px-4 text-left">
                 <h1 className="text-6xl font-bold max-w-xs text-yellow-300">
                   {about.title}
                 </h1>
@@ -54,7 +54,7 @@ const Advertisement = () => {
           ))}
         </Slider>
       <div className="container bg-[#FFFF]">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 py-20 md:py-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 px-4 py-20 md:py-8">
           <div>
             <img src={FreeDelivery} alt="Free Delivery" className="mx-auto" />
             <h1 className="font-semibold">Free Shipping</h1>

@@ -20,8 +20,8 @@ const FAQ = () => {
   return (
     <div className="container px-4">
       <h1 className="text-2xl font-bold mb-8">Have a Question ? Look here</h1>
-      <div className="md:flex justify-center md:justify-between gap-12">
-        <div className="flex flex-col gap-4 mb-8">
+      <div className="md:flex justify-center md:justify-between gap-8">
+        <div className="flex flex-col gap-2 mb-8">
           <button
             className={getButtonClassName("AboutShopify")}
             onClick={() => handleButtonClick("AboutShopify")}
@@ -47,11 +47,11 @@ const FAQ = () => {
             SUPPORT
           </button>
         </div>
-        <div className="flex flex-col gap-4 flex-1">
+        <div className="flex-1">
           {activeSection === "AboutShopify" && (
             <div className="flex flex-col justify-center gap-4 ">
               {AboutShopify.map((faq) => (
-                <div key={faq.id} className="flex flex-col gap-4 text-start">
+                <div key={faq.id} className="flex flex-col gap-2 text-start">
                   <h3 className="font-bold text-xl">{faq.question}</h3>
                   {faq.answer.map((answer, index) => (
                     <p key={index}>{answer}</p>

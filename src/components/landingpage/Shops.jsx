@@ -9,7 +9,7 @@ const Shops = () => {
         <div>
           <h1 className="font-bold text-4xl">#@Shop By Instagram</h1>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-9 mx-auto gap-6">
+        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 lg:grid-cols-9 mx-auto gap-6">
           {shopImages.map((shop, index) => (
             <div key={index}>
               <img src={shop.image} alt={shop.name} className="rounded-full" />

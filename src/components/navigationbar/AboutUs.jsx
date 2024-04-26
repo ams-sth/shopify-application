@@ -13,11 +13,11 @@ import { CiGift } from "react-icons/ci";
 
 const AboutUs = () => {
   return (
-    <div className="container px-4 md:px-0 flex flex-col gap-16">
+    <div className="container px-4 md:px-0 flex flex-col ">
       <div className="flex flex-col">
         <div className="flex lg:flex-row flex-col-reverse  items-center md:px-4 lg:px-0">
           <div className="lg:w-[40%] lg:-mr-12 z-[999] bg-white rounded-2xl">
-            <div className="border border-gray-300 shadow-md rounded-2xl p-12">
+            <div className="border border-gray-300 shadow-md rounded-2xl p-4 md:p-10">
               <FaQuoteLeft />
               <i className="text-xl font-light font-georgia">
                 We are glad to present you our most perfect Shopify theme, which
@@ -67,7 +67,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-4 md:gap-8">
+      <div className="flex flex-col gap-2">
         <h1 className="font-bold text-xl ">A few words about us</h1>
         <p className="mx-auto text-center w-[70%]">
           Our web company consists of web programmers and designers with

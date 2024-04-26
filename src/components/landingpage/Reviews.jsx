@@ -18,7 +18,7 @@ const Reviews = () => {
           <img
             src={Hanson}
             alt="Isabel Hanson"
-            className="rounded-full object-contain w-24 absolute left-[35%] -top-[10%]"
+            className="rounded-full object-contain w-24 absolute left-1/2 -top-[10%] -translate-x-[50%]"
           />
           <div className="max-w-xs mx-auto py-20 px-8">
             <h1 className="font-semibold text-xl">Isabel Hanson</h1>
@@ -35,7 +35,7 @@ const Reviews = () => {
           <img
             src={Sharpe}
             alt="Ewan Sharpe"
-            className="rounded-full object-contain w-24 mx-auto absolute left-[35%] -top-[10%]"
+            className="rounded-full object-contain w-24 mx-auto absolute left-1/2 -top-[10%] -translate-x-[50%]"
           />
           <div className="max-w-xl mx-auto py-20 px-8">
             <h1 className="font-semibold text-xl">Ewan sharpe</h1>
@@ -49,11 +49,11 @@ const Reviews = () => {
             </p>
           </div>
         </div>
-        <div className="bg-[#FFFF] relative border rounded-xl shadow-lg hover:shadow-xl">
+        <div className="bg-[#FFFF] relative rounded-xl shadow-lg hover:shadow-xl">
           <img
             src={Finch}
             alt="Alisha Finch"
-            className="rounded-full object-contain w-24 absolute left-[35%] -top-[10%]"
+            className="rounded-full object-contain w-24 absolute left-1/2 -top-[10%] -translate-x-[50%]"
           />
           <div className="max-w-xs mx-auto py-20 px-8">
             <h1 className="font-semibold text-xl">Alisha Finch</h1>

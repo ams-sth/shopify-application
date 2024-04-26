@@ -10,7 +10,7 @@ const Lookbook = () => {
       <p className="text-sm text-gray-500 pt-2">
         Create your own sets in different layouts
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pt-8 px-4">
         <div>
           <img src={LookBook01} alt="LookBook 01" className="rounded-xl" />
         </div>

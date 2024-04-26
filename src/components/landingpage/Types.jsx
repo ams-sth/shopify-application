@@ -5,13 +5,13 @@ import { NavLink } from "react-router-dom";
 const Types = () => {
   const {typesOfProduct} = useSelector((state) => state.typesOfProduct);
   return (
-    <div className="container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-8">
+    <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
       {typesOfProduct.map((type) => (
         <div
           key={type.id}
           className="rounded-xl bg-[#FFFF] shadow-lg hover:shadow-xl lg:hover:text-blue-700">
           <NavLink to={type.path}>
-            <div className="overflow-hidden px-2">
+            <div className="overflow-hidden p-2">
             <img
               src={type.image}
               alt={type.title}

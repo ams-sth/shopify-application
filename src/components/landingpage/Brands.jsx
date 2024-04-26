@@ -11,7 +11,7 @@ const Brands = () => {
           Advanced product filter by vendors
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 pt-8 gap-4">
+      <div className="grid grid-cols-3  md:grid-cols-4 pt-8 gap-4">
         {brands.map((brand, index) => (
           <div key={index} className="bg-[#FFFF] shadow-xl overflow-hidden">
             <img src={brand.image} alt={brand.name} className="hover:scale-105 duration-300" />
