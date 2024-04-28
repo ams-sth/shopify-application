@@ -10,7 +10,7 @@ import LightLaceTop from "../../../assets/images/women/Light Lace Top.jpg";
 import {
   decrementQuantity,
   incrementQuantity,
-} from "../../shared_reducers/sharedReducers";
+} from "../../utils/quantityutils";
 
 const initialState = {
   women: [
@@ -21,7 +21,7 @@ const initialState = {
         "The latest Women fashion collections for Spring/Summer and Fall/Winter are now available to bought! Our online store presents a wide selection of fashionable apparel specifically designed to make you look your best. We have put together the most stylish and trendy looks for you so that you can keep up with the latest fashion trends. Every woman wants to look her best, but sometimes it can be hard to find the right clothes. This fashion collection will have you looking your best in no time!",
     },
   ],
-  clothes: [
+  womenClothes: [
     {
       id: 1,
       brand: "KOACH",

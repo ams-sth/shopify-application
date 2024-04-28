@@ -19,7 +19,7 @@ import SatinpaddedJacket4 from "../../../assets/images/products/Satin Padded Jac
 import {
   decrementQuantity,
   incrementQuantity,
-} from "../../shared_reducers/sharedReducers";
+} from "../../utils/quantityutils";
 
 const initialState = {
   products: [

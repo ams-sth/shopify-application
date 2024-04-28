@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   decrementQuantity,
   incrementQuantity,
-} from "../../shared_reducers/sharedReducers";
+} from "../../utils/quantityutils";
 
 import LooseMenShorts from "../../../assets/images/men/Loose mens shorts.jpg";
 import LooseThinTshirt from "../../../assets/images/men/Loose thin Tshirt.jpg";

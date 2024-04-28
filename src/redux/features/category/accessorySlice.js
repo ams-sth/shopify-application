@@ -8,7 +8,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   decrementQuantity,
   incrementQuantity,
-} from "../../shared_reducers/sharedReducers";
+} from "../../utils/quantityutils";
 
 const initialState = {
   aboutAccessories: [

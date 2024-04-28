@@ -4,8 +4,7 @@ import { decrement, increment } from "../../redux/features/category/womenSlice";
 import { showInfoToast } from "../../utils/toast";
 
 const Women = () => {
-  const { women } = useSelector((state) => state.women);
-  const clothes = useSelector((state) => state.women.clothes);
+  const { women, womenClothes } = useSelector((state) => state.women);
 
   const dispatch = useDispatch();
 
@@ -42,7 +41,7 @@ const Women = () => {
       </div>
 
       <div className="flex flex-col gap-8">
-        {clothes.map((clothes) => (
+        {womenClothes.map((clothes) => (
           <div key={clothes.id} className="bg-[#FFFF] rounded-xl shadow-xl">
             <div className="flex flex-row justify-between p-4">
               <h1 className="font-bold">{clothes.brand}</h1>
