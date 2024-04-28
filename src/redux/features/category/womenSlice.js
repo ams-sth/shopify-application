@@ -85,11 +85,11 @@ const womenSlice = createSlice({
   initialState,
   reducers: {
     increment(state, action) {
-      incrementQuantity(state.clothes, action);
+      incrementQuantity(state.womenClothes, action);
     },
 
     decrement(state, action) {
-      decrementQuantity(state.clothes, action);
+      decrementQuantity(state.womenClothes, action);
     },
   },
 });
