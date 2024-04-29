@@ -12,7 +12,7 @@ const FAQ = () => {
   };
 
   const getButtonClassName = (buttonName) => {
-    return `px-6 py-2 hover:bg-blue-700 hover:text-white rounded-xl font-bold ${
+    return `px-6 py-2 hover:bg-blue-700 hover:text-white rounded-xl font-semibold ${
       activeSection === buttonName ? "bg-blue-700 text-white" : ""
     }`;
   };
@@ -21,7 +21,7 @@ const FAQ = () => {
     <div className="container px-4">
       <h1 className="text-2xl font-bold mb-8">Have a Question ? Look here</h1>
       <div className="md:flex justify-center md:justify-between gap-8">
-        <div className="flex flex-col gap-2 mb-8">
+        <div className="flex flex-wrap md:flex-col gap-2 mb-8">
           <button
             className={getButtonClassName("AboutShopify")}
             onClick={() => handleButtonClick("AboutShopify")}

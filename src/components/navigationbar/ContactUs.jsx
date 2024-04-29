@@ -8,7 +8,7 @@ const ContactUs = () => {
   return (
     <div className="container px-4">
       <div className="flex flex-col lg:flex-row justify-between gap-8">
-        <div className="flex flex-col gap-8">
+        <div className="flex-1">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6048.9120110556!2d-74.001204!3d40.707977!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a2355a4b96f%3A0xfb2676ee3604a0ff!2s254%20Front%20Street!5e0!3m2!1sen!2snp!4v1713964037551!5m2!1sen!2snp"
             width="100%"
@@ -18,7 +18,7 @@ const ContactUs = () => {
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
-          <div className="flex flex-col md:flex-row justify-center gap-4">
+          <div className="flex flex-wrap mx-auto gap-4">
             <div className="flex flex-col">
               <IoLocationOutline size={48} className="mx-auto" />
               <h1 className="text-center text-xl font-semibold">Location:</h1>
@@ -36,8 +36,8 @@ const ContactUs = () => {
             </div>
           </div>
         </div>
-        <div className="flex-1">
-          <div className="flex flex-col items-start gap-2">
+        <div className="">
+          <div className="flex flex-col items-start gap-3">
             <h1 className="text-2xl font-bold">Let’s Talk</h1>
             <p className="text-left max-w-md text-gray-500">
               To request a quote our products, contact us directly or fill out

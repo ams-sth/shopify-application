@@ -10,7 +10,6 @@ import { showInfoToast } from "../../utils/toast";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
-  console.log(cartItems, "cart items");
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
@@ -32,7 +31,7 @@ const Cart = () => {
   return (
     <div className="container px-4">
       <h1 className="text-4xl font-bold text-start py-4">Shopping Cart</h1>
-      <div className="flex flex-col justify-start md:justify-between gap-4 bg-[#FFFF] border-2 rounded-xl ">
+      <div className="flex flex-col justify-start md:justify-betweenbg-[#FFFF] border-2 rounded-xl">
         <div className="w-full">
           {cartItems.length === 0 ? (
             <div className="bg-white p-8">
@@ -41,15 +40,15 @@ const Cart = () => {
               </p>
             </div>
           ) : (
-            <div className="flex flex-col gap-4 px-4">
+            <div className="flex flex-col gap-4 p-4">
               {cartItems.map((item) => (
                 <div
                   key={item.id}
-                  className="grid grid-cols-1 md:grid-cols-4 gap-4 p-4"
+                  className="grid grid-cols-1 md:grid-cols-4 items-center"
                 >
                   <div>
                     <img
-                      className="h-20 w-20 object-cover rounded-xl mx-auto"
+                      className="object-cover"
                       src={item.image}
                       alt={item.name}
                     />

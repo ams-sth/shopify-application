@@ -1,24 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 // import Slider from "react-slick";
 import { useDispatch, useSelector } from "react-redux";
 import { changeImageIndex } from "../../redux/features/landingpage/recommendationSlice";
+import { useNavigate } from "react-router-dom";
 
 const Recommendation = () => {
-  const [showFullDescription, setShowFullDescription] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { recommend } = useSelector((state) => state.recommendations);
-
-  const dispatch = useDispatch();
 
   const handleImageChange = (imageId, newIndex) => {
     dispatch(changeImageIndex({ imageId, newIndex }));
   };
 
   const handleSeeMore = (productId) => {
-    setShowFullDescription({
-      ...showFullDescription,
-      [productId]: !showFullDescription[productId] || false,
-    });
+    navigate(`/details/${productId}`);
   };
 
   return (
@@ -46,7 +43,7 @@ const Recommendation = () => {
                 <img
                   src={items.image[items.currentImageIndex || 0]}
                   alt="Not found"
-                  className="rounded-2xl"
+                  className="rounded-xl"
                 />
                 <div className="flex flex-row gap-4 pt-4 justify-center">
                   {items.image.map((images, index) => (
@@ -72,36 +69,16 @@ const Recommendation = () => {
                   {items.productName}
                 </p>
                 <div className="flex flex-col">
-                  {showFullDescription[items.id] ? (
-                    <div className="full-description">
-                      <p className="max-w-lg text-md text-left text-gray-500">
-                        {items.fullDescription}
-                      </p>
-                    </div>
-                  ) : (
-                    <p className="max-w-lg text-md text-left text-gray-500">
-                      {items.lessDescription}
-                    </p>
-                  )}
-                  <button
-                    onClick={() => handleSeeMore(items.id)}
-                    className="maxw-w-xl text-sm text-left text-blue-500 hover:text-blue-700"
-                  >
-                    {showFullDescription[items.id] ? "See Less" : "See More"}
-                  </button>
+                  <p className="max-w-lg text-md text-left text-gray-500">
+                    {items.lessDescription}
+                  </p>
                 </div>
-                <div className="flex flex-row gap-2">
-                  <h1 className="text-left text-sm">Product:</h1>
-                  <h1 className="text-left text-sm">{items.ProductType}</h1>
-                </div>
-                <div className="flex flex-row gap-2">
-                  <h1 className="text-left text-sm">SKU: </h1>
-                  <h1 className="text-left text-sm">{items.SKU}</h1>
-                </div>
-                <div className="flex flex-row gap-2">
-                  <h1 className="text-left text-sm">Weight:</h1>
-                  <h1 className="text-left text-sm">{items.Weight} KG</h1>
-                </div>
+                <button
+                  onClick={() => handleSeeMore(items.id)}
+                  className="maxw-w-xl text-sm text-left text-blue-500 hover:text-blue-700 hover:underline"
+                >
+                  See More
+                </button>
               </div>
             </div>
           </div>

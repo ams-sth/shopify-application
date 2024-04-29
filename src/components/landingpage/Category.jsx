@@ -6,7 +6,7 @@ const Category = () => {
   const {category} = useSelector((state) => state.category);
   return (
     <div className="bg-white">
-      <div className="grid grid-cols-4 container px-4 py-20 gap-8">
+      <div className="container flex px-4 py-20 gap-4">
           {category.map((group, index) => (
             <div key={index} className="overflow-hidden">
               <NavLink to={group.path}>
@@ -16,7 +16,7 @@ const Category = () => {
                     className="rounded-full"
                   />
               </NavLink>
-              <h1 className="pt-4 text-xl">{group.name}</h1>
+              <h1 className="pt-4 text-sm break-all">{group.name}</h1>
             </div>
           ))}
         </div>

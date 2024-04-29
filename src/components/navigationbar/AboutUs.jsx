@@ -13,63 +13,61 @@ import { CiGift } from "react-icons/ci";
 
 const AboutUs = () => {
   return (
-    <div className="container px-4 md:px-0 flex flex-col ">
-      <div className="flex flex-col">
-        <div className="flex lg:flex-row flex-col-reverse  items-center md:px-4 lg:px-0">
-          <div className="lg:w-[40%] lg:-mr-12 z-[999] bg-white rounded-2xl">
-            <div className="border border-gray-300 shadow-md rounded-2xl p-4 md:p-10">
-              <FaQuoteLeft />
-              <i className="text-xl font-light font-georgia">
-                We are glad to present you our most perfect Shopify theme, which
-                supports Sections Everywhere, very high metric scores by google
-                page speed insight. This is the most mobile-oriented theme that
-                will be convenient on any of your devices.
-              </i>
-              <div className="flex items-center pt-5">
-                <div className="flex-1">
-                  <p>Jack Donowan</p>
-                </div>
-                <div className="flex-1">
-                  <img src={Signature} alt="sign img" />
-                </div>
+    <div className="container px-4">
+      <div className="flex lg:flex-row flex-col-reverse  items-center">
+        <div className="lg:w-[60%] xl:w-[40%] lg:-mr-12 z-[999] bg-white rounded-2xl">
+          <div className="border border-gray-300 shadow-md rounded-2xl p-4 md:p-10">
+            <FaQuoteLeft />
+            <i className="text-xl font-light fon-georgia">
+              We are glad to present you our most perfect Shopify theme, which
+              supports Sections Everywhere, very high metric scores by google
+              page speed insight. This is the most mobile-oriented theme that
+              will be convenient on any of your devices.
+            </i>
+            <div className="flex items-center pt-5">
+              <div className="flex-1">
+                <p>Jack Donowan</p>
+              </div>
+              <div className="flex-1">
+                <img src={Signature} alt="sign img" />
               </div>
             </div>
           </div>
-          <div className="h-[80vh] mb-7 lg:mb-0">
-            <img
-              src={About}
-              alt="About-01.jpg"
-              className="rounded-2xl h-full object-cover"
-            />
-          </div>
         </div>
-        <div className="md:flex justify-between w-[90%] mx-auto my-12 ">
-          <div className="pb-5 lg:pb-0">
-            <CiDeliveryTruck size={96} className="w-[100%] mx-auto" />
-            <h1 className=" text-sm w-[70%] mx-auto text-center">FREE WORLDWIDE DELIVERY</h1>
-          </div>
-
-          <div className="pb-5 lg:pb-0">
-            <CiDiscount1 size={96} className="w-[100%] mx-auto" />
-            <h1 className=" text-sm w-[70%] mx-auto text-center">
-              PROMOTIONS, BONUSES AND DISCOUNTS
-            </h1> 
-          </div>
-
-          <div className="pb-5 lg:pb-0">
-            <CiCreditCard1 size={96} className="w-[100%] mx-auto" />
-            <h1 className=" text-sm w-[70%] mx-auto text-center">FREE SECRET REWARD CARD </h1>
-          </div>
-
-          <div className="pb-5 lg:pb-0">
-            <CiGift size={96} className="w-[100%] mx-auto" />
-            <h1 className="text-sm  w-[70%] mx-auto text-center">PRESENTS TO OUR CUSTOMERS </h1>
-          </div>
+        <div className="h-[80vh] mb-7 lg:mb-0">
+          <img
+            src={About}
+            alt="About-01.jpg"
+            className="rounded-2xl h-full object-cover"
+          />
         </div>
       </div>
-      <div className="flex flex-col gap-2">
-        <h1 className="font-bold text-xl ">A few words about us</h1>
-        <p className="mx-auto text-center w-[70%]">
+      <div className="grid grid-cols-1 ssm:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-between my-12">
+        <div className="mx-auto pb-5 lg:pb-0">
+          <CiDeliveryTruck size={96} className="mx-auto" />
+          <h1 className=" text-sm">FREE WORLDWIDE DELIVERY</h1>
+        </div>
+
+        <div className="mx-auto pb-5 lg:pb-0">
+          <CiDiscount1 size={96} className="mx-auto" />
+          <h1 className="text-sm break-words">
+            PROMOTIONS, BONUSES AND DISCOUNTS
+          </h1>
+        </div>
+
+        <div className="mx-auto pb-5 lg:pb-0">
+          <CiCreditCard1 size={96} className="mx-auto" />
+          <h1 className=" text-sm">FREE SECRET REWARD CARD</h1>
+        </div>
+
+        <div className="mx-auto pb-5 lg:pb-0">
+          <CiGift size={96} className="mx-auto" />
+          <h1 className="text-sm">PRESENTS TO OUR CUSTOMERS</h1>
+        </div>
+      </div>
+      <div className="flex flex-col gap-4">
+        <h1 className="font-bold text-xl">A few words about us</h1>
+        <p className="mx-auto text-left w-[70%] mb-3">
           Our web company consists of web programmers and designers with
           extensive experience in the web market. Each of us worked as hired
           worker to create templates for Magento, Shopify, Wordpress and others.
@@ -86,7 +84,7 @@ const AboutUs = () => {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
-            style={{borderRadius:"20px"}}
+            style={{ borderRadius: "20px" }}
           ></iframe>
         </div>
       </div>

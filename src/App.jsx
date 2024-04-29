@@ -14,23 +14,34 @@ import Login from "./components/authentication/Login";
 import Register from "./components/authentication/Register";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
+import Details from "./components/pages/Details";
 
 function ScrollToTop() {
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0); 
+    window.scrollTo(0, 0);
   }, [pathname]);
 }
 
 const App = () => {
-
   return (
     <div className="App">
       <ScrollToTop />
       <ToastContainer />
+
       <Routes>
         <Route path="/" element={<Home />} />
+
+        <Route
+          path="/details/:productId"
+          element={
+            <UserLayout>
+              <Details />
+            </UserLayout>
+          }
+        />
+
         <Route
           path="/about"
           element={
@@ -39,6 +50,7 @@ const App = () => {
             </UserLayout>
           }
         />
+
         <Route
           path="/login"
           element={
@@ -47,6 +59,7 @@ const App = () => {
             </UserLayout>
           }
         />
+
         <Route
           path="/register"
           element={
@@ -55,6 +68,7 @@ const App = () => {
             </UserLayout>
           }
         />
+
         <Route
           path="/contact"
           element={
@@ -63,6 +77,7 @@ const App = () => {
             </UserLayout>
           }
         />
+
         <Route
           path="/faq"
           element={

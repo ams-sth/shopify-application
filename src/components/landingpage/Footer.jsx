@@ -34,7 +34,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between gap-4 md:gap-0">
           <div>
             <img src={logo} alt="logo" />
-            <p className="text-md max-w-xs text-white text-start">
+            <p className="text-md max-w-xs text-white text-start pt-4">
               Worldwide fashion store with wide collection of styles with over
               100 international fashion brands.
             </p>

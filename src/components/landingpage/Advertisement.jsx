@@ -54,7 +54,7 @@ const Advertisement = () => {
           ))}
         </Slider>
       <div className="container bg-[#FFFF]">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 px-4 py-20 md:py-8">
+        <div className="grid grid-cols-2 ssm:grid-cols-3 sm:grid-cols-4 gap-4 px-4 py-20 md:py-8">
           <div>
             <img src={FreeDelivery} alt="Free Delivery" className="mx-auto" />
             <h1 className="font-semibold">Free Shipping</h1>

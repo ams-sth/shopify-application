@@ -136,4 +136,5 @@ const productSlice = createSlice({
 
 export const { increase, decrease, changeImage, changeSize } =
   productSlice.actions;
+
 export default productSlice.reducer;
