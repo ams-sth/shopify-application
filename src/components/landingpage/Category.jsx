@@ -16,7 +16,7 @@ const Category = () => {
                     className="rounded-full"
                   />
               </NavLink>
-              <h1 className="pt-4 text-sm break-all">{group.name}</h1>
+              <h1 className="pt-4 text-md break-all">{group.name}</h1>
             </div>
           ))}
         </div>

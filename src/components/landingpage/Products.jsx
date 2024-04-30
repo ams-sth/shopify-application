@@ -73,7 +73,7 @@ const Products = () => {
                 alt="Not found"
                 className="h-[65%] object-cover rounded-xl"
               />
-              <div className="translate-y-[-9rem] lg:translate-y-[1.5rem] hover:translate-y-[-9rem] duration-500 bg-[#FFFF] flex flex-col">
+              <div className="bg-[#FFFF] flex flex-col translate-y-[-9rem] md:translate-y-[-10.5rem] lg:translate-y-[1.5rem] hover:translate-y-[-11rem] xl:hover:translate-y-[-9rem] duration-500">
                 <div className="flex flex-row gap-4 pt-4 justify-center">
                   {product.multiImages.map((multiImages, index) => (
                     <div key={index} className="rounded-xl w-fit">
