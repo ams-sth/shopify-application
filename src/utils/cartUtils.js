@@ -7,15 +7,12 @@ export const handleAddToCart = (product, dispatch) => {
   }
   const cartItem = {
     id: product.id,
-    name: product.name || product.productName,
+    name: product.productName,
     price: product.price,
     quantity: product.quantity,
-    image:
-      product.image[product.currentImageIndex || 0] ||
-      product.multiImages[product.currentImageIndex || 0], 
-    size:
-      product.size[product.currentSizeIndex || 0] ||
-      product.sizes[product.currentSizeIndex || 0], 
+    image: product.image[product.currentImageIndex || 0],
+    color: product.color[product.currentColorIndex || 0],
+    size: product.size[product.currentSizeIndex || 0],
     imageIndex: product.currentImageIndex || 0,
   };
   dispatch(addtocart(cartItem));

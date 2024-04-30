@@ -49,6 +49,7 @@ const initialState = {
       Weight: "0.38 ",
       Vendor: "Under Armor",
       color: ["Black", "Blue", "White"],
+      currentColorIndex: 0,
       size: ["XS", "S", "M", "L", "XL"],
       currentSizeIndex: 0,
 
@@ -71,6 +72,7 @@ const initialState = {
       Weight: "0.45 ",
       Vendor: "Colvin Klein",
       color: ["Black", "Blue", "White"],
+      currentColorIndex: 0,
       size: ["XS", "S", "M", "L", "XL"],
       currentSizeIndex: 0,
       quantity: 1,
@@ -93,6 +95,7 @@ const initialState = {
       Weight: "0.86 ",
       Vendor: "Canverse",
       color: ["Black", "Blue", "White"],
+      currentColorIndex: 0,
       size: ["XS", "S", "M", "L", "XL"],
       currentSizeIndex: 0,
       quantity: 1,
@@ -116,6 +119,7 @@ const initialState = {
       Weight: "0.4 ",
       Vendor: "Cabian",
       color: ["Black", "Blue", "White"],
+      currentColorIndex: 0,
       size: ["XS", "S", "M", "L", "XL"],
       currentSizeIndex: 0,
       quantity: 1,
@@ -136,6 +140,7 @@ const initialState = {
                         In the United Kingdom, the word pants generally means underwear and not trousers.`,
       price: "93",
       color: ["Black", "Blue", "White"],
+      currentColorIndex: 0,
       size: ["XS", "S", "M", "L", "XL"],
       currentSizeIndex: 0,
       quantity: 1,
@@ -156,6 +161,7 @@ const initialState = {
       Vendor: "The south face",
       price: "84",
       color: ["Black", "Blue", "White"],
+      currentColorIndex: 0,
       size: ["XS", "S", "M", "L", "XL"],
       currentSizeIndex: 0,
       quantity: 1,
@@ -178,6 +184,7 @@ const initialState = {
       Weight: "0.3 ",
       Vendor: "Saucany",
       color: ["Black", "Blue", "White"],
+      currentColorIndex: 0,
       size: ["XS", "S", "M", "L", "XL"],
       currentSizeIndex: 0,
       quantity: 1,
@@ -199,6 +206,7 @@ const initialState = {
       Weight: "0.56 ",
       Vendor: "Clorks",
       color: ["Black", "Blue", "White"],
+      currentColorIndex: 0,
       size: ["XS", "S", "M", "L", "XL"],
       currentSizeIndex: 0,
       quantity: 1,
@@ -219,6 +227,7 @@ const initialState = {
       Weight: "0.8 ",
       Vendor: "Canverse",
       color: ["Black", "Blue", "White"],
+      currentColorIndex: 0,
       size: ["XS", "S", "M", "L", "XL"],
       currentSizeIndex: 0,
       quantity: 1,
@@ -231,6 +240,7 @@ const recommendationSlice = createSlice({
   initialState,
   reducers: {
     increase(state, action) {
+      console.log(state.recommend, action);
       incrementQuantity(state.recommend, action);
     },
     decrease(state, action) {
@@ -249,7 +259,6 @@ const recommendationSlice = createSlice({
     },
     changeSizeIndex(state, action) {
       const { productId, newIndex } = action.payload;
-      console.log(action.payload);
       const sizeToChange = state.recommend.find((p) => p?.id === productId);
       if (
         sizeToChange &&
@@ -259,10 +268,26 @@ const recommendationSlice = createSlice({
         sizeToChange.currentSizeIndex = newIndex;
       }
     },
+    changeColorIndex(state, action) {
+      const { productId, newIndex } = action.payload;
+      const colortoChange = state.recommend.find((p) => p?.id === productId);
+      if (
+        colortoChange &&
+        newIndex > 0 &&
+        newIndex < colortoChange.color.length
+      ) {
+        colortoChange.currentColorIndex = newIndex;
+      }
+    },
   },
 });
 
-export const { increase, decrease, changeSizeIndex, changeImageIndex } =
-  recommendationSlice.actions;
+export const {
+  increase,
+  decrease,
+  changeSizeIndex,
+  changeImageIndex,
+  changeColorIndex,
+} = recommendationSlice.actions;
 
 export default recommendationSlice.reducer;

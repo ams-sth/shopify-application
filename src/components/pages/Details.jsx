@@ -95,8 +95,18 @@ const Details = () => {
               <h1 className="font-semibold">Vendor:</h1>
               <h1>{product.Vendor}</h1>
             </div>
-            <h1 className="text-start font-semibold">Size:</h1>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-row gap-2">
+              <label className="font-semibold">Color: </label>
+              <select className="border border-black rounded-md">
+                {product.color.map((color, index) => (
+                  <option key={index} value={color}>
+                    {color}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              <h1 className="text-start font-semibold">Size:</h1>
               {product.size.map((size, index) => (
                 <div
                   key={index}

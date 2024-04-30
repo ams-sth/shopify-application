@@ -7,19 +7,19 @@ import {
   decrease,
   increase,
 } from "../../redux/features/landingpage/productSlice";
-import { showInfoToast } from "../../utils/toast";
-import { handleAddToCart } from "../../utils/cartUtils";
+import { addtocart } from "../../redux/features/cart/cartSlice";
+import { showInfoToast, showSuccessToast } from "../../utils/toast";
 
 const Products = () => {
   const { products } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
   const handleIncrease = (product) => {
-    dispatch(increase(product.id));
+    dispatch(increase({ productId: product.id }));
   };
   const handleDecrease = (product) => {
     if (product.quantity > 1) {
-      dispatch(decrease(product.id));
+      dispatch(decrease({ productId: product.id }));
     } else {
       showInfoToast(`Quantity can't be less than 1`);
     }
@@ -30,6 +30,20 @@ const Products = () => {
   };
   const handleSizeChange = (productId, newIndex) => {
     dispatch(changeSize({ productId, newIndex }));
+  };
+
+  const handleAddToCart = (product) => {
+    const cartItem = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      quantity: product.quantity,
+      image: product.multiImages[product.currentImageIndex || 0],
+      size: product.sizes[product.currentSizeIndex || 0],
+      imageIndex: product.currentImageIndex || 0,
+    };
+    dispatch(addtocart(cartItem));
+    showSuccessToast("Product Added Successfully");
   };
 
   return (
@@ -95,7 +109,9 @@ const Products = () => {
                     <div
                       key={index}
                       className="border-2 px-2 rounded-md cursor-pointer"
-                      onClick={() => handleSizeChange(product.id, index)}
+                      onClick={() => {
+                        handleSizeChange(product.id, index);
+                      }}
                       style={{
                         border:
                           index === (product.currentSizeIndex || 0)
@@ -108,14 +124,14 @@ const Products = () => {
                   ))}
                 </div>
                 <div className="flex flex-row gap-4 justify-center pt-4">
-                  <h1 className="font-semibold">Amount:</h1>
+                  <h1 className="font-semibold">Quantity:</h1>
                   <button onClick={() => handleDecrease(product)}>-</button>
                   <h1>{product.quantity}</h1>
                   <button onClick={() => handleIncrease(product)}>+</button>
                 </div>
                 <div className="flex justify-center py-4">
                   <button
-                    onClick={() => handleAddToCart(product, dispatch)}
+                    onClick={() => handleAddToCart(product)}
                     className={`bg-blue-600 hover:bg-blue-950 py-2 w-[90%] rounded-xl font-bold text-white `}
                   >
                     Add to Cart

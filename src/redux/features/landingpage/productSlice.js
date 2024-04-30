@@ -16,10 +16,6 @@ import SatinpaddedJacket from "../../../assets/images/products/Satin Padded Jack
 import SatinpaddedJacket2 from "../../../assets/images/products/Satin Padded Jacket 2.jpg";
 import SatinpaddedJacket3 from "../../../assets/images/products/Satin Padded Jacket 3.jpg";
 import SatinpaddedJacket4 from "../../../assets/images/products/Satin Padded Jacket 4.jpg";
-import {
-  decrementQuantity,
-  incrementQuantity,
-} from "../../utils/quantityutils";
 
 const initialState = {
   products: [
@@ -104,10 +100,29 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     increase(state, action) {
-      incrementQuantity(state.products, action);
+      const { productId } = action.payload;
+      console.log(action.payload)
+
+      const foundProduct = state.products.find(
+        (product) => product.id === productId
+      );
+      if (foundProduct) {
+        foundProduct.quantity++;
+      } else {
+        console.error(`Product not found`);
+      }
     },
     decrease(state, action) {
-      decrementQuantity(state.products, action);
+
+      const { productId } = action.payload;
+      const foundProduct = state.products.find(
+        (product) => product.id === productId
+      );
+      if (foundProduct) {
+        foundProduct.quantity--;
+      } else {
+        console.error(`Product not found`);
+      }
     },
     changeImage(state, action) {
       const { productId, newIndex } = action.payload;
@@ -136,5 +151,4 @@ const productSlice = createSlice({
 
 export const { increase, decrease, changeImage, changeSize } =
   productSlice.actions;
-
 export default productSlice.reducer;
