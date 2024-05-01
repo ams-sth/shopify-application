@@ -1,9 +1,15 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Blogs = () => {
+  const navigate = useNavigate();
+
   const { articles } = useSelector((state) => state.blogs);
 
+  const handleReadMore = (blogId) => {
+    navigate(`/article/${blogId}`);
+  };
   return (
     <div className="container px-4">
       <h1 className="text-4xl font-bold">News</h1>
@@ -22,7 +28,10 @@ const Blogs = () => {
                 <h1 className="font-bold text-lg">{blog.title}</h1>
                 <h1>Date: {blog.date}</h1>
                 <p className="max-w-xl">{blog.description}</p>
-                <button className="bg-blue-600 hover:bg-blue-800 rounded-2xl text-white p-2">
+                <button
+                  onClick={() => handleReadMore(blog.id)}
+                  className="bg-blue-600 hover:bg-blue-800 rounded-2xl text-white p-2"
+                >
                   Read Article
                 </button>
               </div>

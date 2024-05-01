@@ -8,6 +8,7 @@ import ArticleFive from "../../../assets/images/blogs/article05.jpg";
 const initialState = {
   articles: [
     {
+      id: 1,
       image: ArticleOne,
       title: `The perfect Shopify theme`,
       date: "Jan 19, 2023",
@@ -15,6 +16,7 @@ const initialState = {
                     You can use Shopify in nearly every coun...`,
     },
     {
+      id: 2,
       image: ArticleTwo,
       title: `Bring your store to life with Lumia`,
       date: "Jan 5, 2023",
@@ -22,12 +24,14 @@ const initialState = {
                     In ad...`,
     },
     {
+      id: 3,
       image: ArticleThree,
       title: `Growing your business with Shopify`,
       date: "Dec 30, 2022",
       description: `Lumia is the perfect theme for anyone who wants to create a shopify store without needing to worry about additiona...`,
     },
     {
+      id: 4,
       image: ArticleFour,
       title: `How to get started`,
       date: "Dec 6, 2022",
@@ -35,6 +39,7 @@ const initialState = {
                     With everything from th...`,
     },
     {
+      id: 5,
       image: ArticleFive,
       title: `Get ahead with the power of Lumia`,
       date: "Oct 27, 2022",

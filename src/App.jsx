@@ -15,6 +15,7 @@ import Register from "./components/authentication/Register";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 import Details from "./components/pages/Details";
+import Articles from "./components/pages/Articles";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -91,6 +92,14 @@ const App = () => {
           element={
             <UserLayout>
               <Blogs />
+            </UserLayout>
+          }
+        />
+        <Route
+          path="/article/:blogId"
+          element={
+            <UserLayout>
+              <Articles />
             </UserLayout>
           }
         />
