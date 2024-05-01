@@ -24,11 +24,10 @@ const initialState = {
       company: "CLAYTAN",
       price: 5,
       currentImageIndex: 0,
-      image: Shorts,
-      multiImages: [Shorts, Shorts, Shorts, Shorts],
+      image: [Shorts, Shorts, Shorts, Shorts],
       name: "Short demin shorts",
       color: "Dark Blue",
-      sizes: ["XS", "S", "M", "M/L", "L"],
+      size: ["XS", "S", "M", "M/L", "L"],
       currentSizeIndex: 0,
       quantity: 1,
     },
@@ -36,7 +35,7 @@ const initialState = {
       id: 2,
       company: "CANVERSE",
       currentImageIndex: 0,
-      multiImages: [
+      image: [
         MenSmoothJacket,
         MenSmoothJacketTwo,
         MenSmoothJacketThree,
@@ -51,7 +50,7 @@ const initialState = {
       sku: "M75009BL1",
       weight: "0.65 kg",
       color: ["Black", "Green"],
-      sizes: ["XS", "S", "M", "M/L", "L"],
+      size: ["XS", "S", "M", "M/L", "L"],
       currentSizeIndex: 0,
       price: 47,
       quantity: 1,
@@ -62,7 +61,7 @@ const initialState = {
       company: "COLVIN KLEIN",
       price: 53,
       currentImageIndex: 0,
-      multiImages: [
+      image: [
         LoosePaddedJacket,
         LoosePaddedJacket2,
         LoosePaddedJacket3,
@@ -70,7 +69,7 @@ const initialState = {
       ],
       name: "Loose padded Jacket",
       color: "Brown",
-      sizes: ["XS", "S", "M", "M/L", "L"],
+      size: ["XS", "S", "M", "M/L", "L"],
       currentSizeIndex: 0,
       quantity: 1,
     },
@@ -80,7 +79,7 @@ const initialState = {
       price: 29,
       currentImageIndex: 0,
 
-      multiImages: [
+      image: [
         SatinpaddedJacket,
         SatinpaddedJacket2,
         SatinpaddedJacket3,
@@ -88,7 +87,7 @@ const initialState = {
       ],
       name: "Satin Padded Jacket",
       color: "Cyan",
-      sizes: ["XS", "S", "M", "M/L", "L"],
+      size: ["XS", "S", "M", "M/L", "L"],
       currentSizeIndex: 0,
       quantity: 1,
     },
@@ -101,7 +100,7 @@ const productSlice = createSlice({
   reducers: {
     increase(state, action) {
       const { productId } = action.payload;
-      console.log(action.payload)
+      console.log(action.payload);
 
       const foundProduct = state.products.find(
         (product) => product.id === productId
@@ -113,7 +112,6 @@ const productSlice = createSlice({
       }
     },
     decrease(state, action) {
-
       const { productId } = action.payload;
       const foundProduct = state.products.find(
         (product) => product.id === productId
@@ -130,7 +128,7 @@ const productSlice = createSlice({
       if (
         productToChange &&
         newIndex >= 0 &&
-        newIndex < productToChange.multiImages.length
+        newIndex < productToChange.image.length
       ) {
         productToChange.currentImageIndex = newIndex;
       }
@@ -141,7 +139,7 @@ const productSlice = createSlice({
       if (
         sizeToChange &&
         newIndex >= 0 &&
-        newIndex < sizeToChange.sizes.length
+        newIndex < sizeToChange.size.length
       ) {
         sizeToChange.currentSizeIndex = newIndex;
       }

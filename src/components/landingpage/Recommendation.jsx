@@ -75,7 +75,7 @@ const Recommendation = () => {
                   onClick={() => handleSeeMore(items.id)}
                   className="maxw-w-xl text-sm text-left text-blue-500 hover:text-blue-700 hover:underline"
                 >
-                  See More
+                  Go to Detail Page
                 </button>
               </div>
             </div>

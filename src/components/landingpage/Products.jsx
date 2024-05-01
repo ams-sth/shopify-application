@@ -7,8 +7,8 @@ import {
   decrease,
   increase,
 } from "../../redux/features/landingpage/productSlice";
-import { addtocart } from "../../redux/features/cart/cartSlice";
-import { showInfoToast, showSuccessToast } from "../../utils/toast";
+import { showInfoToast } from "../../utils/toast";
+import { handleAddToCart } from "../../utils/cartUtils";
 
 const Products = () => {
   const { products } = useSelector((state) => state.products);
@@ -30,20 +30,6 @@ const Products = () => {
   };
   const handleSizeChange = (productId, newIndex) => {
     dispatch(changeSize({ productId, newIndex }));
-  };
-
-  const handleAddToCart = (product) => {
-    const cartItem = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      quantity: product.quantity,
-      image: product.multiImages[product.currentImageIndex || 0],
-      size: product.sizes[product.currentSizeIndex || 0],
-      imageIndex: product.currentImageIndex || 0,
-    };
-    dispatch(addtocart(cartItem));
-    showSuccessToast("Product Added Successfully");
   };
 
   return (
@@ -69,16 +55,16 @@ const Products = () => {
                 </div>
               </div>
               <img
-                src={product.multiImages[product.currentImageIndex || 0]}
+                src={product.image[product.currentImageIndex || 0]}
                 alt="Not found"
                 className="h-[65%] object-cover rounded-xl"
               />
               <div className="bg-[#FFFF] flex flex-col translate-y-[-9rem] md:translate-y-[-10.5rem] lg:translate-y-[1.5rem] hover:translate-y-[-11rem] xl:hover:translate-y-[-9rem] duration-500">
                 <div className="flex flex-row gap-4 pt-4 justify-center">
-                  {product.multiImages.map((multiImages, index) => (
+                  {product.image.map((images, index) => (
                     <div key={index} className="rounded-xl w-fit">
                       <img
-                        src={multiImages}
+                        src={images}
                         alt="Not found"
                         onClick={() => handleImageChange(product.id, index)}
                         className="cursor-pointer"
@@ -105,7 +91,7 @@ const Products = () => {
                 </div>
                 <h1 className="pt-4">Size: </h1>
                 <div className="flex flex-wrap gap-2 py-2 justify-center overflow-auto">
-                  {product.sizes.map((size, index) => (
+                  {product.size.map((size, index) => (
                     <div
                       key={index}
                       className="border-2 px-2 rounded-md cursor-pointer"
@@ -131,7 +117,7 @@ const Products = () => {
                 </div>
                 <div className="flex justify-center py-4">
                   <button
-                    onClick={() => handleAddToCart(product)}
+                    onClick={() => handleAddToCart(product, dispatch)}
                     className={`bg-blue-600 hover:bg-blue-950 py-2 w-[90%] rounded-xl font-bold text-white `}
                   >
                     Add to Cart

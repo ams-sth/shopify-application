@@ -5,9 +5,11 @@ export const handleAddToCart = (product, dispatch) => {
   if (!product) {
     return;
   }
+  console.log("product.image:", product.image);
+  console.log("product.multiImages:", product.multiImages);
   const cartItem = {
     id: product.id,
-    name: product.productName,
+    name: product.productName || product.name,
     price: product.price,
     quantity: product.quantity,
     image: product.image[product.currentImageIndex || 0],
