@@ -21,10 +21,11 @@ const Cart = () => {
   };
 
   const handleDecrease = (item) => {
+    console.log(item);
     if (item.quantity > 1) {
       dispatch(decrease(item));
     } else {
-      showInfoToast(`Quantity can't be less than 1`);
+      showInfoToast(`Quantity can't be less than 1`, `green`);
     }
   };
 
@@ -53,29 +54,29 @@ const Cart = () => {
                       alt={item.name}
                     />
                   </div>
-                    <div>
-                      <p className="font-semibold whitespace-nowrap text-lg text-gray-900">
-                        {item.name}
-                      </p>
-                      <p className="text-sm text-gray-500">{item.size}</p>
-                    </div>
-                    <div>
-                      <button
-                        className="text-white hover:text-gray-700 bg-gray-500 rounded-full px-2"
-                        onClick={() => handleDecrease(item)}
-                      >
-                        -
-                      </button>
-                      <span className="px-2 text-xl font-semibold text-gray-900">
-                        {item.quantity}
-                      </span>
-                      <button
-                        className="text-white hover:text-gray-700 bg-gray-500 rounded-full px-2"
-                        onClick={() => handleIncrease(item)}
-                      >
-                        +
-                      </button>
-                    </div>
+                  <div>
+                    <p className="font-semibold whitespace-nowrap text-lg text-gray-900">
+                      {item.name}
+                    </p>
+                    <p className="text-sm text-gray-500">{item.size}</p>
+                  </div>
+                  <div>
+                    <button
+                      className="text-white hover:text-gray-700 bg-gray-500 rounded-full px-2"
+                      onClick={() => handleDecrease(item)}
+                    >
+                      -
+                    </button>
+                    <span className="px-2 text-xl font-semibold text-gray-900">
+                      {item.quantity}
+                    </span>
+                    <button
+                      className="text-white hover:text-gray-700 bg-gray-500 rounded-full px-2"
+                      onClick={() => handleIncrease(item)}
+                    >
+                      +
+                    </button>
+                  </div>
 
                   <div>
                     <p className="text-4xl font-bold text-gray-900">

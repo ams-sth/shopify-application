@@ -6,10 +6,11 @@ const toastOptions = {
   autoClose: 5000,
   hideProgressBar: false,
   closeOnClick: true,
+  theme: "colored",
 };
 
 export const showSuccessToast = (message) => {
-  toast.success(message, toastOptions);
+  toast.success(message,toastOptions);
 };
 
 export const showErrorToast = (message) => {
@@ -19,4 +20,3 @@ export const showErrorToast = (message) => {
 export const showInfoToast = (message) => {
   toast.info(message, toastOptions);
 };
-

@@ -1,48 +1,26 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import login from "../../assets/images/authentication/authentication.jpg";
-import { showErrorToast, showInfoToast, showSuccessToast } from "../../utils/toast";
+import { validateForm } from "../../utils/validationUtils";
 
 const Login = () => {
-  const [FormData, setFormData] = useState({
-    email: localStorage.getItem("email"),
-    password: localStorage.getItem("password"),
+  const [formData, setFormData] = useState({
+    email: localStorage.getItem("email") || "",
+    password: localStorage.getItem("password") || "",
   });
 
+  const [errors, setErrors] = useState({});
+
   const handleInputChange = (event) => {
-    setFormData({ ...FormData, [event.target.name]: event.target.value });
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
-  const handleLogin = () => {
-
-    // Validate form fields
-    if (
-      !FormData.email ||
-      !FormData.password
-    ) {
-      // Handle incomplete form
-      showInfoToast("Please fill in all fields");
-      return;
-    }
-    // Retrieve user data from localStorage
-    const storedUserData = JSON.parse(localStorage.getItem("userData"));
-
-    // Check if storedUserData exists
-    if (!storedUserData) {
-      showErrorToast("No registered user found. Please register first.");
-      return;
-    }
-
-    // Check if the entered email and password match the stored user data
-    if (
-      FormData.email === storedUserData.email &&
-      FormData.password === storedUserData.password
-    ) {
-      showSuccessToast("Login successful!");
-      // Redirect to dashboard or any other action
-      
-    } else {
-      showErrorToast("Invalid email or password. Please try again.");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const { errors: validationErrors, isValid } = validateForm(FormData);
+    setErrors(validationErrors);
+    if (isValid) {
+      console.log("Form is valid, can submit:", FormData);
     }
   };
   return (
@@ -52,35 +30,49 @@ const Login = () => {
           <img src={login} alt="Login" className="rounded-l-xl" />
         </div>
         <div className="flex-1 bg-[#F7F8FC] items-center rounded-r-xl md:rounded-xl p-12">
-          <h1 className="text-6xl font-bold mb-5">Welcome</h1>
-          <div className="flex flex-col gap-2">
-            <h1 className="font-bold text-xl text-start">Email</h1>
-            <input
-              name="email"
-              value={FormData.email}
-              type="email"
-              onChange={handleInputChange}
-              className="border-b-2 p-3 rounded-t-xl mb-5"
-              placeholder="Enter your E-mail here"
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <h1 className="font-bold text-xl text-start">Password</h1>
-            <input
-              name="password"
-              value={FormData.password}
-              type="password"
-              onChange={handleInputChange}
-              className="border-b-2 p-3 rounded-t-xl mb-5"
-              placeholder="Enter your Password here"
-            />
-          </div>
-          <button
-            onClick={handleLogin}
-            className="bg-blue-700 hover:bg-blue-900 text-white font-bold w-40 h-12 rounded-xl"
-          >
-            Login
-          </button>
+          <h1 className="text-6xl font-bold ">Welcome</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2">
+                <h1 className="font-bold text-xl text-start">Email</h1>
+                <input
+                  name="email"
+                  value={formData.email}
+                  type="email"
+                  onChange={handleInputChange}
+                  className="border-b-2 p-3 rounded-t-xl "
+                  placeholder="Enter your E-mail here"
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm text-start">
+                    {errors.email}
+                  </p>
+                )}
+              </div>
+              <div className="flex flex-col gap-2">
+                <h1 className="font-bold text-xl text-start">Password</h1>
+                <input
+                  name="password"
+                  value={formData.password}
+                  type="password"
+                  onChange={handleInputChange}
+                  className="border-b-2 p-3 rounded-t-xl "
+                  placeholder="Enter your Password here"
+                />
+                {errors.password && (
+                  <p className="text-red-500 text-sm text-start">
+                    {errors.password}
+                  </p>
+                )}
+              </div>
+              <button
+                type="submit"
+                className="bg-blue-700 hover:bg-blue-900 text-white font-bold w-40 h-12 rounded-xl"
+              >
+                Login
+              </button>
+            </div>
+          </form>
           <div className="flex flex-col md:flex-row gap-1 justify-center p-3">
             <h1>Don't have an account ?</h1>
             <NavLink to="/register" className="text-blue-500">
