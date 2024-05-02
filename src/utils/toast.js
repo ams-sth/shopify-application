@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -10,7 +11,7 @@ const toastOptions = {
 };
 
 export const showSuccessToast = (message) => {
-  toast.success(message,toastOptions);
+  toast.success(message, toastOptions);
 };
 
 export const showErrorToast = (message) => {
@@ -19,4 +20,18 @@ export const showErrorToast = (message) => {
 
 export const showInfoToast = (message) => {
   toast.info(message, toastOptions);
+};
+
+export const showInfoToastWithLink = (message) => {
+  toast.info(
+    <>
+      {message} <Link to="/cart">Go to Cart</Link>
+    </>,
+    {
+      position: "bottom-left",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+    }
+  );
 };

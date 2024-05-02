@@ -98,7 +98,7 @@ const Articles = () => {
               processing included, Shopify has everything you need to get your
               online store up and running.
             </p>
-            <h3 className="text-left">— LUMIA DEVELOPER</h3>
+            <h3 className="text-left"> — LUMIA DEVELOPER</h3>
             <p className="md:max-w-sm text-left">
               Like all other Shopify themes on Envato Market, Lumia Theme comes
               with one license per domain. You will need to buy a second license

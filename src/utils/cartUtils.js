@@ -1,12 +1,10 @@
 import { addtocart } from "../redux/features/cart/cartSlice";
-import { showSuccessToast } from "./toast";
+import { showInfoToastWithLink, showSuccessToast } from "./toast";
 
 export const handleAddToCart = (product, dispatch) => {
   if (!product) {
     return;
   }
-  console.log("product.image:", product.image);
-  console.log("product.multiImages:", product.multiImages);
   const cartItem = {
     id: product.id,
     name: product.productName || product.name,
@@ -19,4 +17,5 @@ export const handleAddToCart = (product, dispatch) => {
   };
   dispatch(addtocart(cartItem));
   showSuccessToast("Product Added Successfully");
+  showInfoToastWithLink();
 };
