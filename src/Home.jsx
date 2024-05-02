@@ -11,7 +11,7 @@ import Shops from "./components/landingpage/Shops";
 import Advertisement from "./components/landingpage/Advertisement";
 import Footer from "./components/landingpage/Footer";
 
-const pages = () => {
+const Home = () => {
   return (
     <div className="flex flex-col gap-40 bg-[#F7F8FC]">
       <Advertisement />
@@ -29,4 +29,4 @@ const pages = () => {
   );
 };
 
-export default pages;
+export default Home;

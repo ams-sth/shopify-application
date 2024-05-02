@@ -39,13 +39,25 @@ const Footer = () => {
               100 international fashion brands.
             </p>
             <div className="flex flex-row gap-4 pt-4">
-              <a href="https://www.instagram.com/">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaInstagram size={32} className="text-white" />
               </a>
-              <a href="https://www.facebook.com/">
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaFacebook size={32} className="text-white" />
               </a>
-              <a href="https://www.youtube.com/">
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaYoutube size={32} className="text-white" />
               </a>
             </div>

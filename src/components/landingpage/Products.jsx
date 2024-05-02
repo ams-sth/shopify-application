@@ -6,6 +6,7 @@ import {
   changeSize,
   decrease,
   increase,
+  setProductRating,
 } from "../../redux/features/landingpage/productSlice";
 import { showInfoToast } from "../../utils/toast";
 import { handleAddToCart } from "../../utils/cartUtils";
@@ -24,9 +25,11 @@ const Products = () => {
       showInfoToast(`Quantity can't be less than 1`);
     }
   };
-
   const handleImageChange = (productId, newIndex) => {
     dispatch(changeImage({ productId, newIndex }));
+  };
+  const handleRatingChange = (productId, rating) => {
+    dispatch(setProductRating({ productId, rating }));
   };
   const handleSizeChange = (productId, newIndex) => {
     dispatch(changeSize({ productId, newIndex }));
@@ -40,14 +43,14 @@ const Products = () => {
           Admin panel allows you to add, delete, edit subtitles
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-8 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-8 gap-4">
         {products.map((product) => (
           <div
             key={product.id}
-            className="flex flex-col rounded-2xl bg-[#FFFF] shadow-lg overflow-hidden flex-1"
+            className="lg:flex flex-col rounded-2xl bg-[#FFFF] shadow-lg overflow-hidden"
           >
             <div className="p-4">
-              <div className="flex flex-row justify-between flex-1 pt-4">
+              <div className="flex flex-row justify-between">
                 <h1 className="font-bold text-xs">{product.company}</h1>
                 <div className="flex gap-1 translate-y-[-0.5rem]">
                   <h1 className="translate-y-[0.4rem]">$</h1>
@@ -57,29 +60,28 @@ const Products = () => {
               <img
                 src={product.image[product.currentImageIndex || 0]}
                 alt="Not found"
-                className="h-[65%] object-cover rounded-xl"
+                className="h-[70%] object-cover rounded-xl"
               />
-              <div className="bg-[#FFFF] flex flex-col translate-y-[-9rem] md:translate-y-[-10.5rem] lg:translate-y-[1.5rem] hover:translate-y-[-11rem] xl:hover:translate-y-[-9rem] duration-500">
-                <div className="flex flex-row gap-4 pt-4 justify-center">
+              <div className="bg-[#FFFF] translate-y-2 lg:hover:-translate-y-[55%] xl:hover:-translate-y-1/2 duration-500">
+                <div className="flex gap-2 pt-4 overflow-x-auto">
                   {product.image.map((images, index) => (
-                    <div key={index} className="rounded-xl w-fit">
-                      <img
-                        src={images}
-                        alt="Not found"
-                        onClick={() => handleImageChange(product.id, index)}
-                        className="cursor-pointer"
-                        style={{
-                          border:
-                            index === (product.currentImageIndex || 0)
-                              ? "2px solid blue"
-                              : "2px solid gray",
-                        }}
-                      />
-                    </div>
+                    <img
+                      key={index}
+                      src={images}
+                      alt="Not found"
+                      onClick={() => handleImageChange(product.id, index)}
+                      className="cursor-pointer w-[25%]"
+                      style={{
+                        border:
+                          index === (product.currentImageIndex || 0)
+                            ? "2px solid blue"
+                            : "2px solid gray",
+                      }}
+                    />
                   ))}
                 </div>
                 <h1 className="pt-4">{product.name}</h1>
-                <div className="pt-2 mx-auto">
+                <div className="pt-2 mx-auto flex justify-center">
                   <ReactStars
                     count={5}
                     size={24}
@@ -87,10 +89,14 @@ const Products = () => {
                     color1={"#333"}
                     color2={"#f4c10f"}
                     edit={true}
+                    onChange={(newRating) =>
+                      handleRatingChange(product.id, newRating)
+                    }
+                    value={product.rating}
                   />
                 </div>
-                <h1 className="pt-4">Size: </h1>
-                <div className="flex flex-wrap gap-2 py-2 justify-center overflow-auto">
+                <h1 className="pt-4 px-4 text-left">Size: </h1>
+                <div className="flex flex-wrap gap-2 py-2 justify-center">
                   {product.size.map((size, index) => (
                     <div
                       key={index}

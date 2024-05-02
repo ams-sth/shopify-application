@@ -26,6 +26,7 @@ const initialState = {
       currentImageIndex: 0,
       image: [Shorts, Shorts, Shorts, Shorts],
       name: "Short demin shorts",
+      rating: 0,
       color: "Dark Blue",
       size: ["XS", "S", "M", "M/L", "L"],
       currentSizeIndex: 0,
@@ -42,10 +43,7 @@ const initialState = {
         MenSmoothJacketFour,
       ],
       name: "Men's Smooth Jacket",
-      description: `A sweater or pullover also called a jersey or jumper, is a piece of clothing, 
-      typically with long sleeves, made of knitted or crocheted material, 
-      that covers the upper part of the body. When sleeveless, 
-      the garment is often called a slipover, tank top, or sweater vest.`,
+      rating: 0,
       type: "Sweater",
       sku: "M75009BL1",
       weight: "0.65 kg",
@@ -66,8 +64,10 @@ const initialState = {
         LoosePaddedJacket2,
         LoosePaddedJacket3,
         LoosePaddedJacket4,
+        LoosePaddedJacket4,
       ],
       name: "Loose padded Jacket",
+      rating: 0,
       color: "Brown",
       size: ["XS", "S", "M", "M/L", "L"],
       currentSizeIndex: 0,
@@ -78,7 +78,6 @@ const initialState = {
       company: "COLVIN KLEIN",
       price: 29,
       currentImageIndex: 0,
-
       image: [
         SatinpaddedJacket,
         SatinpaddedJacket2,
@@ -86,6 +85,7 @@ const initialState = {
         SatinpaddedJacket4,
       ],
       name: "Satin Padded Jacket",
+      rating: 0,
       color: "Cyan",
       size: ["XS", "S", "M", "M/L", "L"],
       currentSizeIndex: 0,
@@ -133,6 +133,13 @@ const productSlice = createSlice({
         productToChange.currentImageIndex = newIndex;
       }
     },
+    setProductRating(state, action) {
+      const { productId, rating } = action.payload;
+      const product = state.products.find((product) => product.id === productId);
+      if (product) {
+        product.rating = rating;
+      }
+    },
     changeSize(state, action) {
       const { productId, newIndex } = action.payload;
       const sizeToChange = state.products.find((p) => p.id === productId);
@@ -147,6 +154,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { increase, decrease, changeImage, changeSize } =
+export const { increase, decrease, changeImage,setProductRating, changeSize } =
   productSlice.actions;
 export default productSlice.reducer;

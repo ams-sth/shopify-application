@@ -7,6 +7,9 @@ import {
   removefromcart,
 } from "../../redux/features/cart/cartSlice";
 import { showInfoToast } from "../../utils/toast";
+import { MdDelete } from "react-icons/md";
+import { FaMinus, FaPlus } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -30,26 +33,32 @@ const Cart = () => {
   };
 
   return (
-    <div className="container px-4">
+    <div className="bg-[#F4F4F4] container px-4">
       <h1 className="text-4xl font-bold text-start py-4">Shopping Cart</h1>
-      <div className="flex flex-col justify-start md:justify-betweenbg-[#FFFF] border-2 rounded-xl">
-        <div className="w-full">
+      <div className="md:flex flex-row gap-4">
+        <div className="md:w-[70%]">
           {cartItems.length === 0 ? (
-            <div className="bg-white p-8">
-              <p className="text-lg font-semibold text-gray-600">
+            <div className="p-8">
+              <p className="text-lg font-semibold text-gray-600 mb-4">
                 Your cart is empty
               </p>
+              <NavLink
+                to="/"
+                className="bg-blue-700 hover:bg-blue-800 text-white rounded-xl p-3"
+              >
+                Go to Shopping
+              </NavLink>
             </div>
           ) : (
-            <div className="flex flex-col gap-4 p-4">
+            <div className=" md:flex flex-col gap-4 py-4">
               {cartItems.map((item) => (
                 <div
                   key={item.id}
-                  className="grid grid-cols-1 md:grid-cols-4 items-center"
+                  className="bg-[#FFFF] grid grid-cols-1 md:grid-cols-4 items-center"
                 >
-                  <div>
+                  <div className="p-4 mx-auto md:mx-0">
                     <img
-                      className="object-cover"
+                      className="object-cover w-32 rounded-xl"
                       src={item.image}
                       alt={item.name}
                     />
@@ -58,35 +67,38 @@ const Cart = () => {
                     <p className="font-semibold whitespace-nowrap text-lg text-gray-900">
                       {item.name}
                     </p>
-                    <p className="text-sm text-gray-500">{item.size}</p>
-                  </div>
-                  <div>
+                    <div>
+                      <span className="text-sm font-semibold text-gray-500">
+                        Size:
+                      </span>
+                      <span className="text-sm text-gray-500">{item.size}</span>
+                    </div>
                     <button
-                      className="text-white hover:text-gray-700 bg-gray-500 rounded-full px-2"
+                      onClick={() => handleDelete(item.id)}
+                      className="text-red-500 hover:text-red-700"
+                    >
+                      <MdDelete />
+                    </button>
+                  </div>
+
+                  <p className="mb-8 text-xl font-bold text-gray-900">
+                    ${item.price}
+                  </p>
+                  <div className="mb-8">
+                    <button
+                      className="text-white hover:text-gray-700 bg-gray-500 p-1"
                       onClick={() => handleDecrease(item)}
                     >
-                      -
+                      <FaMinus />
                     </button>
                     <span className="px-2 text-xl font-semibold text-gray-900">
                       {item.quantity}
                     </span>
                     <button
-                      className="text-white hover:text-gray-700 bg-gray-500 rounded-full px-2"
+                      className="text-white hover:text-gray-700 bg-gray-500 p-1"
                       onClick={() => handleIncrease(item)}
                     >
-                      +
-                    </button>
-                  </div>
-
-                  <div>
-                    <p className="text-4xl font-bold text-gray-900">
-                      ${item.price}
-                    </p>
-                    <button
-                      onClick={() => handleDelete(item.id)}
-                      className="text-red-500 hover:text-red-700"
-                    >
-                      Remove from cart
+                      <FaPlus />
                     </button>
                   </div>
                 </div>
@@ -94,15 +106,18 @@ const Cart = () => {
             </div>
           )}
         </div>
-        <div className="border-t-2 flex flex-col items-end gap-2 p-4">
-          <span className="text-2xl font-bold">
-            Total Price: $
-            {cartItems.reduce(
-              (total, item) => total + item.price * item.quantity,
-              0
-            )}
-          </span>
-          <button className="bg-blue-600 right-0 text-white rounded-md w-full p-2 md:w-[10%] text-center font-semibold">
+        <div className="bg-[#FFFF] flex flex-col gap-2 p-4 md:w-[30%] h-full my-4 ">
+          <h1 className="font-semibold text-xl">Order Summary </h1>
+          <div>
+            <span className="text-sm font-semibold">Total Price: $</span>
+            <span>
+              {cartItems.reduce(
+                (total, item) => total + item.price * item.quantity,
+                0
+              )}
+            </span>
+          </div>
+          <button className="bg-blue-600 right-0 text-white rounded-md w-full p-2 text-center font-semibold">
             Checkout
           </button>
         </div>

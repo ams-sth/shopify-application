@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 
 const Articles = () => {
   const { blogId } = useParams();
@@ -9,11 +10,11 @@ const Articles = () => {
 
   const blogs = articles.find((blog) => blog.id === parseInt(blogId));
   return (
-    <div className="container">
+    <div className="container px-4">
       <div className="flex flex-col gap-8">
         <img src={blogs.image} alt="Article-01" className="rounded-2xl" />
         <h1 className="text-xl font-bold">The perfect Shopify theme</h1>
-        <div className="flex justify-center gap-8">
+        <div className="md:flex justify-center gap-8">
           <div>
             <span className="font-semibold">Date:</span>
             <span> January 19, 2023</span>
@@ -23,8 +24,31 @@ const Articles = () => {
             <span> lumia admin</span>
           </div>
         </div>
-        <div className="flex flex-row-reverse justify-center gap-8">
-          <div className="w-[40%]">
+        <div className="flex justify-center gap-4">
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram size={32} className="text-[#FE026E]" />
+          </a>
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook size={32} className="text-[#0866FF]" />
+          </a>
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaYoutube size={32} className="text-[#FF0000]" />
+          </a>
+        </div>
+        <div className="md:flex flex-row-reverse justify-center gap-8">
+          <div className="md:w-[40%]">
             <img
               src="https://cdn.shopify.com/s/files/1/1323/8419/files/blog-post-02.png?v=1650963866"
               alt="02.jpg"
@@ -32,13 +56,13 @@ const Articles = () => {
             />
           </div>
           <div className="flex flex-col gap-4 pt-4">
-            <p className="max-w-sm text-left">
+            <p className="md:max-w-sm text-left">
               Shopify is the second most popular eCommerce store builder in the
               world. You can use Shopify in nearly every country in the world.
             </p>
             <h1 className="text-start">—ECOMMERCE EXPERT</h1>
 
-            <p className="max-w-sm text-left">
+            <p className="md:max-w-sm text-left">
               Lumia is the perfect theme for anyone who wants to create a
               shopify store without needing to worry about additional apps. For
               example, the theme includes a built-in mega menu, so you won't
@@ -59,8 +83,8 @@ const Articles = () => {
           them, but it has more features. With Lumia you can add 3D model for
           any product variant instead of image
         </p>
-        <div className="flex justify-center gap-8">
-          <div className="w-[40%]">
+        <div className="md:flex justify-center gap-8">
+          <div className="md:w-[40%]">
             <img
               src="https://cdn.shopify.com/s/files/1/1323/8419/files/blog-post-03.png?v=1650963683"
               alt="003.jpg"
@@ -68,14 +92,14 @@ const Articles = () => {
             />
           </div>
           <div className="flex flex-col gap-8 pt-8">
-            <p className="max-w-sm text-left">
+            <p className="md:max-w-sm text-left">
               If you're looking for a comprehensive ecommerce solution, Shopify
               is the platform for you. With everything from themes to payment
               processing included, Shopify has everything you need to get your
               online store up and running.
             </p>
             <h3 className="text-left">— LUMIA DEVELOPER</h3>
-            <p className="max-w-sm text-left">
+            <p className="md:max-w-sm text-left">
               Like all other Shopify themes on Envato Market, Lumia Theme comes
               with one license per domain. You will need to buy a second license
               if you want to open a second store and use our theme. Each store
@@ -120,12 +144,12 @@ const Articles = () => {
           run out. So, if you're looking for an easy way to set up
           subscriptions, Lumia is the perfect solution.
         </p>
-        <div className="flex justify-center">
+        <div className="md:flex justify-center">
           <div>
             <img
               src="https://cdn.shopify.com/s/files/1/1323/8419/files/blog-post-04.png?v=1650963683"
               alt="004.jpg"
-              className="rounded-xl h-[90%]  object-contain"
+              className="rounded-xl h-[90%] object-contain mb-5 md:mb-0"
             />
           </div>
           <div>
