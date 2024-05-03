@@ -1,12 +1,68 @@
 import React from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import {
+  FaArrowCircleLeft,
+  FaArrowCircleRight,
+  FaFacebook,
+  FaInstagram,
+  FaYoutube,
+} from "react-icons/fa";
+import Slider from "react-slick";
 
 const Articles = () => {
+  var settings = {
+    dots: true,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    nextArrow: (
+      <div>
+        <div className="next-slick-arrow">
+          <FaArrowCircleRight />
+        </div>
+      </div>
+    ),
+    prevArrow: (
+      <div>
+        <div className="prev-slick-arrow">
+          <FaArrowCircleLeft />
+        </div>
+      </div>
+    ),
+
+    responsive: [
+      {
+        breakpoint: 904,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 567,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   const { blogId } = useParams();
 
-  const { articles } = useSelector((state) => state.blogs);
+  const { articles, tags } = useSelector((state) => state.blogs);
 
   const blogs = articles.find((blog) => blog.id === parseInt(blogId));
   return (
@@ -156,13 +212,44 @@ const Articles = () => {
             <img
               src="https://cdn.shopify.com/s/files/1/1323/8419/files/blog-post-05.png?v=1650963683"
               alt="005.jpg"
-              className="rounded-xl h-[90%] pbject-contain"
+              className="rounded-xl h-[90%] object-contain"
             />
           </div>
         </div>
         <NavLink to="/blogs" className="hover:text-blue-600">
           Go back to blog
         </NavLink>
+        <h1 className="text-xl font-bold">Tags</h1>
+        <div className="flex gap-3 justify-center">
+          {tags.map((tag) => (
+            <div className="bg-[#FFFF] border rounded-md p-2 items-center">
+              {tag}
+            </div>
+          ))}
+        </div>
+        <div className="overflow-hidden pb-8">
+          <Slider {...settings}>
+            {articles.map((link) => (
+              <div>
+                <img
+                  src={link.image}
+                  alt="Links"
+                  className="object-cover px-4 h-[60vh]"
+                />
+                <div className="flex flex-row justify-center gap-16">
+                  <div>
+                    <span>Date:</span>
+                    <span>{link.date}</span>
+                  </div>
+                  <div>
+                    <span>PostedBy:</span>
+                    <span>Lumia Admin</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
     </div>
   );

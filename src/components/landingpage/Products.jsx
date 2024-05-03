@@ -10,6 +10,7 @@ import {
 } from "../../redux/features/landingpage/productSlice";
 import { showInfoToast } from "../../utils/toast";
 import { handleAddToCart } from "../../utils/cartUtils";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 const Products = () => {
   const { products } = useSelector((state) => state.products);
@@ -18,11 +19,12 @@ const Products = () => {
   const handleIncrease = (product) => {
     dispatch(increase({ productId: product.id }));
   };
-  const handleDecrease = (product) => {
+  const handleDecrease = (product, event) => {
     if (product.quantity > 1) {
       dispatch(decrease({ productId: product.id }));
     } else {
       showInfoToast(`Quantity can't be less than 1`);
+      event.preventDefault();
     }
   };
   const handleImageChange = (productId, newIndex) => {
@@ -62,7 +64,7 @@ const Products = () => {
                 alt="Not found"
                 className="h-[70%] object-cover rounded-xl"
               />
-              <div className="bg-[#FFFF] translate-y-2 lg:hover:-translate-y-[55%] xl:hover:-translate-y-1/2 duration-500">
+              <div className="bg-[#FFFF] translate-y-0 lg:hover:-translate-y-[55%] xl:hover:-translate-y-1/2 duration-500">
                 <div className="flex gap-2 pt-4 overflow-x-auto">
                   {product.image.map((images, index) => (
                     <img
@@ -95,7 +97,6 @@ const Products = () => {
                     value={product.rating}
                   />
                 </div>
-                <h1 className="pt-4 px-4 text-left">Size: </h1>
                 <div className="flex flex-wrap gap-2 py-2 justify-center">
                   {product.size.map((size, index) => (
                     <div
@@ -115,11 +116,27 @@ const Products = () => {
                     </div>
                   ))}
                 </div>
-                <div className="flex flex-row gap-4 justify-center pt-4">
-                  <h1 className="font-semibold">Quantity:</h1>
-                  <button onClick={() => handleDecrease(product)}>-</button>
-                  <h1>{product.quantity}</h1>
-                  <button onClick={() => handleIncrease(product)}>+</button>
+                <div className="flex flex-row gap-1 justify-center pt-4">
+                  <button
+                    className={`text-white bg-blue-500 rounded-full p-2
+                      ${
+                        product.quantity <= 1
+                          ? "disabled bg-gray-500 text-gray-700"
+                          : ""
+                      }`}
+                    onClick={(e) => handleDecrease(product, e)}
+                  >
+                    <FaMinus />
+                  </button>
+                  <span className="px-2 text-xl font-semibold text-gray-900">
+                    {product.quantity}
+                  </span>
+                  <button
+                    className="text-white hover:text-blue-700 bg-blue-500 rounded-full p-2"
+                    onClick={() => handleIncrease(product)}
+                  >
+                    <FaPlus />
+                  </button>
                 </div>
                 <div className="flex justify-center py-4">
                   <button

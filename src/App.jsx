@@ -16,6 +16,8 @@ import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 import Details from "./components/pages/Details";
 import Articles from "./components/pages/Articles";
+import Checkout from "./components/cart/Checkout";
+import Profile from "./components/authentication/Profile";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -66,6 +68,15 @@ const App = () => {
           element={
             <UserLayout>
               <Register />
+            </UserLayout>
+          }
+        />
+
+        <Route
+          path="/profile"
+          element={
+            <UserLayout>
+              <Profile />
             </UserLayout>
           }
         />
@@ -133,6 +144,14 @@ const App = () => {
           element={
             <UserLayout>
               <Cart />
+            </UserLayout>
+          }
+        />
+        <Route
+          path="/checkout"
+          element={
+            <UserLayout>
+              <Checkout />
             </UserLayout>
           }
         />

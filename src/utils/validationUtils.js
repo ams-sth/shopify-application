@@ -1,27 +1,102 @@
-export const validateForm = (FormData) => {
+export const validateRegisterForm = (FormData) => {
   let errors = {};
   let isValid = true;
 
   if (!FormData.firstName) {
-    errors.firstName = "Please enter your first name";
+    errors.firstName = "Enter your first name";
     isValid = false;
   }
 
   if (!FormData.lastName) {
-    errors.lastName = "Please enter your last name";
+    errors.lastName = "Enter your last name";
     isValid = false;
   }
 
   if (!FormData.email) {
-    errors.email = "Please enter your email address";
+    errors.email = "Enter your email address";
     isValid = false;
   } else if (!/\S+@\S+\.\S+/.test(FormData.email)) {
-    errors.email = "Please enter a valid email address";
+    errors.email = "Enter your valid email address";
     isValid = false;
   }
 
   if (!FormData.password) {
-    errors.password = "Please enter your password";
+    errors.password = "Enter your password";
+    isValid = false;
+  }
+  return { errors, isValid };
+};
+
+export const validateLoginForm = (FormData) => {
+  let errors = {};
+  let isValid = true;
+
+  if (!FormData.email) {
+    errors.email = "Enter your email address";
+    isValid = false;
+  } else if (!/\S+@\S+\.\S+/.test(FormData.email)) {
+    errors.email = "Enter your valid email address";
+    isValid = false;
+  }
+
+  if (!FormData.password) {
+    errors.password = "Enter your password";
+    isValid = false;
+  }
+  return { errors, isValid };
+};
+
+export const ValidateCheckoutForm = (FormData) => {
+  let errors = {};
+  let isValid = true;
+  if (!FormData.lastName) {
+    errors.lastName = "Enter your last name";
+    isValid = false;
+  }
+
+  if (!FormData.email) {
+    errors.email = "Enter your email address";
+    isValid = false;
+  } else if (!/\S+@\S+\.\S+/.test(FormData.email)) {
+    errors.email = "Enter your valid email address";
+    isValid = false;
+  }
+
+  if (!FormData.address) {
+    errors.address = "Enter your address";
+    isValid = false;
+  }
+
+  if (!FormData.city) {
+    errors.city = "Enter a City";
+    isValid = false;
+  }
+  if (!FormData.state) {
+    errors.state = "Select state/province";
+    isValid = false;
+  }
+  if (!FormData.zipCode) {
+    errors.zipCode = "Enter a ZIP/Postal code";
+    isValid = false;
+  }
+
+  if (!FormData.cardNumber) {
+    errors.cardNumber = "Enter your Card Number";
+    isValid = false;
+  }
+
+  if (!FormData.expirationDate) {
+    errors.expirationDate = "Enter a valid expiration date";
+    isValid = false;
+  }
+
+  if (!FormData.securityCode) {
+    errors.securityCode = "Enter the CVV or security code on your card";
+    isValid = false;
+  }
+
+  if (!FormData.cardName) {
+    errors.cardName = `Enter your name exactly as its written on your card`;
     isValid = false;
   }
 

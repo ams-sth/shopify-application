@@ -6,10 +6,11 @@ import {
   decrease,
   removefromcart,
 } from "../../redux/features/cart/cartSlice";
-import { showInfoToast } from "../../utils/toast";
 import { MdDelete } from "react-icons/md";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { calculateItemPrice } from "../../utils/cartUtils";
+import { showInfoToast } from "../../utils/toast";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -23,12 +24,12 @@ const Cart = () => {
     dispatch(increase(item));
   };
 
-  const handleDecrease = (item) => {
-    console.log(item);
+  const handleDecrease = (item, event) => {
     if (item.quantity > 1) {
       dispatch(decrease(item));
     } else {
-      showInfoToast(`Quantity can't be less than 1`, `green`);
+      showInfoToast("Quantity cant be less than one");
+      event.preventDefault();
     }
   };
 
@@ -54,7 +55,7 @@ const Cart = () => {
               {cartItems.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-[#FFFF] grid grid-cols-1 md:grid-cols-4 items-center"
+                  className="bg-[#FFFF] grid grid-cols-1 md:grid-cols-6 gap-4 items-center"
                 >
                   <div className="p-4 mx-auto md:mx-0">
                     <img
@@ -73,21 +74,20 @@ const Cart = () => {
                       </span>
                       <span className="text-sm text-gray-500">{item.size}</span>
                     </div>
-                    <button
-                      onClick={() => handleDelete(item.id)}
-                      className="text-red-500 hover:text-red-700"
-                    >
-                      <MdDelete />
-                    </button>
                   </div>
 
-                  <p className="mb-8 text-xl font-bold text-gray-900">
+                  <p className="mb-7 text-xl font-bold text-gray-900">
                     ${item.price}
                   </p>
-                  <div className="mb-8">
+                  <div className="mb-7">
                     <button
-                      className="text-white hover:text-gray-700 bg-gray-500 p-1"
-                      onClick={() => handleDecrease(item)}
+                      className={`text-white  bg-blue-500 rounded-full p-2
+                      ${
+                        item.quantity <= 1
+                          ? "disabled bg-gray-500 text-gray-700"
+                          : ""
+                      }`}
+                      onClick={(e) => handleDecrease(item, e)}
                     >
                       <FaMinus />
                     </button>
@@ -95,12 +95,21 @@ const Cart = () => {
                       {item.quantity}
                     </span>
                     <button
-                      className="text-white hover:text-gray-700 bg-gray-500 p-1"
+                      className="text-white hover:text-blue-700 bg-blue-500 rounded-full p-2"
                       onClick={() => handleIncrease(item)}
                     >
                       <FaPlus />
                     </button>
                   </div>
+                  <h1 className="mb-7 font-semibold text-xl">
+                    $ {calculateItemPrice(item)}
+                  </h1>
+                  <button
+                    onClick={() => handleDelete(item.id)}
+                    className="mb-7 text-red-500 hover:text-red-700"
+                  >
+                    <MdDelete />
+                  </button>
                 </div>
               ))}
             </div>
@@ -117,9 +126,23 @@ const Cart = () => {
               )}
             </span>
           </div>
-          <button className="bg-blue-600 right-0 text-white rounded-md w-full p-2 text-center font-semibold">
+          <NavLink
+            to="/checkout"
+            className={`bg-blue-600 right-0 text-white rounded-md w-full p-2 text-center font-semibold
+              ${
+                cartItems.length === 0
+                  ? "disabled bg-gray-500 text-gray-700"
+                  : ""
+              }`}
+            onClick={(e) => {
+              if (cartItems.length === 0) {
+                e.preventDefault();
+                showInfoToast("Your Cart is Empty");
+              }
+            }}
+          >
             Checkout
-          </button>
+          </NavLink>
         </div>
       </div>
     </div>

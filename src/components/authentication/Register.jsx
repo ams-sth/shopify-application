@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import register from "../../assets/images/authentication/authentication.jpg";
 import { NavLink } from "react-router-dom";
-import { validateForm } from "../../utils/validationUtils";
+import { validateRegisterForm } from "../../utils/validationUtils";
+import { showSuccessToast } from "../../utils/toast";
 
 const Register = () => {
   const [errors, setErrors] = useState({});
 
-  const [FormData, setFormData] = useState({
+  const [formData, setformData] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -14,15 +15,25 @@ const Register = () => {
   });
 
   const handleInputChange = (event) => {
-    setFormData({ ...FormData, [event.target.name]: event.target.value });
+    setformData({ ...formData, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { errors: validationErrors, isValid } = validateForm(FormData);
+    console.log("Form submitted");
+    const { errors: validationErrors, isValid } =
+      validateRegisterForm(formData);
     setErrors(validationErrors);
     if (isValid) {
-      console.log("Form is valid, can submit:", FormData);
+      try {
+        localStorage.setItem("formData", JSON.stringify(formData));
+        showSuccessToast("Account Created SuccessFully");
+        
+      } catch (error) {
+        console.error("Error saving to localStorage:", error);
+      }
+    } else {
+      console.log("Saving to LocalStoage Failed", formData);
     }
   };
 
@@ -44,7 +55,7 @@ const Register = () => {
                 <h1 className="font-bold text-xl text-left">First Name</h1>
                 <input
                   name="firstName"
-                  value={FormData.firstName}
+                  value={formData.firstName}
                   onChange={handleInputChange}
                   className="border-b-2 p-3 md:rounded-t-xl "
                   placeholder="Enter your First Name here"
@@ -59,7 +70,7 @@ const Register = () => {
                 <h1 className="font-bold text-xl text-start">Last Name</h1>
                 <input
                   name="lastName"
-                  value={FormData.lastName}
+                  value={formData.lastName}
                   onChange={handleInputChange}
                   className="border-b-2 p-3 rounded-t-xl"
                   placeholder="Enter your Last Name here"
@@ -74,7 +85,7 @@ const Register = () => {
                 <h1 className="font-bold text-xl text-start">Email</h1>
                 <input
                   name="email"
-                  value={FormData.email}
+                  value={formData.email}
                   onChange={handleInputChange}
                   className="border-b-2 p-3 rounded-t-xl"
                   placeholder="Enter your E-mail here"
@@ -89,7 +100,7 @@ const Register = () => {
                 <h1 className="font-bold text-xl text-start">Password</h1>
                 <input
                   name="password"
-                  value={FormData.password}
+                  value={formData.password}
                   onChange={handleInputChange}
                   className="border-b-2 p-3 rounded-t-xl "
                   placeholder="Enter your Password here"

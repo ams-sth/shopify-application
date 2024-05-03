@@ -32,7 +32,7 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
 
   return (
     <div
-      className={`relative z-20`}
+      className={`sticky w-[100%] z-[30]`}
       style={{ background: bg, color: textColor, boxShadow: shadow }}
     >
       <div className="container px-4 top-0">

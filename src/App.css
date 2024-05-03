@@ -14,8 +14,6 @@
   }
 }
 
-
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -40,7 +38,24 @@
   }
 }
 
-.slick-list{
+/* React-Slick */
+.slick-list {
   overflow: visible !important;
 }
 
+.slick-prev {
+  left: 0rem !important;
+  z-index: 30;
+}
+.slick-next {
+  right: 1rem !important;
+}
+.slick-next:before,
+.slick-prev:before {
+  content: "" !important;
+}
+.next-slick-arrow,
+.prev-slick-arrow {
+  color: #22292f;
+  font-size: 30px;
+}

@@ -47,6 +47,8 @@ const initialState = {
                     The theme is fully translated into all maj...`,
     },
   ],
+
+  tags: ["accessories", "dresses", "clothes", "trends", "style"],
 };
 
 const blogSlice = createSlice({

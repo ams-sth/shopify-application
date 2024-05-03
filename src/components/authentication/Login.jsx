@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import login from "../../assets/images/authentication/authentication.jpg";
-import { validateForm } from "../../utils/validationUtils";
+import { validateLoginForm } from "../../utils/validationUtils";
+import { showErrorToast, showSuccessToast } from "../../utils/toast";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -17,10 +18,23 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { errors: validationErrors, isValid } = validateForm(FormData);
+    const { errors: validationErrors, isValid } = validateLoginForm(formData);
     setErrors(validationErrors);
     if (isValid) {
-      console.log("Form is valid, can submit:", FormData);
+      const storedData = localStorage.getItem("formData");
+      if (storedData) {
+        const userData = JSON.parse(storedData);
+        if (
+          userData.email === formData.email &&
+          userData.password === formData.password
+        ) {
+          showSuccessToast("Login Successful");
+        } else {
+          showErrorToast("Invalid email or password");
+        }
+      } else {
+        showErrorToast("No registration data found in localStorage");
+      }
     }
   };
   return (

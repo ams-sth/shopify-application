@@ -19,3 +19,7 @@ export const handleAddToCart = (product, dispatch) => {
   showSuccessToast("Product Added Successfully");
   showInfoToastWithLink();
 };
+
+export const calculateItemPrice = (item) => {
+  return item.price * item.quantity;
+};

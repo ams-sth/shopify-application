@@ -15,7 +15,7 @@ const AboutUs = () => {
   return (
     <div className="container px-4">
       <div className="flex lg:flex-row flex-col-reverse  items-center">
-        <div className="lg:w-[60%] xl:w-[40%] lg:-mr-12 z-[999] bg-white rounded-2xl">
+        <div className="lg:w-[60%] xl:w-[40%] lg:-mr-12 z-[20] bg-white rounded-2xl">
           <div className="border border-gray-300 shadow-md rounded-2xl p-4 md:p-10">
             <FaQuoteLeft />
             <i className="text-xl font-light fon-georgia">
