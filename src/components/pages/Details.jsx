@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom";
 import product01 from "../../assets/images/detail/product-01.jpg";
 import product02 from "../../assets/images/detail/product-02.jpg";
 import { handleAddToCart } from "../../utils/cartUtils";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
 const Details = () => {
   const { productId } = useParams();
@@ -27,11 +28,12 @@ const Details = () => {
   const handleQuantityIncrease = () => {
     dispatch(increase(product.id));
   };
-  const handleQuantityDecrease = () => {
+  const handleQuantityDecrease = (event) => {
     if (product.quantity > 1) {
       dispatch(decrease(product.id));
     } else {
       showInfoToast("Quantity can't be less than 1");
+      event.preventDefault();
     }
   };
 
@@ -126,18 +128,24 @@ const Details = () => {
             <h1 className="text-xl text-start">Quantity</h1>
             <div className="flex flex-row gap-4">
               <button
-                className="font-semibold text-white bg-blue-600 hover:bg-blue-500 rounded-full px-4 py-2"
-                onClick={handleQuantityDecrease}
+                className={`text-white bg-blue-500 rounded-full p-2
+                      ${
+                        product.quantity <= 1
+                          ? "disabled bg-gray-500 text-gray-700"
+                          : ""
+                      }`}
+                onClick={(e) => handleQuantityDecrease(e)}
               >
-                -
+                <FaMinus />
               </button>
-
-              <h1 className="font-bold text-4xl">{product.quantity}</h1>
+              <span className="px-2 text-xl font-semibold text-gray-900">
+                {product.quantity}
+              </span>
               <button
-                className="font-semibold text-white bg-blue-600 hover:bg-blue-800 rounded-full px-4"
+                className="text-white hover:text-blue-700 bg-blue-500 rounded-full p-2"
                 onClick={handleQuantityIncrease}
               >
-                +
+                <FaPlus />
               </button>
             </div>
             <button

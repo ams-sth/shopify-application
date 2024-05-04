@@ -35,7 +35,6 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route
           path="/details/:productId"
           element={
@@ -44,7 +43,6 @@ const App = () => {
             </UserLayout>
           }
         />
-
         <Route
           path="/about"
           element={
@@ -53,7 +51,6 @@ const App = () => {
             </UserLayout>
           }
         />
-
         <Route
           path="/login"
           element={
@@ -62,16 +59,6 @@ const App = () => {
             </UserLayout>
           }
         />
-
-        <Route
-          path="/register"
-          element={
-            <UserLayout>
-              <Register />
-            </UserLayout>
-          }
-        />
-
         <Route
           path="/profile"
           element={
@@ -80,7 +67,14 @@ const App = () => {
             </UserLayout>
           }
         />
-
+        <Route
+          path="/register"
+          element={
+            <UserLayout>
+              <Register />
+            </UserLayout>
+          }
+        />
         <Route
           path="/contact"
           element={
@@ -89,7 +83,6 @@ const App = () => {
             </UserLayout>
           }
         />
-
         <Route
           path="/faq"
           element={
@@ -130,7 +123,6 @@ const App = () => {
             </UserLayout>
           }
         />
-
         <Route
           path="/accessories"
           element={

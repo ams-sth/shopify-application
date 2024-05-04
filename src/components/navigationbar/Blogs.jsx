@@ -66,8 +66,8 @@ const Blogs = () => {
           </div>
           <h1 className="text-xl text-left font-semibold mb-4">Category</h1>
           <div className="flex flex-wrap gap-4">
-            {tags.map((tag) => (
-              <div className="bg-[#FFFF] border rounded-md p-2 items-center">
+            {tags.map((tag, index) => (
+              <div key={index} className="bg-[#FFFF] border rounded-md p-2 items-center">
                 {tag}
               </div>
             ))}

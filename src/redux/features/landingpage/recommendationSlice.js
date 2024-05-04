@@ -240,7 +240,6 @@ const recommendationSlice = createSlice({
   initialState,
   reducers: {
     increase(state, action) {
-      console.log(state.recommend, action);
       incrementQuantity(state.recommend, action);
     },
     decrease(state, action) {

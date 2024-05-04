@@ -20,7 +20,6 @@ const Register = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted");
     const { errors: validationErrors, isValid } =
       validateRegisterForm(formData);
     setErrors(validationErrors);
@@ -28,12 +27,10 @@ const Register = () => {
       try {
         localStorage.setItem("formData", JSON.stringify(formData));
         showSuccessToast("Account Created SuccessFully");
-        
       } catch (error) {
         console.error("Error saving to localStorage:", error);
       }
     } else {
-      console.log("Saving to LocalStoage Failed", formData);
     }
   };
 

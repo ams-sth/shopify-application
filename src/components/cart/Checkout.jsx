@@ -27,7 +27,6 @@ const Checkout = () => {
       ValidateCheckoutForm(formData);
     setErrors(validationErrors);
     if (isValid) {
-      console.log("Form is valid, can submit:", formData);
       localStorage.setItem("formData", JSON.stringify(formData));
     }
   };

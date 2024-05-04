@@ -7,9 +7,7 @@ import CreditCard from "../../assets/icons/advertisement/credit-card.png";
 import Support from "../../assets/icons/advertisement/24-hours-support.png";
 
 import { useSelector } from "react-redux";
-import Navbar from "./Navbar";
 
-import logoWhite from "../../assets/images/logo/logo.svg";
 
 const Advertisement = () => {
   const { ads } = useSelector((state) => state.advertisement);
@@ -23,15 +21,6 @@ const Advertisement = () => {
   };
   return (
     <div className="bg-[#FFFF]">
-      <div className="absolute w-full">
-        <Navbar
-          bg="gray-900 md:transparent md:bg-opacity-0 "
-          border="none"
-          logo={logoWhite}
-          textColor="white"
-          shadow="shadow-none"
-        />
-      </div>
       <Slider {...settings}>
         {ads.map((about) => (
           <div

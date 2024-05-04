@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import login from "../../assets/images/authentication/authentication.jpg";
 import { validateLoginForm } from "../../utils/validationUtils";
 import { showErrorToast, showSuccessToast } from "../../utils/toast";
@@ -9,6 +9,8 @@ const Login = () => {
     email: localStorage.getItem("email") || "",
     password: localStorage.getItem("password") || "",
   });
+
+  const Navigate = useNavigate();
 
   const [errors, setErrors] = useState({});
 
@@ -29,6 +31,7 @@ const Login = () => {
           userData.password === formData.password
         ) {
           showSuccessToast("Login Successful");
+          Navigate("/");
         } else {
           showErrorToast("Invalid email or password");
         }

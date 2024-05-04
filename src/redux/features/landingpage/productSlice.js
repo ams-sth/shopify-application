@@ -100,7 +100,6 @@ const productSlice = createSlice({
   reducers: {
     increase(state, action) {
       const { productId } = action.payload;
-      console.log(action.payload);
 
       const foundProduct = state.products.find(
         (product) => product.id === productId

@@ -12,18 +12,12 @@ const Profile = () => {
     localStorage.clear();
     window.location.href = "/login";
   };
-
-  if (data) {
-    // Do something with the data
-    console.log("Data found:", data);
-  } else {
-    console.log("No data found for the specified key");
-  }
+  
   return (
     <div className="container px-4">
       <div className="flex flex-col gap-4 items-center">
         <h1 className="text-2xl font-semibold mb-4">Account</h1>
-        <div onClick={handleLogout} className="flex gap-2">
+        <div onClick={handleLogout} className="flex gap-2 cursor-pointer">
           <TbDoorExit className="text-[#0067FF] translate-y-1" />
           <h1 className="text-[#0067FF]">Log Out</h1>
         </div>

@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { CgProfile } from "react-icons/cg";
 import { FaSearch } from "react-icons/fa";
-import { FaCartShopping, FaPerson } from "react-icons/fa6";
+import { FaCartShopping } from "react-icons/fa6";
 import { GiCrossShield, GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 
 const Navbar = ({ logo, bg, shadow, textColor }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const isLoggedIn = !!localStorage.getItem("formData");
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -64,9 +66,16 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
             <NavLink to="/cart">
               <FaCartShopping className="cursor-pointer" />
             </NavLink>
-            <NavLink to="/login">
-              <FaPerson className="cursor-pointer" />
-            </NavLink>
+            {isLoggedIn ? (
+              <NavLink to="/profile">
+                <CgProfile className="cursor-pointer" />
+              </NavLink>
+            ) : (
+              <NavLink to="/login">
+                <CgProfile className="cursor-pointer" />
+              </NavLink>
+            )}
+
             <div className="md:hidden">
               <button
                 type="button"
@@ -86,7 +95,8 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
               <IoMdClose
                 onClick={() => {
                   handleClose();
-                }} className="absolute top-[10%] right-[10%]"
+                }}
+                className="absolute top-[10%] right-[10%]"
               />
               {navLinks.map((link, index) => (
                 <NavLink
