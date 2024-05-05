@@ -3,7 +3,7 @@ import register from "../../assets/images/authentication/authentication.jpg";
 import { NavLink } from "react-router-dom";
 import { validateRegisterForm } from "../../utils/validationUtils";
 import { showSuccessToast } from "../../utils/toast";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -105,10 +105,17 @@ const Register = () => {
                     className="border-b-2 p-3 rounded-t-xl w-full"
                     placeholder="Enter your Password here"
                   />
-                  <FaEye
-                    className="absolute right-3 cursor-pointer"
-                    onClick={() => setShowPassword(!showPassword)}
-                  />
+                  {showPassword ? (
+                    <FaEye
+                      className="absolute right-3 cursor-pointer"
+                      onClick={() => setShowPassword(!showPassword)}
+                    />
+                  ) : (
+                    <FaEyeSlash
+                      className="absolute right-3 cursor-pointer"
+                      onClick={() => setShowPassword(!showPassword)}
+                    />
+                  )}
                 </div>
                 {errors.password && (
                   <p className="text-red-500 text-sm text-start">

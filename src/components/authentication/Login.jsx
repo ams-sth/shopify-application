@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import login from "../../assets/images/authentication/authentication.jpg";
 import { validateLoginForm } from "../../utils/validationUtils";
 import { showErrorToast, showSuccessToast } from "../../utils/toast";
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +11,7 @@ const Login = () => {
     password: localStorage.getItem("password") || "",
   });
 
-  const[showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const Navigate = useNavigate();
 
@@ -49,7 +49,7 @@ const Login = () => {
         <div className="hidden md:flex md:flex-1">
           <img src={login} alt="Login" className="rounded-l-xl" />
         </div>
-        <div className="flex-1 bg-[#F7F8FC] items-center rounded-r-xl md:rounded-xl p-12">
+        <div className="flex-1 bg-[#F7F8FC] items-center rounded-r-xl p-12">
           <h1 className="text-6xl font-bold ">Welcome</h1>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-4">
@@ -80,10 +80,17 @@ const Login = () => {
                     className="border-b-2 p-3 rounded-t-xl w-full"
                     placeholder="Enter your Password here"
                   />
-                  <FaEye
-                    className="absolute right-3 cursor-pointer"
-                    onClick={() => setShowPassword(!showPassword)}
-                  />
+                  {showPassword ? (
+                    <FaEye
+                      className="absolute right-3 cursor-pointer"
+                      onClick={() => setShowPassword(!showPassword)}
+                    />
+                  ) : (
+                    <FaEyeSlash
+                      className="absolute right-3 cursor-pointer"
+                      onClick={() => setShowPassword(!showPassword)}
+                    />
+                  )}
                 </div>
                 {errors.password && (
                   <p className="text-red-500 text-sm text-start">
