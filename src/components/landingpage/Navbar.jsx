@@ -4,9 +4,16 @@ import { FaSearch } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { GiCrossShield, GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const Navbar = ({ logo, bg, shadow, textColor }) => {
+
+  const { cartItems } = useSelector((state) => state.cart);
+
+  const totalCartQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+
+
   const [showMenu, setShowMenu] = useState(false);
   const isLoggedIn = !!localStorage.getItem("formData");
 
@@ -34,11 +41,16 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
 
   return (
     <div
-      className={`sticky w-[100%] z-[30]`}
-      style={{ background: bg, color: textColor, boxShadow: shadow }}
+      className={`fixed w-[100%] z-[30]`}
+      style={{
+        background: bg,
+        color: textColor,
+        boxShadow: shadow,
+        backdropFilter: "blur(10px)",
+      }}
     >
       <div className="container px-4 top-0">
-        <div className="flex flex-row justify-between py-[2rem]">
+        <div className="flex flex-row justify-between h-[4rem] items-center">
           <div>
             <img src={logo} alt="Logo" />
           </div>
@@ -64,7 +76,14 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
           <div className="md:w-auto w-full flex flex-row justify-end items-center gap-3">
             <FaSearch className="cursor-pointer" />
             <NavLink to="/cart">
-              <FaCartShopping className="cursor-pointer" />
+              <div className="relative">
+                <FaCartShopping className="cursor-pointer" />
+                {totalCartQuantity > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full px-1 text-xs">
+                    {totalCartQuantity}
+                  </span>
+                )}
+              </div>
             </NavLink>
             {isLoggedIn ? (
               <NavLink to="/profile">

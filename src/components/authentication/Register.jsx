@@ -3,10 +3,11 @@ import register from "../../assets/images/authentication/authentication.jpg";
 import { NavLink } from "react-router-dom";
 import { validateRegisterForm } from "../../utils/validationUtils";
 import { showSuccessToast } from "../../utils/toast";
+import { FaEye } from "react-icons/fa";
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
-
   const [formData, setformData] = useState({
     firstName: "",
     lastName: "",
@@ -44,7 +45,7 @@ const Register = () => {
             className="rounded-l-xl h-full object-cover"
           />
         </div>
-        <div className="flex-1 bg-[#F7F8FC] items-center content-center rounded-r-xl md:rounded-r-xl p-12">
+        <div className="flex-1 bg-[#F7F8FC] items-center content-center rounded-r-xl p-12">
           <h1 className="text-4xl font-bold ">Register Here</h1>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-4">
@@ -93,15 +94,22 @@ const Register = () => {
                   </p>
                 )}
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 relative">
                 <h1 className="font-bold text-xl text-start">Password</h1>
-                <input
-                  name="password"
-                  value={formData.password}
-                  onChange={handleInputChange}
-                  className="border-b-2 p-3 rounded-t-xl "
-                  placeholder="Enter your Password here"
-                />
+                <div className="flex items-center">
+                  <input
+                    name="password"
+                    value={formData.password}
+                    type={showPassword ? "text" : "password"}
+                    onChange={handleInputChange}
+                    className="border-b-2 p-3 rounded-t-xl w-full"
+                    placeholder="Enter your Password here"
+                  />
+                  <FaEye
+                    className="absolute right-3 cursor-pointer"
+                    onClick={() => setShowPassword(!showPassword)}
+                  />
+                </div>
                 {errors.password && (
                   <p className="text-red-500 text-sm text-start">
                     {errors.password}

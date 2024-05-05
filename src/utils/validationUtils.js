@@ -23,7 +23,26 @@ export const validateRegisterForm = (FormData) => {
   if (!FormData.password) {
     errors.password = "Enter your password";
     isValid = false;
+  } else {
+    // Password length validation
+    if (FormData.password.length < 8) {
+      errors.password = "Password must be at least 8 characters long";
+      isValid = false;
+    }
+
+    // Capital letter validation
+    if (!/[A-Z]/.test(FormData.password)) {
+      errors.password = "Password must contain at least one capital letter";
+      isValid = false;
+    }
+
+    // Special character validation
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(FormData.password)) {
+      errors.password = "Password must contain at least one special character";
+      isValid = false;
+    }
   }
+
   return { errors, isValid };
 };
 

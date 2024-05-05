@@ -15,18 +15,15 @@ import Navbar from "./components/landingpage/Navbar";
 import logoWhite from "../src/assets/images/logo/logo.svg";
 
 const Home = () => {
-
   return (
     <div className="flex flex-col gap-40 bg-[#F7F8FC]">
-      <div className="absolute w-full">
-        <Navbar
-          bg="gray-900 md:transparent md:bg-opacity-0 "
-          border="none"
-          logo={logoWhite}
-          textColor="white"
-          shadow="shadow-none"
-        />
-      </div>
+      <Navbar
+        bg="#1F78F0"
+        border="none"
+        logo={logoWhite}
+        textColor="white"
+        shadow="shadow-none"
+      />
       <Advertisement />
       <Types />
       <Products />

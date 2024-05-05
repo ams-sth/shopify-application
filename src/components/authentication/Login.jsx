@@ -3,12 +3,15 @@ import { NavLink, useNavigate } from "react-router-dom";
 import login from "../../assets/images/authentication/authentication.jpg";
 import { validateLoginForm } from "../../utils/validationUtils";
 import { showErrorToast, showSuccessToast } from "../../utils/toast";
+import { FaEye } from "react-icons/fa";
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: localStorage.getItem("email") || "",
     password: localStorage.getItem("password") || "",
   });
+
+  const[showPassword, setShowPassword] = useState(false);
 
   const Navigate = useNavigate();
 
@@ -66,16 +69,22 @@ const Login = () => {
                   </p>
                 )}
               </div>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 relative">
                 <h1 className="font-bold text-xl text-start">Password</h1>
-                <input
-                  name="password"
-                  value={formData.password}
-                  type="password"
-                  onChange={handleInputChange}
-                  className="border-b-2 p-3 rounded-t-xl "
-                  placeholder="Enter your Password here"
-                />
+                <div className="flex items-center">
+                  <input
+                    name="password"
+                    value={formData.password}
+                    type={showPassword ? "text" : "password"}
+                    onChange={handleInputChange}
+                    className="border-b-2 p-3 rounded-t-xl w-full"
+                    placeholder="Enter your Password here"
+                  />
+                  <FaEye
+                    className="absolute right-3 cursor-pointer"
+                    onClick={() => setShowPassword(!showPassword)}
+                  />
+                </div>
                 {errors.password && (
                   <p className="text-red-500 text-sm text-start">
                     {errors.password}
