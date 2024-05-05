@@ -28,8 +28,6 @@ export const showInfoToastWithLink = (message) => {
       {message} <Link to="/cart">Go to Cart</Link>
     </>,
     {
-      position: "bottom-left",
-      autoClose: 5000,
       hideProgressBar: true,
       closeOnClick: true,
     }

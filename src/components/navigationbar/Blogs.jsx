@@ -18,8 +18,30 @@ const Blogs = () => {
   return (
     <div className="container px-4">
       <h1 className="text-4xl font-bold">News</h1>
-      <div className="flex flex-row justify-center gap-12">
-        <div className="w-[30%]">
+      <div className="flex flex-col-reverse lg:flex-row justify-center gap-12">
+        <div className="flex flex-col gap-4 lg:w-[70%] order-1">
+          {articles.map((blog, index) => (
+            <div key={index} className="lg:flex gap-4">
+              <img
+                src={blog.image}
+                alt="Articles"
+                className=" rounded-2xl w-96 h-72 object-cover"
+              />
+              <div className="flex flex-col gap-2 text-start pt-4">
+                <h1 className="font-bold text-lg">{blog.title}</h1>
+                <h1>Date: {blog.date}</h1>
+                <p>{blog.description}</p>
+                <button
+                  className="bg-blue-600 hover:bg-blue-800 rounded-2xl text-white p-2"
+                  onClick={() => handleReadMore(blog.id)}
+                >
+                  Read Article
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="lg:w-[30%]">
           <h1 className="text-xl text-left font-semibold">Featured Products</h1>
           <div className="mb-5">
             {recom.map((product) => (
@@ -32,7 +54,7 @@ const Blogs = () => {
                   />
                 </div>
                 <div>
-                  <h1 className="">{product.productName}</h1>
+                  <h1>{product.productName}</h1>
                   <h1 className="text-left">Price: ${product.price}</h1>
                   <ReactStars
                     count={5}
@@ -67,33 +89,14 @@ const Blogs = () => {
           <h1 className="text-xl text-left font-semibold mb-4">Category</h1>
           <div className="flex flex-wrap gap-4">
             {tags.map((tag, index) => (
-              <div key={index} className="bg-[#FFFF] border rounded-md p-2 items-center">
+              <div
+                key={index}
+                className="bg-[#FFFF] border rounded-md p-2 items-center"
+              >
                 {tag}
               </div>
             ))}
           </div>
-        </div>
-        <div className="flex flex-col gap-4 w-[70%]">
-          {articles.map((blog, index) => (
-            <div key={index} className="md:flex gap-4">
-              <img
-                src={blog.image}
-                alt="Articles"
-                className=" rounded-2xl w-96 h-72 object-cover"
-              />
-              <div className="flex flex-col gap-2 text-start pt-4">
-                <h1 className="font-bold text-lg">{blog.title}</h1>
-                <h1>Date: {blog.date}</h1>
-                <p>{blog.description}</p>
-                <button
-                  className="bg-blue-600 hover:bg-blue-800 rounded-2xl text-white p-2"
-                  onClick={() => handleReadMore(blog.id)}
-                >
-                  Read Article
-                </button>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </div>

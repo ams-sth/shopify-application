@@ -76,7 +76,7 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
               </NavLink>
             )}
 
-            <div className="md:hidden">
+            <div className="md:hidden items-center">
               <button
                 type="button"
                 className=" focus:outline-none"

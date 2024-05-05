@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { calculateItemPrice } from "../../utils/cartUtils";
 import { TbDoorExit } from "react-icons/tb";
+import { showSuccessToast } from "../../utils/toast";
 
 const Profile = () => {
   const data = JSON.parse(localStorage.getItem("formData"));
@@ -10,9 +11,10 @@ const Profile = () => {
 
   const handleLogout = () => {
     localStorage.clear();
+    showSuccessToast("Account SignOut Successfull");
     window.location.href = "/login";
   };
-  
+
   return (
     <div className="container px-4">
       <div className="flex flex-col gap-4 items-center">
@@ -25,7 +27,7 @@ const Profile = () => {
         <div className="w-[50%] flex flex-col gap-4">
           <h1 className="text-xl font-semibold text-start">Order History</h1>
           {cartItems.length === 0 ? (
-            <div className="bg-[#FFFFFF] border p-8">
+            <div className="bg-[#FFFFFF] border rounded-xl p-8">
               <p>You haven't placed any orders yet.</p>
             </div>
           ) : (
@@ -38,7 +40,7 @@ const Profile = () => {
                   >
                     <div className="p-4">
                       <img
-                        className="object-cover w-8 rounded-xl"
+                        className="object-cover w-8 rounded-xl border"
                         src={item.image}
                         alt={item.name}
                       />
@@ -59,15 +61,15 @@ const Profile = () => {
         <div className="w-[50%] flex flex-col gap-4">
           <h1 className="text-xl font-semibold text-start">Account details</h1>
           <div className="bg-[#FFFFFF] border rounded-xl p-4">
-            <div className="flex gap-2">
+            <div className="md:flex gap-2">
               <h1 className="text-lg font-semibold">First Name: </h1>
               <h2>{data.firstName}</h2>
             </div>
-            <div className="flex gap-2">
+            <div className="md:flex gap-2">
               <h1 className="text-lg font-semibold">Last Name:</h1>
               <h2>{data.lastName}</h2>
             </div>
-            <div className="flex gap-2">
+            <div className="md:flex gap-2">
               <h1 className="text-lg font-semibold">Email:</h1>
               <h2 className="text-lg">{data.email}</h2>
             </div>

@@ -51,11 +51,31 @@ const Cart = () => {
               </NavLink>
             </div>
           ) : (
-            <div className=" md:flex flex-col gap-4 py-4">
+            <div className="md:flex flex-col gap-2 py-4">
+              <div className="grid grid-cols-1 md:grid-cols-6 gap-4 items-center font-semibold text-gray-900">
+                <p className="hidden md:block px-2 text-sm lg:text-md">
+                  Product
+                </p>
+                <p className="hidden md:block px-2 text-sm lg:text-md">
+                  Product Name
+                </p>
+                <p className="hidden md:block px-2 text-sm lg:text-md">
+                  Actual Price
+                </p>
+                <p className="hidden md:block px-2 text-sm lg:text-md">
+                  Quantity
+                </p>
+                <p className="hidden md:block px-2 text-sm lg:text-md">
+                  Price Per Quantity
+                </p>
+                <p className="hidden md:block px-2 text-sm lg:text-md">
+                  Action
+                </p>
+              </div>
               {cartItems.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-[#FFFF] grid grid-cols-1 md:grid-cols-6 gap-4 items-center"
+                  className="bg-[#FFFF] grid grid-cols-1 md:grid-cols-6 gap-2 md:gap-4 items-center pb-2 md:pb-0"
                 >
                   <div className="p-4 mx-auto md:mx-0">
                     <img
@@ -65,58 +85,77 @@ const Cart = () => {
                     />
                   </div>
                   <div>
-                    <p className="font-semibold whitespace-nowrap text-lg text-gray-900">
-                      {item.name}
-                    </p>
-                    <div>
+                    <span className="md:hidden text-sm font-semibold">
+                      Product Name:{" "}
+                    </span>
+                    <span className="text-sm">{item.name}</span>
+                    <div className="md:text-start md:flex">
                       <span className="text-sm font-semibold text-gray-500">
-                        Size:
+                        Size:{" "}
                       </span>
                       <span className="text-sm text-gray-500">{item.size}</span>
                     </div>
                   </div>
-
-                  <p className="mb-7 text-xl font-bold text-gray-900">
-                    ${item.price}
-                  </p>
-                  <div className="mb-7">
+                  <div>
+                    <span className="md:hidden text-sm font-semibold">
+                      Price:{" "}
+                    </span>
+                    <span className=" lg:text-xl font-bold text-gray-900">
+                      ${item.price}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="md:hidden text-sm font-semibold">
+                      Quantity: {" "}
+                    </span>
                     <button
-                      className={`text-white  bg-blue-500 rounded-full p-2
-                      ${
-                        item.quantity <= 1
-                          ? "disabled bg-gray-500 text-gray-700"
-                          : ""
-                      }`}
+                      className={`text-white bg-blue-500 rounded-full p-0.5 lg:p-1
+                    ${
+                      item.quantity <= 1
+                        ? "disabled bg-gray-500 text-gray-700"
+                        : ""
+                    }
+                  `}
                       onClick={(e) => handleDecrease(item, e)}
                     >
                       <FaMinus />
                     </button>
-                    <span className="px-2 text-xl font-semibold text-gray-900">
+                    <span className="px-2 lg:text-xl font-semibold text-gray-900">
                       {item.quantity}
                     </span>
                     <button
-                      className="text-white hover:text-blue-700 bg-blue-500 rounded-full p-2"
+                      className="text-white hover:text-blue-700 bg-blue-500 rounded-full p-0.5 lg:p-1"
                       onClick={() => handleIncrease(item)}
                     >
                       <FaPlus />
                     </button>
                   </div>
-                  <h1 className="mb-7 font-semibold text-xl">
-                    $ {calculateItemPrice(item)}
-                  </h1>
-                  <button
-                    onClick={() => handleDelete(item.id)}
-                    className="mb-7 text-red-500 hover:text-red-700"
-                  >
-                    <MdDelete />
-                  </button>
+                  <div>
+                    <span className="md:hidden text-sm font-semibold">
+                      Price per Product:{" "}
+                    </span>
+                    <span className=" font-semibold lg:text-xl">
+                      ${calculateItemPrice(item)}
+                    </span>
+                  </div>
+                  <div>
+                    <span className="md:hidden text-sm font-semibold">
+                      Action:{" "}
+                    </span>
+                    <button
+                      onClick={() => handleDelete(item.id)}
+                      className=" text-red-500 hover:text-red-700"
+                    >
+                      <MdDelete />
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
           )}
         </div>
-        <div className="bg-[#FFFF] flex flex-col gap-2 p-4 md:w-[30%] h-full my-4 ">
-          <h1 className="font-semibold text-xl">Order Summary </h1>
+        <div className="bg-[#FFFF] flex flex-col gap-2  p-4 md:w-[30%] h-full">
+          <h1 className="font-semibold text-xl">Order Summary</h1>
           <div>
             <span className="text-sm font-semibold">Total Price: $</span>
             <span>
@@ -129,11 +168,8 @@ const Cart = () => {
           <NavLink
             to="/checkout"
             className={`bg-blue-600 right-0 text-white rounded-md w-full p-2 text-center font-semibold
-              ${
-                cartItems.length === 0
-                  ? "disabled bg-gray-500 text-gray-700"
-                  : ""
-              }`}
+          ${cartItems.length === 0 ? "disabled bg-gray-500 text-gray-700" : ""}
+        `}
             onClick={(e) => {
               if (cartItems.length === 0) {
                 e.preventDefault();

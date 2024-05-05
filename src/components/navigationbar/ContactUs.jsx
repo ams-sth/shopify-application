@@ -18,7 +18,7 @@ const ContactUs = () => {
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
-          <div className="flex flex-wrap mx-auto gap-4">
+          <div className="flex flex-wrap mx-auto gap-4 pt-4">
             <div className="flex flex-col">
               <IoLocationOutline size={48} className="mx-auto" />
               <h1 className="text-center text-xl font-semibold">Location:</h1>
