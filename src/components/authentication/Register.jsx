@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import register from "../../assets/images/authentication/authentication.jpg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { validateRegisterForm } from "../../utils/validationUtils";
 import { showSuccessToast } from "../../utils/toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
+  const Navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [formData, setformData] = useState({
@@ -28,6 +29,7 @@ const Register = () => {
       try {
         localStorage.setItem("formData", JSON.stringify(formData));
         showSuccessToast("Account Created SuccessFully");
+        Navigate("/login");
       } catch (error) {
         console.error("Error saving to localStorage:", error);
       }

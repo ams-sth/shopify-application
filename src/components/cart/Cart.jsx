@@ -66,7 +66,7 @@ const Cart = () => {
                   Quantity
                 </p>
                 <p className="hidden md:block px-2 text-sm lg:text-md">
-                  Price Per Quantity
+                  Unit Quantity
                 </p>
                 <p className="hidden md:block px-2 text-sm lg:text-md">
                   Action
@@ -132,7 +132,7 @@ const Cart = () => {
                   </div>
                   <div>
                     <span className="md:hidden text-sm font-semibold">
-                      Price per Product:{" "}
+                      Unit Product:{" "}
                     </span>
                     <span className=" font-semibold lg:text-xl">
                       ${calculateItemPrice(item)}

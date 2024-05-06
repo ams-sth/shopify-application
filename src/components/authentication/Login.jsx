@@ -6,16 +6,15 @@ import { showErrorToast, showSuccessToast } from "../../utils/toast";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
+  const Navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [errors, setErrors] = useState({});
+
   const [formData, setFormData] = useState({
     email: localStorage.getItem("email") || "",
     password: localStorage.getItem("password") || "",
   });
-
-  const [showPassword, setShowPassword] = useState(false);
-
-  const Navigate = useNavigate();
-
-  const [errors, setErrors] = useState({});
 
   const handleInputChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -34,7 +33,7 @@ const Login = () => {
           userData.password === formData.password
         ) {
           showSuccessToast("Login Successful");
-          Navigate("/");
+          Navigate("/profile");
         } else {
           showErrorToast("Invalid email or password");
         }
@@ -43,6 +42,7 @@ const Login = () => {
       }
     }
   };
+
   return (
     <div className="container px-4">
       <div className="flex flex-row">

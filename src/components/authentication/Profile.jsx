@@ -6,7 +6,6 @@ import { showSuccessToast } from "../../utils/toast";
 
 const Profile = () => {
   const data = JSON.parse(localStorage.getItem("formData"));
-
   const { cartItems } = useSelector((state) => state.cart);
 
   const handleLogout = () => {
@@ -16,62 +15,70 @@ const Profile = () => {
   };
 
   return (
-    <div className="container px-4">
-      <div className="flex flex-col gap-4 items-center">
-        <h1 className="text-2xl font-semibold mb-4">Account</h1>
-        <div onClick={handleLogout} className="flex gap-2 cursor-pointer">
-          <TbDoorExit className="text-[#0067FF] translate-y-1" />
-          <h1 className="text-[#0067FF]">Log Out</h1>
+    <div className="container mx-auto px-4 py-8">
+      <div className="max-w-3xl mx-auto">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold">Account</h1>
+          <button
+            onClick={handleLogout}
+            className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-md flex items-center"
+          >
+            <TbDoorExit className="mr-2" />
+            <span>Log Out</span>
+          </button>
         </div>
 
-        <div className="w-[50%] flex flex-col gap-4">
-          <h1 className="text-xl font-semibold text-start">Order History</h1>
-          {cartItems.length === 0 ? (
-            <div className="bg-[#FFFFFF] border rounded-xl p-8">
-              <p>You haven't placed any orders yet.</p>
-            </div>
-          ) : (
-            <div>
-              {cartItems.map((item) => (
-                <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Order History</h2>
+            {cartItems.length === 0 ? (
+              <div className="bg-gray-100 p-6 rounded-md">
+                <p>You haven't placed any orders yet.</p>
+              </div>
+            ) : (
+              <div className="bg-white rounded-md shadow-md divide-y divide-gray-200">
+                {cartItems.map((item) => (
                   <div
                     key={item.id}
-                    className="flex flex-row  gap-8 items-center"
+                    className="flex items-center p-4 hover:bg-gray-100 transition-colors duration-300"
                   >
-                    <div className="p-4">
+                    <div className="relative w-16 h-16">
                       <img
-                        className="object-cover w-8 rounded-xl border"
+                        className="w-full h-full object-cover rounded-md"
                         src={item.image}
                         alt={item.name}
                       />
+                      <span className="absolute -top-3 -right-1 bg-gray-800 text-white rounded-full px-2 py-1 text-xs">
+                        {item.quantity}
+                      </span>
                     </div>
-                    <h1 className="rounded-full px-2 text-white bg-gray-600 -ml-16 -mt-32">
-                      {item.quantity}
-                    </h1>
-                    <h1 className=" text-lg text-gray-900">{item.name}</h1>
-                    <span className=" text-xl">
-                      $ {calculateItemPrice(item)}
-                    </span>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-semibold">{item.name}</h3>
+                      <p className="text-gray-600">
+                        ${calculateItemPrice(item)}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-        <div className="w-[50%] flex flex-col gap-4">
-          <h1 className="text-xl font-semibold text-start">Account details</h1>
-          <div className="bg-[#FFFFFF] border rounded-xl p-4">
-            <div className="md:flex gap-2">
-              <h1 className="text-lg font-semibold">First Name: </h1>
-              <h2>{data.firstName}</h2>
-            </div>
-            <div className="md:flex gap-2">
-              <h1 className="text-lg font-semibold">Last Name:</h1>
-              <h2>{data.lastName}</h2>
-            </div>
-            <div className="md:flex gap-2">
-              <h1 className="text-lg font-semibold">Email:</h1>
-              <h2 className="text-lg">{data.email}</h2>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div>
+            <h2 className="text-2xl font-bold mb-4">Account Details</h2>
+            <div className="bg-white rounded-md shadow-md p-6">
+              <div className="flex mb-4">
+                <span className="font-semibold w-32">First Name:</span>
+                <span>{data.firstName}</span>
+              </div>
+              <div className="flex mb-4">
+                <span className="font-semibold w-32">Last Name:</span>
+                <span>{data.lastName}</span>
+              </div>
+              <div className="flex">
+                <span className="font-semibold w-32">Email:</span>
+                <span>{data.email}</span>
+              </div>
             </div>
           </div>
         </div>
