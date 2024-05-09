@@ -141,7 +141,7 @@ const Products = () => {
                 <div className="flex justify-center py-4">
                   <button
                     onClick={() => handleAddToCart(product, dispatch)}
-                    className={`bg-blue-600 hover:bg-blue-950 py-2 w-[90%] rounded-xl font-bold text-white `}
+                    className={`bg-blue-600 hover:bg-blue-950 py-2 w-[90%] rounded-xl font-bold text-white`}
                   >
                     Add to Cart
                   </button>

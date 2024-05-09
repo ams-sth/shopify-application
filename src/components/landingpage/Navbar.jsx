@@ -6,6 +6,7 @@ import { GiCrossShield, GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
+import { MdDashboard } from "react-icons/md";
 
 const Navbar = ({ logo, bg, shadow, textColor }) => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -95,16 +96,16 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
                 <CgProfile className="cursor-pointer" />
               </NavLink>
             )}
-
-            <div className="md:hidden items-center">
-              <button
-                type="button"
-                className=" focus:outline-none"
-                onClick={toggleMenu}
-              >
-                {showMenu ? <GiCrossShield /> : <GiHamburgerMenu />}
-              </button>
-            </div>
+            <NavLink>
+              <MdDashboard />
+            </NavLink>
+            <button
+              className="md:hidden focus:outline-none"
+              type="button"
+              onClick={toggleMenu}
+            >
+              {showMenu ? <GiCrossShield /> : <GiHamburgerMenu />}
+            </button>
           </div>
           <div
             className={`md:hidden absolute top-0 left-0 w-full bg-[#1F78F0] z-30 transition-all duration-300 ease-in-out ${
