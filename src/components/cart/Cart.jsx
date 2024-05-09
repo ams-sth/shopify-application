@@ -39,9 +39,12 @@ const Cart = () => {
       <div className="lg:flex flex-row gap-4">
         <div className="lg:w-[70%]">
           {cartItems.length === 0 ? (
-            <p className="text-lg font-semibold text-gray-600 mb-4">
-              Your cart is empty
-            </p>
+            <div className="mb-4">
+              <p className="text-lg font-semibold text-gray-600 mb-4">
+                Your cart is empty
+              </p>
+              <p>Looks like you haven't added any products to your cart yet.</p>
+            </div>
           ) : (
             <div className="md:flex flex-col gap-2">
               <div className="grid grid-cols-1 md:grid-cols-6 gap-4 items-center font-semibold text-gray-900">
@@ -130,12 +133,14 @@ const Cart = () => {
               ))}
             </div>
           )}
-          <NavLink
-            to="/"
-            className="hidden md:block bg-blue-700 hover:bg-blue-800 text-white rounded-xl p-3"
-          >
-            Go to Shopping
-          </NavLink>
+          <div className="hidden md:flex justify-center mb-4 lg:mb-0">
+            <NavLink
+              to="/"
+              className="flex justify-center p-2 items-center bg-blue-700 hover:bg-blue-800 text-white rounded-xl"
+            >
+              Go to Shopping
+            </NavLink>
+          </div>
         </div>
         <div className="border rounded-xl flex flex-col gap-2 p-4 lg:w-[30%] lg:h-fit justify-center">
           <h1 className="font-semibold text-xl">Order Summary</h1>
