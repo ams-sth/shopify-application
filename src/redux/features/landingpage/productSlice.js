@@ -99,7 +99,7 @@ const productSlice = createSlice({
   initialState,
   reducers: {
     increase(state, action) {
-      const { productId } = action.payload;
+      const productId = action.payload;
 
       const foundProduct = state.products.find(
         (product) => product.id === productId
@@ -111,7 +111,7 @@ const productSlice = createSlice({
       }
     },
     decrease(state, action) {
-      const { productId } = action.payload;
+      const  productId  = action.payload;
       const foundProduct = state.products.find(
         (product) => product.id === productId
       );
@@ -123,6 +123,7 @@ const productSlice = createSlice({
     },
     changeImage(state, action) {
       const { productId, newIndex } = action.payload;
+
       const productToChange = state.products.find((p) => p.id === productId);
       if (
         productToChange &&
@@ -134,7 +135,9 @@ const productSlice = createSlice({
     },
     setProductRating(state, action) {
       const { productId, rating } = action.payload;
-      const product = state.products.find((product) => product.id === productId);
+      const product = state.products.find(
+        (product) => product.id === productId
+      );
       if (product) {
         product.rating = rating;
       }
@@ -153,6 +156,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { increase, decrease, changeImage,setProductRating, changeSize } =
+export const { increase, decrease, changeImage, setProductRating, changeSize } =
   productSlice.actions;
 export default productSlice.reducer;

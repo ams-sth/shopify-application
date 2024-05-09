@@ -8,11 +8,12 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
 const Navbar = ({ logo, bg, shadow, textColor }) => {
-
   const { cartItems } = useSelector((state) => state.cart);
 
-  const totalCartQuantity = cartItems.reduce((acc, item) => acc + item.quantity, 0);
-
+  const totalCartQuantity = cartItems.reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  );
 
   const [showMenu, setShowMenu] = useState(false);
   const isLoggedIn = !!localStorage.getItem("formData");
@@ -106,17 +107,18 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
             </div>
           </div>
           <div
-            className={`md:hidden fixed top-0 left-0 h-full w-full bg-[#1F78F0] z-30 transition-all duration-300 ease-in-out ${
+            className={`md:hidden absolute top-0 left-0 w-full bg-[#1F78F0] z-30 transition-all duration-300 ease-in-out ${
               showMenu ? "block" : "hidden"
             }`}
           >
-            <div className="flex flex-col items-center mt-20">
-              <IoMdClose
-                onClick={() => {
-                  handleClose();
-                }}
-                className="absolute top-[10%] right-[10%]"
-              />
+            <div className="flex flex-col items-center">
+              <div className="absolute right-2 top-2">
+                <IoMdClose
+                  onClick={() => {
+                    handleClose();
+                  }}
+                />
+              </div>
               {navLinks.map((link, index) => (
                 <NavLink
                   key={index}

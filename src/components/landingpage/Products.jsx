@@ -17,11 +17,11 @@ const Products = () => {
   const dispatch = useDispatch();
 
   const handleIncrease = (product) => {
-    dispatch(increase({ productId: product.id }));
+    dispatch(increase(product.id));
   };
   const handleDecrease = (product, event) => {
     if (product.quantity > 1) {
-      dispatch(decrease({ productId: product.id }));
+      dispatch(decrease(product.id));
     } else {
       showInfoToast(`Quantity can't be less than 1`);
       event.preventDefault();
