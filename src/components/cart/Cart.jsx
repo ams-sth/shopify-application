@@ -34,24 +34,16 @@ const Cart = () => {
   };
 
   return (
-    <div className="bg-[#F4F4F4] container px-4">
-      <h1 className="text-4xl font-bold text-start py-4">Shopping Cart</h1>
-      <div className="md:flex flex-row gap-4">
-        <div className="md:w-[70%]">
+    <div className="container p-4">
+      <h1 className="text-2xl font-bold text-start py-4">Your Cart</h1>
+      <div className="lg:flex flex-row gap-4">
+        <div className="lg:w-[70%]">
           {cartItems.length === 0 ? (
-            <div className="p-8">
-              <p className="text-lg font-semibold text-gray-600 mb-4">
-                Your cart is empty
-              </p>
-              <NavLink
-                to="/"
-                className="bg-blue-700 hover:bg-blue-800 text-white rounded-xl p-3"
-              >
-                Go to Shopping
-              </NavLink>
-            </div>
+            <p className="text-lg font-semibold text-gray-600 mb-4">
+              Your cart is empty
+            </p>
           ) : (
-            <div className="md:flex flex-col gap-2 py-4">
+            <div className="md:flex flex-col gap-2">
               <div className="grid grid-cols-1 md:grid-cols-6 gap-4 items-center font-semibold text-gray-900">
                 <p className="hidden md:block px-2 text-sm lg:text-md">
                   Product
@@ -75,39 +67,28 @@ const Cart = () => {
               {cartItems.map((item) => (
                 <div
                   key={item.id}
-                  className="bg-[#FFFF] grid grid-cols-1 md:grid-cols-6 gap-2 md:gap-4 items-center pb-2 md:pb-0"
+                  className="grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-4 items-center pb-2 md:pb-0 border-t"
                 >
-                  <div className="p-4 mx-auto md:mx-0">
+                  <div className="p-4 mx-auto md:mx-0 order-1 md:order-none">
                     <img
                       className="object-cover w-32 rounded-xl"
                       src={item.image}
                       alt={item.name}
                     />
                   </div>
-                  <div>
-                    <span className="md:hidden text-sm font-semibold">
-                      Product Name:{" "}
-                    </span>
-                    <span className="text-sm">{item.name}</span>
-                    <div className="md:text-start md:flex">
-                      <span className="text-sm font-semibold text-gray-500">
-                        Size:{" "}
-                      </span>
-                      <span className="text-sm text-gray-500">{item.size}</span>
-                    </div>
+
+                  <div className=" order-2 md:order-none">
+                    <h1 className="text-sm">{item.name}</h1>
+                    <h1 className="text-sm text-gray-500">Size:{item.size}</h1>
                   </div>
-                  <div>
-                    <span className="md:hidden text-sm font-semibold">
-                      Price:{" "}
-                    </span>
+
+                  <div className="order-4 md:order-none">
                     <span className=" lg:text-xl font-bold text-gray-900">
                       ${item.price}
                     </span>
                   </div>
-                  <div>
-                    <span className="md:hidden text-sm font-semibold">
-                      Quantity: {" "}
-                    </span>
+
+                  <div className="order-5 md:order-none">
                     <button
                       className={`text-white bg-blue-500 rounded-full p-0.5 lg:p-1
                     ${
@@ -130,21 +111,17 @@ const Cart = () => {
                       <FaPlus />
                     </button>
                   </div>
-                  <div>
-                    <span className="md:hidden text-sm font-semibold">
-                      Unit Product:{" "}
-                    </span>
+
+                  <div className="order-6 md:order-none">
                     <span className=" font-semibold lg:text-xl">
                       ${calculateItemPrice(item)}
                     </span>
                   </div>
-                  <div>
-                    <span className="md:hidden text-sm font-semibold">
-                      Action:{" "}
-                    </span>
+
+                  <div className=" order-3 md:order-none">
                     <button
                       onClick={() => handleDelete(item.id)}
-                      className=" text-red-500 hover:text-red-700"
+                      className="bg-gray-300 rounded-full p-2 hover:bg-gray-500"
                     >
                       <MdDelete />
                     </button>
@@ -153,8 +130,14 @@ const Cart = () => {
               ))}
             </div>
           )}
+          <NavLink
+            to="/"
+            className="hidden md:block bg-blue-700 hover:bg-blue-800 text-white rounded-xl p-3"
+          >
+            Go to Shopping
+          </NavLink>
         </div>
-        <div className="bg-[#FFFF] flex flex-col gap-2  p-4 md:w-[30%] h-full">
+        <div className="border rounded-xl flex flex-col gap-2 p-4 lg:w-[30%] lg:h-fit justify-center">
           <h1 className="font-semibold text-xl">Order Summary</h1>
           <div>
             <span className="text-sm font-semibold">Total Price: $</span>
@@ -167,7 +150,7 @@ const Cart = () => {
           </div>
           <NavLink
             to="/checkout"
-            className={`bg-blue-600 right-0 text-white rounded-md w-full p-2 text-center font-semibold
+            className={`bg-blue-600 right-0 text-white w-full p-2 rounded-xl text-center font-semibold
           ${cartItems.length === 0 ? "disabled bg-gray-500 text-gray-700" : ""}
         `}
             onClick={(e) => {
@@ -178,6 +161,12 @@ const Cart = () => {
             }}
           >
             Checkout
+          </NavLink>
+          <NavLink
+            to="/"
+            className="block md:hidden bg-blue-600 hover:bg-blue-800 text-white rounded-xl p-2"
+          >
+            Go to Shopping
           </NavLink>
         </div>
       </div>
