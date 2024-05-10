@@ -36,7 +36,7 @@ const Cart = () => {
   return (
     <div className="container p-4">
       <h1 className="text-2xl font-bold text-start py-4">Your Cart</h1>
-      <div className="lg:flex flex-row gap-4">
+      <div className="flex flex-col lg:flex-row gap-8">
         <div className="lg:w-[70%]">
           {cartItems.length === 0 ? (
             <div className="mb-4">
@@ -47,7 +47,7 @@ const Cart = () => {
             </div>
           ) : (
             <div className="md:flex flex-col gap-2">
-              <div className="grid grid-cols-1 md:grid-cols-6 gap-4 items-center font-semibold text-gray-900">
+              {/* <div className="grid grid-cols-1 md:grid-cols-6 gap-4 items-center font-semibold text-gray-900">
                 <p className="hidden md:block px-2 text-sm lg:text-md">
                   Product
                 </p>
@@ -66,7 +66,7 @@ const Cart = () => {
                 <p className="hidden md:block px-2 text-sm lg:text-md">
                   Action
                 </p>
-              </div>
+              </div> */}
               {cartItems.map((item) => (
                 <div
                   key={item.id}
@@ -142,11 +142,16 @@ const Cart = () => {
             </NavLink>
           </div>
         </div>
+
         <div className="border rounded-xl flex flex-col gap-2 p-4 lg:w-[30%] lg:h-fit justify-center">
-          <h1 className="font-semibold text-xl">Order Summary</h1>
-          <div>
-            <span className="text-sm font-semibold">Total Price: $</span>
+          <h1 className="font-semibold text-xl text-start">Your Order</h1>
+          <p className="text-left">
+            Tax included and shipping calculated at checkout
+          </p>
+          <div className="flex justify-between text-2xl font-semibold">
+            <span className="">SUB TOTAL: </span>
             <span>
+              $
               {cartItems.reduce(
                 (total, item) => total + item.price * item.quantity,
                 0
