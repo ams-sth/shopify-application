@@ -10,14 +10,13 @@ import { MdDashboard } from "react-icons/md";
 
 const Navbar = ({ logo, bg, shadow, textColor }) => {
   const { cartItems } = useSelector((state) => state.cart);
+  const [showMenu, setShowMenu] = useState(false);
+  const isLoggedIn = !!localStorage.getItem("formData");
 
   const totalCartQuantity = cartItems.reduce(
     (acc, item) => acc + item.quantity,
     0
   );
-
-  const [showMenu, setShowMenu] = useState(false);
-  const isLoggedIn = !!localStorage.getItem("formData");
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -96,7 +95,7 @@ const Navbar = ({ logo, bg, shadow, textColor }) => {
                 <CgProfile className="cursor-pointer" />
               </NavLink>
             )}
-            <NavLink>
+            <NavLink to="/dashboard">
               <MdDashboard />
             </NavLink>
             <button
