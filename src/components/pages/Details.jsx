@@ -127,9 +127,9 @@ const Details = () => {
             </div>
             <div className="flex flex-row gap-1 items-center">
               <h1 className="text-start font-semibold">Quantity:</h1>
-              <div className="flex flex-row gap-1">
+              <div className="flex flex-row items-center">
                 <button
-                  className={`text-white bg-blue-500 rounded-full p-2
+                  className={`text-white bg-blue-500 rounded-full p-1
                       ${
                         product.quantity <= 1
                           ? "disabled bg-gray-500 text-gray-700"
@@ -139,11 +139,11 @@ const Details = () => {
                 >
                   <FaMinus />
                 </button>
-                <span className="px-2 text-xl font-semibold text-gray-900">
+                <span className="px-2 text-xl text-gray-900">
                   {product.quantity}
                 </span>
                 <button
-                  className="text-white hover:text-blue-700 bg-blue-500 rounded-full p-2"
+                  className="text-white hover:text-blue-700 bg-blue-500 rounded-full p-1"
                   onClick={handleQuantityIncrease}
                 >
                   <FaPlus />

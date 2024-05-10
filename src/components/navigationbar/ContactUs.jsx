@@ -45,22 +45,22 @@ const ContactUs = () => {
             </p>
             <h1>Name</h1>
             <input
-              className="w-full border-b border-gray-200"
+              className="w-full border-b border-gray-200 bg-[#F7F8FC]"
               placeholder="Enter your Name Here"
             />
             <h1>Email</h1>
             <input
-              className="w-full border-b border-gray-200"
+              className="w-full border-b border-gray-200 bg-[#F7F8FC]"
               placeholder="Enter your Email Here"
             />
             <h1>Phone number</h1>
             <input
-              className="w-full border-b border-gray-200"
+              className="w-full border-b border-gray-200 bg-[#F7F8FC]"
               placeholder="Phone number"
             />
             <h1>Comment</h1>
             <input
-              className="w-full border-b border-gray-200"
+              className="w-full border-b border-gray-200 bg-[#F7F8FC]"
               placeholder="Comment"
             />
             <button className="bg-blue-600 hover:bg-blue-900 rounded-2xl px-12 py-3 text-white font-semibold">

@@ -86,7 +86,7 @@ const Cart = () => {
                   </div>
 
                   <div className="order-4 md:order-none">
-                    <span className=" lg:text-xl font-bold text-gray-900">
+                    <span className=" lg:text-xl text-gray-900">
                       ${item.price}
                     </span>
                   </div>
@@ -104,7 +104,7 @@ const Cart = () => {
                     >
                       <FaMinus />
                     </button>
-                    <span className="px-2 lg:text-xl font-semibold text-gray-900">
+                    <span className="px-2 lg:text-xl text-gray-900">
                       {item.quantity}
                     </span>
                     <button
@@ -116,7 +116,7 @@ const Cart = () => {
                   </div>
 
                   <div className="order-6 md:order-none">
-                    <span className=" font-semibold lg:text-xl">
+                    <span className="lg:text-xl">
                       ${calculateItemPrice(item)}
                     </span>
                   </div>
@@ -124,7 +124,7 @@ const Cart = () => {
                   <div className=" order-3 md:order-none">
                     <button
                       onClick={() => handleDelete(item.id)}
-                      className="bg-gray-100 rounded-full p-2 hover:bg-gray-200"
+                      className="bg-gray-200 rounded-full p-2 hover:bg-gray-300"
                     >
                       <MdDelete />
                     </button>
@@ -143,7 +143,7 @@ const Cart = () => {
           </div>
         </div>
 
-        <div className="border rounded-xl flex flex-col gap-2 p-4 lg:w-[30%] lg:h-fit justify-center">
+        <div className="bg-[#FFFFFF] rounded-xl flex flex-col gap-2 p-4 lg:w-[30%] lg:h-fit justify-center">
           <h1 className="font-semibold text-xl text-start">Your Order</h1>
           <p className="text-left">
             Tax included and shipping calculated at checkout
