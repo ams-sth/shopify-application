@@ -18,6 +18,7 @@ import Details from "./components/pages/Details";
 import Articles from "./components/pages/Articles";
 import Checkout from "./components/cart/Checkout";
 import Profile from "./components/authentication/Profile";
+import Dashboard from "./dashboard/Dashboard";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -72,6 +73,14 @@ const App = () => {
           element={
             <UserLayout>
               <Register />
+            </UserLayout>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <UserLayout>
+              <Dashboard />
             </UserLayout>
           }
         />
