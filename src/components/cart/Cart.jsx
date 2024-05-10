@@ -124,7 +124,7 @@ const Cart = () => {
                   <div className=" order-3 md:order-none">
                     <button
                       onClick={() => handleDelete(item.id)}
-                      className="bg-gray-300 rounded-full p-2 hover:bg-gray-500"
+                      className="bg-gray-100 rounded-full p-2 hover:bg-gray-200"
                     >
                       <MdDelete />
                     </button>
