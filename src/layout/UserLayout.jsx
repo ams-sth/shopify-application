@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../components/landingpage/Navbar";
 import Footer from "../components/landingpage/Footer";
 import logoBlack from "./../assets/images/logo/logo black.svg";

@@ -1,4 +1,3 @@
-import React from "react";
 // import Slider from "react-slick";
 import { useDispatch, useSelector } from "react-redux";
 import { changeImageIndex } from "../../redux/features/landingpage/recommendationSlice";

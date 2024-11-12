@@ -1,5 +1,3 @@
-import React from "react";
-
 import Hanson from "../../assets/images/reviews/Isabel Hanson.jpg";
 import Sharpe from "../../assets/images/reviews/Ewan Sharpe.jpg";
 import Finch from "../../assets/images/reviews/Alisha Finch.jpg";

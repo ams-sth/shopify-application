@@ -1,4 +1,3 @@
-import React from "react";
 import { FaQuoteLeft } from "react-icons/fa";
 
 import About from "../../assets/images/about us/About.jpg";
@@ -80,9 +79,8 @@ const AboutUs = () => {
             height="643"
             src="https://www.youtube.com/embed/HiByPPj7SWg"
             title="Lumia theme -  Manually Update"
-            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
+            referrerPolicy="strict-origin-when-cross-origin"
             allowfullscreen
             style={{ borderRadius: "20px" }}
           ></iframe>

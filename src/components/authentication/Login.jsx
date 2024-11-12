@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import login from "../../assets/images/authentication/authentication.jpg";
 import { validateLoginForm } from "../../utils/validationUtils";

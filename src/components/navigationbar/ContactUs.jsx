@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
-import React from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { TfiEmail } from "react-icons/tfi";
 import { CiPhone } from "react-icons/ci";
@@ -16,7 +14,7 @@ const ContactUs = () => {
             allowfullscreen=""
             style={{ borderRadius: "20px" }}
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
+            referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
           <div className="flex flex-wrap justify-center gap-4 pt-4">
             <div className="flex flex-col">

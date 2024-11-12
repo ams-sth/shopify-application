@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { calculateItemPrice } from "../../utils/cartUtils";
 import { TbDoorExit } from "react-icons/tb";

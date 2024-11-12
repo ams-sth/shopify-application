@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import register from "../../assets/images/authentication/authentication.jpg";
 import { NavLink, useNavigate } from "react-router-dom";
 import { validateRegisterForm } from "../../utils/validationUtils";

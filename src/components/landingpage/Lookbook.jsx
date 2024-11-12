@@ -1,4 +1,3 @@
-import React from "react";
 import LookBook01 from "../../assets/images/lookbook/LookBook 01.jpg";
 import LookBook02 from "../../assets/images/lookbook/LookBook 02.jpg";
 import LookBook03 from "../../assets/images/lookbook/LookBook 03.jpg";

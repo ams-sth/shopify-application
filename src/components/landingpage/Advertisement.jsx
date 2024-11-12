@@ -1,6 +1,4 @@
-import React from "react";
 import Slider from "react-slick";
-
 import FreeDelivery from "../../assets/icons/advertisement/free-delivery.png";
 import ProductReturn from "../../assets/icons/advertisement/product-return.png";
 import CreditCard from "../../assets/icons/advertisement/credit-card.png";
